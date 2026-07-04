@@ -7,11 +7,11 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Nunito & Noto Sans TC & Playfair Display -->
+    <!-- Google Fonts: Nunito (Perfectly Rounded, Premium) & Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900;950&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Corporate Icons -->
+    <!-- FontAwesome for Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -48,12 +48,12 @@
             transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        /* Sun Glow Aura */
+        /* Sun Radiance Glow Effect */
         .bg-sun-glow {
             background: radial-gradient(circle at top right, rgba(210, 163, 80, 0.12) 0%, rgba(95, 111, 82, 0.04) 50%, rgba(253, 257, 247, 0) 100%);
         }
 
-        /* 3D Flipping Cards */
+        /* 3D Card Flipping Core CSS */
         .perspective-1000 {
             perspective: 1000px;
         }
@@ -68,7 +68,7 @@
             transform: rotateY(180deg);
         }
 
-        /* Dynamic Border Pulse */
+        /* Organic Animated Border for Future Partner Placeholder */
         @keyframes border-pulse {
             0% { border-color: rgba(210, 163, 80, 0.4); box-shadow: 0 0 10px rgba(210, 163, 80, 0.1); }
             50% { border-color: rgba(95, 111, 82, 0.6); box-shadow: 0 0 20px rgba(95, 111, 82, 0.2); }
@@ -80,6 +80,7 @@
             border-radius: 30px;
         }
 
+        /* Timeline pulsing nodes */
         .timeline-pulse {
             box-shadow: 0 0 0 0 rgba(210, 163, 80, 0.7);
             animation: pulse-ring 2.5s infinite;
@@ -90,7 +91,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(210, 163, 80, 0); }
         }
 
-        /* Floating Animation */
+        /* Float illustration animation */
         @keyframes gentle-float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -98,6 +99,18 @@
         }
         .float-graphic {
             animation: gentle-float 6s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar for Chat Window */
+        .chat-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(95, 111, 82, 0.2);
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -107,10 +120,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20 sm:h-24">
             
-            <!-- Dynamic Logo Slot & Brand Info -->
+            <!-- Company Logo & Brand Name Container -->
             <a href="#" onclick="switchPage('home'); return false;" class="flex items-center gap-3 group">
                 <div class="relative w-12 h-12 flex items-center justify-center bg-brand-100/60 rounded-full border border-brand-800/10 group-hover:scale-105 transition-transform duration-300 company-logo-slot overflow-hidden">
-                    <!-- Loaded dynamically via JavaScript -->
+                    <!-- Loaded dynamically via JS -->
                 </div>
                 <div class="flex flex-col">
                     <span class="font-serif text-xl sm:text-2xl font-black tracking-wide text-brand-700 leading-none" id="nav-brand-title">Smart Bud</span>
@@ -128,7 +141,7 @@
                 <a href="#" onclick="switchPage('b2b'); return false;" class="nav-link text-sm font-bold hover:text-brand-800 transition-colors py-2 border-b-2 border-transparent" id="btn-nav-b2b">品牌總代 B2B</a>
             </nav>
 
-            <!-- Language Switcher & Contact Button -->
+            <!-- Language & CTA Actions -->
             <div class="hidden lg:flex items-center gap-4">
                 <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-200 bg-white shadow-sm hover:border-brand-800 hover:text-brand-800 transition-all duration-300 text-xs font-black">
                     <i class="fa-solid fa-globe text-brand-500 animate-[spin_10s_linear_infinite]"></i>
@@ -152,7 +165,7 @@
         </div>
     </div>
 
-    <!-- Mobile Drawer Menu: Reordered similarly -->
+    <!-- Mobile Drawer Menu -->
     <div id="mobile-menu" class="hidden lg:hidden bg-brand-100 border-t border-brand-200/50 shadow-inner px-4 pt-4 pb-6 space-y-3">
         <a href="#" onclick="switchPage('home'); toggleMobileMenu(); return false;" class="block px-4 py-3 rounded-xl bg-white/60 font-bold hover:bg-brand-200/50" id="btn-mob-home">首頁</a>
         <a href="#" onclick="switchPage('brands'); toggleMobileMenu(); return false;" class="block px-4 py-3 rounded-xl bg-white/60 font-bold hover:bg-brand-200/50" id="btn-mob-brands">代理品牌</a>
@@ -171,7 +184,7 @@
     <!-- ================= PAGE 1: HOME PAGE ================= -->
     <div id="page-home" class="page-transition opacity-100 block">
         
-        <!-- Premium Hero Segment with cleaner, highly eye-catching typography -->
+        <!-- Premium Hero Segment with Clean and Stunning Headline -->
         <section class="relative bg-sun-glow overflow-hidden py-16 sm:py-24 lg:py-28 border-b border-brand-200/30">
             <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
                 <div class="absolute top-10 left-[8%] w-80 h-80 bg-brand-900/20 rounded-full filter blur-3xl"></div>
@@ -181,13 +194,13 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                     
-                    <!-- Text Segment: Optimized for stunning neat layout -->
+                    <!-- Text Segment: Optimized Headline layout -->
                     <div class="lg:col-span-7 text-center lg:text-left">
                         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-900/30 text-brand-700 text-xs font-extrabold tracking-wider mb-6">
                             <i class="fa-solid fa-sparkles text-brand-800"></i> Smart Bud HK | Curating Premium Milestones
                         </span>
                         
-                        <!-- Premium Neat Headline -->
+                        <!-- Beautiful, Eye-Catching Clean Headline -->
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-brand-700 leading-tight mb-6" id="hero-headline">
                             用溫柔與科學，伴孩子優雅萌芽。
                         </h1>
@@ -625,7 +638,7 @@
                             <div class="bg-brand-50 p-6 rounded-3xl border border-brand-100 w-full max-w-sm text-center">
                                 <div class="brand-logo-slot-goki h-10 flex items-center justify-center mb-3"></div>
                                 <h4 class="font-black text-brand-700 text-sm">觸覺神經傳導好物｜Goki 經典木玩</h4>
-                                <p class="text-xs text-gray-500 mt-2 font-medium">3 個月起手掌張開嘗試抓握時，Goki 的天然原生木環為寶寶提供乾淨安全、來自大自然高感官反饋的溫潤觸摸體驗。</p>
+                                <p class="text-xs text-gray-500 mt-2 font-medium">3 個月起手掌張開嘗試抓握時，Goki 的天然原生木環為寶寶 provide 乾淨安全、來自大自然高感官反饋的溫潤觸摸體驗。</p>
                             </div>
                         </div>
                     </div>
@@ -1005,6 +1018,58 @@
                 </div>
             </div>
 
+            <!-- AI Market Strategy Simulator Feature Panel (New B2B Integration) -->
+            <div class="bg-white rounded-[40px] border border-brand-200/40 p-8 sm:p-12 shadow-xl mb-16 relative">
+                <span class="absolute top-4 right-4 bg-gradient-to-r from-yellow-500 to-amber-600 text-white text-[10px] px-3 py-1 rounded-full font-black tracking-wide uppercase shadow">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Gemini API Powered
+                </span>
+                <div class="max-w-3xl mb-8">
+                    <h3 class="font-serif text-2xl font-black text-brand-700 mb-2">AI 香港市場進入戰略模擬器 (Market Simulator)</h3>
+                    <p class="text-xs text-gray-500 font-medium">
+                        全球合作品牌代表：請輸入您的基礎品牌資訊，我們搭載的 Gemini 智慧大模型將結合 Smart Bud 的核心生態圈實力，立即為您運算出專屬的「12 個月本地化管道進入規劃」。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Inputs Form -->
+                    <div class="lg:col-span-5 bg-brand-50/60 p-6 rounded-3xl border border-brand-200/50 space-y-4">
+                        <div>
+                            <label class="block text-[11px] font-black text-brand-700 uppercase tracking-widest mb-1.5">品牌名稱 Brand Name</label>
+                            <input type="text" id="ai-brand-name" class="w-full px-3 py-2.5 rounded-xl border border-brand-200 bg-white text-xs font-semibold" placeholder="例如: PlanToys">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-black text-brand-700 uppercase tracking-widest mb-1.5">主要產品大類 Core Category</label>
+                            <select id="ai-brand-category" class="w-full px-3 py-2.5 rounded-xl border border-brand-200 bg-white text-xs font-bold text-brand-700">
+                                <option value="木製益智玩具 (Educational Wooden Toys)">木製益智玩具 (Wooden Toys)</option>
+                                <option value="嬰兒自主進食輔助 (Baby Self-Feeding)">嬰兒自主進食 (Self-Feeding)</option>
+                                <option value="感官與探索玩具 (Sensory Explorations)">感官與探索玩具 (Sensory Play)</option>
+                                <option value="綠色永續育兒生活 (Sustainable Baby Essentials)">環境永續育兒用品 (Green Baby)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-black text-brand-700 uppercase tracking-widest mb-1.5">品牌核心哲學 Core Philosophy</label>
+                            <textarea id="ai-brand-philosophy" rows="3" class="w-full px-3 py-2.5 rounded-xl border border-brand-200 bg-white text-xs font-semibold" placeholder="例如：堅持採用 100% 零塑料、安全無毒的天然有機木材，引導兒童展開與地球永續共生的自主開放式玩樂。"></textarea>
+                        </div>
+                        <button onclick="runB2BSimulator()" class="w-full py-3 rounded-xl bg-brand-700 text-white text-xs font-black hover:bg-brand-500 shadow-md transition-all flex items-center justify-center gap-2">
+                            <span id="ai-b2b-btn-text">立即計算進入策略</span>
+                            <i class="fa-solid fa-brain-circuit"></i>
+                        </button>
+                    </div>
+
+                    <!-- AI Strategy Outputs Box -->
+                    <div class="lg:col-span-7 h-full">
+                        <div class="border border-brand-200/60 rounded-3xl p-6 bg-brand-50/20 h-[380px] overflow-y-auto chat-scrollbar flex flex-col justify-between" id="ai-b2b-output-box">
+                            <div class="space-y-4 font-medium" id="ai-b2b-output-text">
+                                <div class="text-center py-20 text-gray-400">
+                                    <i class="fa-solid fa-compass-drafting text-4xl mb-4 text-brand-800/40"></i>
+                                    <p class="text-xs">請於左側填寫資訊後點擊按鈕，<br>Gemini 將即時編譯 12個月香港核心落地策略。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Commercial entry strategy -->
             <div class="mb-24">
                 <div class="text-center max-w-2xl mx-auto mb-12">
@@ -1037,10 +1102,10 @@
                         <div class="flex flex-col md:flex-row items-start gap-6">
                             <div class="w-12 h-12 rounded-full bg-brand-800 text-white flex items-center justify-center font-black text-lg shrink-0 shadow-lg animate-pulse">1</div>
                             <div>
-                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s1-title">第 1-3 個月：本地化定位與全渠道價格管控 (Price Control)</h4>
+                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s1-title font-black">第 1-3 個月：本地化定位與全渠道價格管控 (Price Control)</h4>
                                 <span class="text-[10px] font-black text-brand-800 uppercase tracking-widest" id="timeline-s1-eng">Price Control & Localization</span>
                                 <p class="text-sm text-gray-600 mt-4 leading-relaxed font-medium" id="timeline-s1-desc">
-                                    精準對接香港高淨值母嬰市場與教育剛需（如將產品的核心發展價值連結至在地家庭關注的能力養成定位），制定嚴格的價格維護機制，杜絕破壞性的惡性價格競爭，誓死捍衛 brand 跨國的高端與專業形象。
+                                    精準對接香港高淨值母嬰市場與教育剛需（如將產品的核心發展價值連結至在地家庭關注的能力養成定位），制定嚴格的價格維護機制，杜絕破壞性的惡性價格競爭，誓死捍衛品牌跨國的高端與專業形象。
                                 </p>
                             </div>
                         </div>
@@ -1050,10 +1115,10 @@
                         <div class="flex flex-col md:flex-row items-start gap-6">
                             <div class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-black text-lg shrink-0 shadow-lg">2</div>
                             <div>
-                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s2-title">第 4-6 個月：跨店社群網絡引爆與高轉化 KOL 營銷</h4>
+                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s2-title font-black">第 4-6 個月：跨店社群網絡引爆與高轉化 KOL 營銷</h4>
                                 <span class="text-[10px] font-black text-brand-800 uppercase tracking-widest" id="timeline-s2-eng">Community Amplification & KOLS</span>
                                 <p class="text-sm text-gray-600 mt-4 leading-relaxed font-medium" id="timeline-s2-desc">
-                                    除了自營社群，我們更與香港多家優質媽媽精品零售網絡（Mom-and-Pop Boutique Networks）達成戰略結盟。透過這套覆蓋龐大實體用家（Active Physical End-users）的網絡，結合活躍 of Instagram 內容與精準的 WhatsApp 媽咪群組，快速為品牌引爆在地的深度聲量與信任。
+                                    除了自營社群，我們更與香港多家優質媽媽小店社群及零售網絡（Mom-and-Pop Shop Networks）達成戰略結盟。透過這套覆蓋龐大實體用家（Active Physical End-users）的網絡，結合活躍的 Instagram 內容與精準的 WhatsApp 媽咪團購群組，快速為品牌引爆在地的深度聲量與信任。
                                 </p>
                             </div>
                         </div>
@@ -1063,10 +1128,10 @@
                         <div class="flex flex-col md:flex-row items-start gap-6">
                             <div class="w-12 h-12 rounded-full bg-brand-700 text-white flex items-center justify-center font-black text-lg shrink-0 shadow-lg">3</div>
                             <div>
-                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s3-title">第 7-12 個月：線下精品陳列與極致視覺衝擊 (On-shelf Visual Impact)</h4>
+                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s3-title font-black">第 7-12 個月：線下精品陳列與極致視覺衝擊 (On-shelf Visual Impact)</h4>
                                 <span class="text-[10px] font-black text-brand-800 uppercase tracking-widest" id="timeline-s3-eng">On-shelf Visual Impact</span>
                                 <p class="text-sm text-gray-600 mt-4 leading-relaxed font-medium" id="timeline-s3-desc">
-                                    將線上與分銷網絡累積的龐大實體用家數據轉化為實體效益。我們正積極推進與香港核心商圈的精品百貨及高端嬰兒用品連鎖店的深度合作，承諾為您的產品打造最具視覺衝擊力、完整傳遞品牌理念的體驗式陳列舞台。
+                                    將線上與跨店社群累積的龐大實體用家數據轉化為實體效益。我們正積極推進與香港核心商圈的精品百貨及高端嬰兒用品連鎖店的深度合作，承諾為您的產品打造最具視覺衝擊力、完整傳遞品牌理念的體驗式陳列舞台。
                                 </p>
                             </div>
                         </div>
@@ -1088,7 +1153,7 @@
                         <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-xl mb-6">
                             <i class="fa-solid fa-users-viewfinder"></i>
                         </div>
-                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p1-title">強大的跨店社群網絡與實體用家基礎</h4>
+                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p1-title font-black font-black">強大的跨店社群網絡與實體用家基礎</h4>
                         <p class="text-xs text-gray-600 leading-relaxed font-medium" id="why-p1-desc">
                             我們的生態圈精準聚集了香港 22-40 歲、極度重視孩子黃金發育期、追求永續與品質的高消費力實體用家。我們最擅長將高品質的永續與教育價值，轉化為她們心中的「育兒必備選品」。
                         </p>
@@ -1098,7 +1163,7 @@
                         <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-xl mb-6">
                             <i class="fa-solid fa-rectangle-ad"></i>
                         </div>
-                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p2-title">全渠道品牌營銷（Brand Marketing）實力</h4>
+                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p2-title font-black font-black">全渠道品牌營銷（Brand Marketing）實力</h4>
                         <p class="text-xs text-gray-600 leading-relaxed font-medium" id="why-p2-desc">
                             我們不只做銷售，更擅長為品牌進行整體的在地化包裝與推廣。我們懂得將品牌的工藝價值、環保承諾與在地化的育兒里程碑相結合，創造無可替代的購買剛需。
                         </p>
@@ -1108,7 +1173,7 @@
                         <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-xl mb-6">
                             <i class="fa-solid fa-building-shield"></i>
                         </div>
-                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p3-title">嚴格的控價與資產保護機制</h4>
+                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p3-title font-black font-black">嚴格的控價與資產保護機制</h4>
                         <p class="text-xs text-gray-600 leading-relaxed font-medium" id="why-p3-desc">
                             作為英國 Doddl 的香港獨家總代理，我們已建立完整的供應鏈、行銷和價格防護機制，具備跨國精品品牌落地所需的全面操盤基礎，誓與品牌方並肩守護每一步價值。
                         </p>
@@ -1152,7 +1217,7 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-brand-200/50">
-                        <div class="flex items-center gap-2 text-brand-700 font-bold text-sm">
+                        <div class="flex items-center gap-2 text-brand-750 font-bold text-sm">
                             <i class="fa-solid fa-envelope text-brand-800"></i>
                             <span>bd@smartbud.com.hk</span>
                         </div>
@@ -1188,7 +1253,7 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-brand-700 mt-2 mb-4">
                     Smart Bud 樂芽系統管理控制台
                 </h2>
-                <p class="text-gray-500 text-sm font-medium">在此可以置換公司標誌、四大品牌 Logo、編輯全站任何雙語文字與<b>熱門特色產品細節</b>，並即時查收全管道的戰略代理商與經銷合作申請提案。</p>
+                <p class="text-gray-500 text-sm font-medium">在此可以置換公司標誌、四大品牌 Logo、編輯全站任何雙語文字、設定 API 憑證，並即時查收全管道的戰略代理商與經銷合作申請提案。</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -1216,61 +1281,71 @@
                 <div class="lg:col-span-9 bg-white p-8 rounded-[40px] border border-brand-200/40 shadow-md">
                     
                     <!-- Admin Panel 1: General Texts Config -->
-                    <div id="admin-panel-general" class="admin-panel block">
-                        <h4 class="font-bold text-brand-700 text-lg border-b pb-4 mb-6"><i class="fa-solid fa-font mr-2"></i>編輯全站繁中與英文文字 (全站編輯)</h4>
-                        <div class="space-y-6">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">公司標題文字 Brand Title</label>
-                                    <input type="text" id="edit-nav-brand-title" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文副標文字 Subtitle (ZH)</label>
-                                    <input type="text" id="edit-nav-brand-subtitle-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
-                                </div>
+                    <div id="admin-panel-general" class="admin-panel block space-y-6">
+                        <h4 class="font-bold text-brand-700 text-lg border-b pb-4"><i class="fa-solid fa-font mr-2"></i>編輯全站繁中與英文文字 (全站編輯)</h4>
+                        
+                        <!-- Gemini API Key configuration inside Admin panel -->
+                        <div class="p-5 rounded-2xl bg-brand-100/40 border border-brand-200/60 space-y-2">
+                            <h5 class="text-xs font-black text-brand-700 uppercase tracking-widest flex items-center gap-2">
+                                <i class="fa-solid fa-key text-yellow-600 animate-pulse"></i> Gemini API 金鑰配備 (Gemini Configuration)
+                            </h5>
+                            <p class="text-[11px] text-gray-500 font-medium">
+                                系統預設會自動在後台載入 Canvas 的託管 API Key。若您需要覆蓋自訂，可在下方直接輸入，系統將儲存於您的本機安全環境中。
+                            </p>
+                            <input type="password" id="custom-gemini-key" class="w-full px-4 py-2.5 rounded-xl border border-brand-200 text-xs font-semibold bg-white" placeholder="請輸入您的 Gemini API Key (AI-xxxx...)">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">公司標題文字 Brand Title</label>
+                                <input type="text" id="edit-nav-brand-title" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
                             </div>
-                            <div class="space-y-3">
-                                <h5 class="text-xs font-black text-brand-800 uppercase tracking-widest border-l-2 border-brand-800 pl-2">首頁主視覺區域 (Hero Block)</h5>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">主標題繁中 Hero headline (ZH)</label>
-                                    <input type="text" id="edit-hero-headline-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
-                                </div>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">主標題英文 Hero headline (EN)</label>
-                                    <input type="text" id="edit-hero-headline-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
-                                </div>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">副標題繁中 subheadline (ZH)</label>
-                                    <textarea rows="3" id="edit-hero-subheadline-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
-                                </div>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">副標題英文 subheadline (EN)</label>
-                                    <textarea rows="3" id="edit-hero-subheadline-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
-                                </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文副標文字 Subtitle (ZH)</label>
+                                <input type="text" id="edit-nav-brand-subtitle-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
                             </div>
-                            <div class="space-y-3">
-                                <h5 class="text-xs font-black text-brand-800 uppercase tracking-widest border-l-2 border-brand-800 pl-2">首頁代理合作夥伴導言</h5>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">專區主標題 (ZH)</label>
-                                    <input type="text" id="edit-brands-title-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
-                                </div>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">專區主標題 (EN)</label>
-                                    <input type="text" id="edit-brands-title-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
-                                </div>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">詳細介紹繁中 (ZH)</label>
-                                    <textarea rows="3" id="edit-brands-intro-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
-                                </div>
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">詳細介紹英文 (EN)</label>
-                                    <textarea rows="3" id="edit-brands-intro-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
-                                </div>
+                        </div>
+                        <div class="space-y-3">
+                            <h5 class="text-xs font-black text-brand-800 uppercase tracking-widest border-l-2 border-brand-800 pl-2">首頁主視覺區域 (Hero Block)</h5>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">主標題繁中 Hero headline (ZH)</label>
+                                <input type="text" id="edit-hero-headline-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
                             </div>
-                            <div class="pt-4 border-t flex justify-end gap-3">
-                                <button onclick="resetGeneralContent()" class="px-5 py-2.5 rounded-full border border-brand-200 text-xs font-bold hover:bg-brand-50 text-brand-700">還原預設</button>
-                                <button onclick="saveGeneralContent()" class="px-6 py-2.5 rounded-full bg-brand-700 text-xs text-white font-extrabold hover:bg-brand-550 shadow">儲存並即時更新</button>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">主標題英文 Hero headline (EN)</label>
+                                <input type="text" id="edit-hero-headline-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
                             </div>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">副標題繁中 subheadline (ZH)</label>
+                                <textarea rows="3" id="edit-hero-subheadline-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">副標題英文 subheadline (EN)</label>
+                                <textarea rows="3" id="edit-hero-subheadline-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <h5 class="text-xs font-black text-brand-800 uppercase tracking-widest border-l-2 border-brand-800 pl-2">首頁代理合作夥伴導言</h5>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">專區主標題 (ZH)</label>
+                                <input type="text" id="edit-brands-title-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">專區主標題 (EN)</label>
+                                <input type="text" id="edit-brands-title-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">詳細介紹繁中 (ZH)</label>
+                                <textarea rows="3" id="edit-brands-intro-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-500 mb-1">詳細介紹英文 (EN)</label>
+                                <textarea rows="3" id="edit-brands-intro-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t flex justify-end gap-3">
+                            <button onclick="resetGeneralContent()" class="px-5 py-2.5 rounded-full border border-brand-200 text-xs font-bold hover:bg-brand-50 text-brand-700">還原預設</button>
+                            <button onclick="saveGeneralContent()" class="px-6 py-2.5 rounded-full bg-brand-700 text-xs text-white font-extrabold hover:bg-brand-550 shadow">儲存並即時更新</button>
                         </div>
                     </div>
 
@@ -1384,12 +1459,12 @@
 
                             <!-- Added Products Content Editor ZH & EN -->
                             <div>
-                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">熱門特色產品內容及清單 (ZH) - 支援換行</label>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">熱門特色產品內容及清單 (ZH)</label>
                                 <textarea rows="4" id="admin-brand-products-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm" placeholder="輸入商品細節、型號或產品清單..."></textarea>
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">熱門特色產品內容及清單 (EN) - 支援換行</label>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">熱門特色產品內容及清單 (EN)</label>
                                 <textarea rows="4" id="admin-brand-products-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm" placeholder="Enter product highlights or catalog details..."></textarea>
                             </div>
 
@@ -1537,6 +1612,60 @@
     </div>
 </footer>
 
+<!-- B2C FLOATING GEMINI AI COMPANION (Moms Assistant) -->
+<div class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <!-- Chat Dialog Sliding Window -->
+    <div id="ai-chat-window" class="hidden w-80 sm:w-96 h-[480px] bg-white rounded-3xl shadow-2xl border border-brand-200/60 overflow-hidden flex flex-col justify-between mb-4 transform translate-y-10 opacity-0 transition-all duration-300">
+        <!-- Chat Header -->
+        <div class="bg-gradient-to-r from-brand-700 to-brand-500 p-4 text-white flex items-center justify-between shadow-md">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 bg-white/15 rounded-full flex items-center justify-center text-sm animate-pulse">
+                    <i class="fa-solid fa-seedling text-brand-100"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black tracking-wide">芽芽 AI 育兒選品顧問</h4>
+                    <span class="text-[9px] text-brand-100/85 uppercase tracking-widest font-bold">Sprout AI Pediatric Advisor</span>
+                </div>
+            </div>
+            <button onclick="toggleAIChat()" class="text-white/80 hover:text-white hover:scale-105 transition-all text-sm">
+                <i class="fa-solid fa-circle-chevron-down"></i>
+            </button>
+        </div>
+
+        <!-- Chat History Area -->
+        <div class="flex-1 p-4 overflow-y-auto chat-scrollbar bg-brand-50/20 space-y-4" id="chat-messages-area">
+            <!-- Greeting Message -->
+            <div class="flex items-start gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-brand-900/30 text-brand-700 flex items-center justify-center text-xs shrink-0 font-black">AI</div>
+                <div class="bg-white p-3 rounded-2xl border border-brand-200/40 text-xs shadow-sm leading-relaxed text-gray-600 max-w-[80%]">
+                    您好！我是您的科學育兒與選品助手 **芽芽** 🌱 <br><br>您可以直接問我例如：
+                    <div class="mt-2 space-y-1">
+                        <button onclick="clickFastPrompt('12個月寶寶如何引導自主進食？')" class="block w-full text-left p-1.5 bg-brand-50 hover:bg-brand-100 text-[11px] text-brand-700 rounded-lg transition-colors font-bold">🍴 12個月寶寶自主進食難題？</button>
+                        <button onclick="clickFastPrompt('2歲半推薦什麼玩具訓練邏輯空間感？')" class="block w-full text-left p-1.5 bg-brand-50 hover:bg-brand-100 text-[11px] text-brand-700 rounded-lg transition-colors font-bold">🧩 2歲半寶寶玩具怎麼挑？</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input Form -->
+        <div class="p-3 border-t border-brand-200/40 bg-white flex gap-2">
+            <input type="text" id="chat-user-input" class="flex-1 px-4 py-2.5 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 text-xs font-semibold bg-brand-50/40" placeholder="詢問寶寶發育與選品建議..." onkeypress="handleChatEnter(event)">
+            <button onclick="sendChatMessage()" class="w-10 h-10 bg-brand-700 hover:bg-brand-500 rounded-xl text-white flex items-center justify-center transition-all shadow-md">
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Glowing Sprout Button -->
+    <button onclick="toggleAIChat()" class="w-14 h-14 bg-gradient-to-tr from-brand-700 to-brand-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 relative group timeline-pulse">
+        <span class="absolute -top-1 -left-1 flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-800 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-800"></span>
+        </span>
+        <i class="fa-solid fa-wand-magic-sparkles text-xl group-hover:rotate-12 transition-transform"></i>
+    </button>
+</div>
+
 <!-- Toast notification replacing native alert() -->
 <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-300 bg-brand-700 text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3 border border-brand-800/10 max-w-sm">
     <i class="fa-solid fa-bell-ring text-brand-800 animate-bounce"></i>
@@ -1626,7 +1755,7 @@
             // Brand Dealership Plan
             "moms-page-tag": "SELECTIVE RETAIL & DISTRIBUTION",
             "moms-page-title": "品牌經銷零售合作計劃",
-            "moms-page-intro": "您是深耕中高端母嬰客群、重視環境永續與發育心理學的精品店主或分銷管道代表嗎？Smart Bud 誠邀香港各核心商區精品店、專業網店與優雅育兒空間加入我們的「溫慢經銷網路」，共同傳遞高水準的科學育兒生活。",
+            "moms-page-intro": "您是深耕中高端母嬰客群、重視環境永續與發育心理學的精品店主 or 分銷管道代表嗎？Smart Bud 誠邀香港各核心商區精品店、專業網店與優雅育兒空間加入我們的「溫慢經銷網路」，共同傳遞高水準的科學育兒生活。",
             "moms-form-title": "開啟我們的經銷合作",
             "moms-form-sub": "請填寫下方基本經銷資訊，我們的零售商務發展小組將於 24 小時內與您取得聯繫！",
             "moms-btn-submit": "提交經銷合作申請",
@@ -1683,11 +1812,11 @@
             "why-badge": "STRATEGIC ADVANTAGES",
             "why-title": "為什麼選擇 Smart Bud 成為您的香港合作夥伴？",
             "why-p1-title": "強大的跨店社群網絡與實體用家基礎",
-            "why-p1-desc": "我們的生態圈精準聚集了香港 22-40 歲、極度重視孩子黃金發育期、追求永續與品質的高消費力實體用家。我們最擅長將高品質的永續與教育價值，轉化為社群心中的「育兒必備選品」。",
+            "why-p1-desc": "我們的生態圈精準聚集了香港 22-40 歲、極度重視孩子黃金發育期、追求永續與品質的高消費力實體用家。我們最擅長將高品質的永續與教育價值，轉化為她們心中的「育兒必備選品」。",
             "why-p2-title": "全渠道品牌營銷（Brand Marketing）實力",
             "why-p2-desc": "我們不只做銷售，更擅長為品牌進行整體的在地化包裝與推廣。我們懂得將品牌的工藝價值、環保承諾與在地化的育兒里程碑相結合，創造無可替代的購買剛需。",
             "why-p3-title": "嚴格的控價與資產保護機制",
-            "why-p3-desc": "作為英國 Doddl 的香港獨家總代理，我們已建立完整的供應鏈、行銷和價格防護機制，具備跨國精品品牌落地所需的全面操盤基礎，誓與 brand 方並肩守護每一步價值。",
+            "why-p3-desc": "作為英國 Doddl 的香港獨家總代理，我們已建立完整的供應鏈、行銷和價格防護機制，具備跨國精品品牌落地所需的全面操盤基礎，誓與品牌方並肩守護每一步價值。",
 
             "form-title": "即刻與我們的商務發展團隊展開對話",
             "form-subtitle": "讓我們在香港，為您的品牌用心培育出最豐碩的市場果實。",
@@ -1755,7 +1884,7 @@
             // Brand Dealership Plan
             "moms-page-tag": "SELECTIVE RETAIL & DISTRIBUTION",
             "moms-page-title": "Selective Dealership Partnership",
-            "moms-page-intro": "Are you a premium baby boutique owner, specialized clinic or high-end parenting space coordinator? Smart Bud warmly invites selective retailers across HK to join our distribution loop.",
+            "moms-page-intro": "Are you a premium baby boutique owner or selective distributor? Smart Bud warmly invites local businesses across Hong Kong core areas to join our distribution loop.",
             "moms-form-title": "Initiate Our Dealership",
             "moms-form-sub": "Please fill out the inquiry form below. Our channels manager will respond in 24 hours!",
             "moms-btn-submit": "Submit Dealership Proposal",
@@ -1862,7 +1991,7 @@
         </p>
     `;
 
-    // Database fallback structures (Added dynamic Products field for Mommy-friendly B2C Curation)
+    // Database fallback structures
     const defaultBrands = {
         doddl: {
             title_zh: "Doddl｜英國人體工學餐具",
@@ -2309,6 +2438,10 @@
         safeSetVal('edit-brands-title-en', generalContentDb.brands_title_en);
         safeSetVal('edit-brands-intro-zh', generalContentDb.brands_intro_zh);
         safeSetVal('edit-brands-intro-en', generalContentDb.brands_intro_en);
+        
+        // Hydrate API Key
+        const savedKey = localStorage.getItem('sb_gemini_api_key') || '';
+        safeSetVal('custom-gemini-key', savedKey);
     }
 
     function saveGeneralContent() {
@@ -2325,9 +2458,13 @@
         generalContentDb.brands_intro_zh = document.getElementById('edit-brands-intro-zh').value;
         generalContentDb.brands_intro_en = document.getElementById('edit-brands-intro-en').value;
 
+        // Save custom Gemini API Key
+        const customKey = document.getElementById('custom-gemini-key').value;
+        localStorage.setItem('sb_gemini_api_key', customKey.trim());
+
         localStorage.setItem('sb_general_content_db', JSON.stringify(generalContentDb));
         applyGeneralTexts();
-        showToast("全站文字內容儲存成功！");
+        showToast("全站文字與 Gemini 金鑰設定已儲存！");
     }
 
     function resetGeneralContent() {
@@ -2413,7 +2550,6 @@
             safeSetVal('admin-brand-badge-en', record.badge_en);
             safeSetVal('admin-brand-desc-zh', record.desc_zh);
             safeSetVal('admin-brand-desc-en', record.desc_en);
-            // Added Products dynamic CMS editing
             safeSetVal('admin-brand-products-zh', record.products_zh || "");
             safeSetVal('admin-brand-products-en', record.products_en || "");
         }
@@ -2545,11 +2681,11 @@
         showToast("品牌經銷申請紀錄已清空。");
     }
 
-    // Sync Frontend values dynamically on load/edit (Dual Render on Home & Brands page)
+    // Sync Frontend values dynamically on load/edit
     function syncFrontContent() {
         const isZH = currentLang === 'zh';
         
-        // Doddl - Syncing both Homepage and dedicated Brands catalog page
+        // Doddl
         safeSetHTML('title-doddl', isZH ? brandsDb.doddl.title_zh : brandsDb.doddl.title_en);
         safeSetHTML('badge-doddl', isZH ? brandsDb.doddl.badge_zh : brandsDb.doddl.badge_en);
         safeSetHTML('desc-doddl', isZH ? brandsDb.doddl.desc_zh : brandsDb.doddl.desc_en);
@@ -2561,7 +2697,7 @@
         safeSetHTML('cat-age-doddl', isZH ? `適用：${brandsDb.doddl.age_zh}` : `Age: ${brandsDb.doddl.age_en}`);
         safeSetHTML('cat-products-doddl', isZH ? brandsDb.doddl.products_zh : brandsDb.doddl.products_en);
 
-        // Tidy Tot - Syncing both
+        // Tidy Tot
         safeSetHTML('title-tidytot', isZH ? brandsDb.tidytot.title_zh : brandsDb.tidytot.title_en);
         safeSetHTML('badge-tidytot', isZH ? brandsDb.tidytot.badge_zh : brandsDb.tidytot.badge_en);
         safeSetHTML('desc-tidytot', isZH ? brandsDb.tidytot.desc_zh : brandsDb.tidytot.desc_en);
@@ -2573,7 +2709,7 @@
         safeSetHTML('cat-age-tidytot', isZH ? `適用：${brandsDb.tidytot.age_zh}` : `Age: ${brandsDb.tidytot.age_en}`);
         safeSetHTML('cat-products-tidytot', isZH ? brandsDb.tidytot.products_zh : brandsDb.tidytot.products_en);
 
-        // QBI - Syncing both
+        // QBI
         safeSetHTML('title-qbi', isZH ? brandsDb.qbi.title_zh : brandsDb.qbi.title_en);
         safeSetHTML('badge-qbi', isZH ? brandsDb.qbi.badge_zh : brandsDb.qbi.badge_en);
         safeSetHTML('desc-qbi', isZH ? brandsDb.qbi.desc_zh : brandsDb.qbi.desc_en);
@@ -2585,7 +2721,7 @@
         safeSetHTML('cat-age-qbi', isZH ? `適用：${brandsDb.qbi.age_zh}` : `Age: ${brandsDb.qbi.age_en}`);
         safeSetHTML('cat-products-qbi', isZH ? brandsDb.qbi.products_zh : brandsDb.qbi.products_en);
 
-        // Goki - Syncing both
+        // Goki
         safeSetHTML('title-goki', isZH ? brandsDb.goki.title_zh : brandsDb.goki.title_en);
         safeSetHTML('badge-goki', isZH ? brandsDb.goki.badge_zh : brandsDb.goki.badge_en);
         safeSetHTML('desc-goki', isZH ? brandsDb.goki.desc_zh : brandsDb.goki.desc_en);
@@ -2596,6 +2732,219 @@
         safeSetHTML('cat-desc-goki', isZH ? brandsDb.goki.desc_zh : brandsDb.goki.desc_en);
         safeSetHTML('cat-age-goki', isZH ? `適用：${brandsDb.goki.age_zh}` : `Age: ${brandsDb.goki.age_en}`);
         safeSetHTML('cat-products-goki', isZH ? brandsDb.goki.products_zh : brandsDb.goki.products_en);
+    }
+
+    // ==========================================
+    // ============= GEMINI API CORES ============
+    // ==========================================
+    async function fetchGeminiResponse(userPrompt, systemInstruction) {
+        // Retrieve key from local storage, or default to empty string so Canvas handles injection
+        const customKey = localStorage.getItem('sb_gemini_api_key') || "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${customKey}`;
+
+        const payload = {
+            contents: [{ parts: [{ text: userPrompt }] }],
+            systemInstruction: {
+                parts: [{ text: systemInstruction }]
+            }
+        };
+
+        // Standard exponential backoff retry loop
+        let retries = 3;
+        let delay = 1000;
+        for (let i = 0; i < retries; i++) {
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Gemini HTTP Error: ${response.status}`);
+                }
+                const data = await response.json();
+                const outputText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (outputText) return outputText;
+                throw new Error("Invalid payload mapping from Gemini API");
+            } catch (err) {
+                if (i === retries - 1) {
+                    console.error("Gemini connection ultimately failed: ", err);
+                    throw err;
+                }
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2;
+            }
+        }
+    }
+
+    // ==========================================
+    // ======= B2C SPROUT AI COMPANION JS =======
+    // ==========================================
+    function toggleAIChat() {
+        const win = document.getElementById('ai-chat-window');
+        if (win.classList.contains('hidden')) {
+            win.classList.remove('hidden');
+            setTimeout(() => {
+                win.classList.remove('translate-y-10', 'opacity-0');
+                win.classList.add('translate-y-0', 'opacity-100');
+            }, 50);
+        } else {
+            win.classList.remove('translate-y-0', 'opacity-100');
+            win.classList.add('translate-y-10', 'opacity-0');
+            setTimeout(() => {
+                win.classList.add('hidden');
+            }, 300);
+        }
+    }
+
+    function handleChatEnter(e) {
+        if (e.key === 'Enter') sendChatMessage();
+    }
+
+    function clickFastPrompt(promptText) {
+        const input = document.getElementById('chat-user-input');
+        if (input) {
+            input.value = promptText;
+            sendChatMessage();
+        }
+    }
+
+    async function sendChatMessage() {
+        const input = document.getElementById('chat-user-input');
+        const userText = input.value.trim();
+        if (!userText) return;
+
+        // Display user chat bubble
+        appendChatBubble(userText, 'user');
+        input.value = '';
+
+        // Typing temporary placeholder bubble
+        const typingId = appendChatBubble('<i class="fa-solid fa-ellipsis animate-bounce"></i> 芽芽正在思考中...', 'ai', true);
+
+        const systemInstruction = `You are 'Sprout AI' (芽芽 AI 育兒選品顧問), an elite pediatric-science parenting assistant at Smart Bud HK.
+        Speak in an incredibly encouraging, warm, professional yet motherly comforting tone. 
+        Always response in the exact language the user used (Traditional Chinese zh-HK or English). 
+        You provide scientific, milestone-aligned child-care tips for babies (0-5 years old).
+        Integrate Smart Bud's top-tier brands naturally in your responses:
+        - Doddl: Patented 3-point grip ergonomic cutlery, naturally teaching self-feeding, pincer strength, and preparing fingers for writing.
+        - Tidy Tot: Mess-free bib and protective tray kits, ensuring zero-stress sensory play and establishing dining independence.
+        - QBI: Interlocking magnetic cubes and modular tracks, sparking multi-dimensional logic, three-dimensional geometry, and STEAM critical thinking.
+        - Goki: Premium, FSC certified sustainable German wooden block structures, offering warm organic texture for tactile neural advancement.
+        Never talk about microplastics. Focus heavily on natural play, motor progression, parent confidence, and clean environments. Format text beautifully with bolding or spacing.`;
+
+        try {
+            const aiText = await fetchGeminiResponse(userText, systemInstruction);
+            removeTypingBubble(typingId);
+            appendChatBubble(aiText, 'ai');
+        } catch (err) {
+            removeTypingBubble(typingId);
+            appendChatBubble(currentLang === 'zh' ? '抱歉，芽芽的訊號暫時有些不穩定。請確認您的網路連線，或於後台檢查 Gemini API Key 配置。' : 'Apologies, Sprout AI is experiencing a brief connection delay. Please inspect your connection or confirm your Gemini API Key in the admin panel.', 'ai');
+        }
+    }
+
+    function appendChatBubble(text, role, isTemp = false) {
+        const container = document.getElementById('chat-messages-area');
+        const id = 'bubble-' + Date.now() + Math.random().toString(36).substr(2, 5);
+        const div = document.createElement('div');
+        div.id = id;
+        div.className = "flex items-start gap-2.5 " + (role === 'user' ? 'justify-end' : '');
+
+        let content = '';
+        if (role === 'user') {
+            content = `
+                <div class="bg-brand-700 text-white p-3 rounded-2xl text-xs max-w-[80%] font-semibold shadow-sm leading-relaxed">${text}</div>
+                <div class="w-7 h-7 rounded-full bg-brand-200 text-brand-700 flex items-center justify-center text-xs shrink-0 font-bold">ME</div>
+            `;
+        } else {
+            // Render markdown style breaks
+            const formatted = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            content = `
+                <div class="w-7 h-7 rounded-full bg-brand-900/30 text-brand-700 flex items-center justify-center text-xs shrink-0 font-black">AI</div>
+                <div class="bg-white p-3 rounded-2xl border border-brand-200/40 text-xs shadow-sm leading-relaxed text-gray-600 max-w-[80%]">${formatted}</div>
+            `;
+        }
+
+        div.innerHTML = content;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+        return id;
+    }
+
+    function removeTypingBubble(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
+
+    // ==========================================
+    // ======= B2B AI STRATEGY SIMULATOR ========
+    // ==========================================
+    async function runB2BSimulator() {
+        const bName = document.getElementById('ai-brand-name').value.trim();
+        const bCat = document.getElementById('ai-brand-category').value;
+        const bPhilo = document.getElementById('ai-brand-philosophy').value.trim();
+        const outputText = document.getElementById('ai-b2b-output-text');
+        const btnText = document.getElementById('ai-b2b-btn-text');
+
+        if (!bName || !bPhilo) {
+            showToast(currentLang === 'zh' ? "請完整填寫品牌名稱與核心哲學！" : "Please complete Brand Name and Philosophy fields!");
+            return;
+        }
+
+        // Start loading states
+        btnText.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> 計算中...`;
+        outputText.innerHTML = `
+            <div class="text-center py-24 text-brand-700 font-semibold space-y-3">
+                <i class="fa-solid fa-microchip text-4xl animate-pulse text-brand-800"></i>
+                <p class="text-xs animate-bounce">Gemini 正在分析您的品牌資產與香港通路特質...</p>
+                <p class="text-[10px] text-gray-400 font-medium">預計耗時 3-5 秒 (Simulating Market Blueprint)</p>
+            </div>
+        `;
+
+        const userPrompt = `Generate a customized, highly practical 12-Month Market Entry Strategy proposal for Hong Kong.
+        Brand Name: ${bName}
+        Category: ${bCat}
+        Core Philosophy: ${bPhilo}`;
+
+        const systemInstruction = `You are 'Smart Bud Strategic BD Architect', a world-class retail entry planner specialized in maternal infant luxury channels in Hong Kong.
+        Analyze the global brand's details and return an inspiring, detailed, and highly strategic 12-month HK entry roadmap.
+        Align the roadmap directly with Smart Bud's established premium assets:
+        - Strict regional Price Control (管道控控價) to preserve brand valuation.
+        - High-engagement WhatsApp VIP mom clubs.
+        - Seamless integration with curated pediatric developmental milestones.
+        - High visual impact setup at prime physical venues like SOGO Causeway Bay or Sincere.
+        Format the output using clear HTML tags: use clean list points, bold titles, and paragraph separations.
+        Always response in the selected language (Traditional Chinese if requested, otherwise English).`;
+
+        try {
+            const result = await fetchGeminiResponse(userPrompt, systemInstruction);
+            // Replace markdown style points cleanly
+            const formatted = result
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/### (.*?)/g, '<h4 class="font-bold text-sm text-brand-700 mt-4 mb-2">$1</h4>');
+
+            outputText.innerHTML = `
+                <div class="text-xs text-gray-600 leading-relaxed space-y-3 font-semibold h-[340px] overflow-y-auto chat-scrollbar pr-1">
+                    <span class="inline-block bg-brand-700 text-white text-[9px] px-2.5 py-0.5 rounded-full mb-3 font-black">
+                        12-Month Entry Proposal Generated
+                    </span>
+                    ${formatted}
+                </div>
+            `;
+            showToast("市場進入戰略模擬成功！");
+        } catch (err) {
+            outputText.innerHTML = `
+                <div class="text-center py-24 text-red-600 font-semibold text-xs space-y-2">
+                    <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
+                    <p>戰略編譯失敗 (Simulation Interrupted)</p>
+                    <p class="text-[10px] text-gray-400">請確認您的網路狀況，或在系統後台配置有效的 Gemini API Key後重試。</p>
+                </div>
+            `;
+            showToast("編譯戰略失敗，請檢查 API 配備！");
+        } finally {
+            btnText.innerHTML = currentLang === 'zh' ? "立即計算進入策略" : "Generate Market Strategy";
+        }
     }
 
     // Initial Bootstrap
