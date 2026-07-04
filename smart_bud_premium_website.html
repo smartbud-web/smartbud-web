@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="zh-HK" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Bud 樂芽 | Premium Baby & Toddler Brands Curator Hong Kong</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Nunito (Perfectly Rounded, Premium) & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900;950&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#FDFBF7',  // Soft luxurious warm cream background
+                            100: '#F6EFE0', // Richer sand tone
+                            200: '#E9DEC3', // Soft organic outline clay
+                            500: '#5F6F52', // Soft Sprout Green
+                            600: '#435334', // Resilient Pine Green
+                            700: '#254336', // Deep Forest Moss Green
+                            800: '#D2A350', // Warm Sunlight Yellow / Radiant Gold
+                            900: '#9CA777', // Tender Sprout Spurt Green
+                            dark: '#1C211A' // Elegant charcoal
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'Noto Sans TC', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Modern Page Transitions */
+        .page-transition {
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Sun Radiance Glow Effect */
+        .bg-sun-glow {
+            background: radial-gradient(circle at top right, rgba(210, 163, 80, 0.12) 0%, rgba(95, 111, 82, 0.04) 50%, rgba(253, 257, 247, 0) 100%);
+        }
+
+        /* 3D Card Flipping Core CSS */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .preserve-3d {
+            transform-style: preserve-3d;
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+
+        /* Organic Animated Border for Future Partner Placeholder */
+        @keyframes border-pulse {
+            0% { border-color: rgba(210, 163, 80, 0.4); box-shadow: 0 0 10px rgba(210, 163, 80, 0.1); }
+            50% { border-color: rgba(95, 111, 82, 0.6); box-shadow: 0 0 20px rgba(95, 111, 82, 0.2); }
+            100% { border-color: rgba(210, 163, 80, 0.4); box-shadow: 0 0 10px rgba(210, 163, 80, 0.1); }
+        }
+        .organic-border {
+            border: 2px dashed;
+            animation: border-pulse 4s infinite ease-in-out;
+            border-radius: 30px;
+        }
+
+        /* Timeline pulsing nodes */
+        .timeline-pulse {
+            box-shadow: 0 0 0 0 rgba(210, 163, 80, 0.7);
+            animation: pulse-ring 2.5s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(210, 163, 80, 0.6); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(210, 163, 80, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(210, 163, 80, 0); }
+        }
+
+        /* Float illustration animation */
+        @keyframes gentle-float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-graphic {
+            animation: gentle-float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-brand-50 text-brand-dark font-sans overflow-x-hidden antialiased">
+
+<header class="sticky top-0 z-50 bg-brand-50/95 backdrop-blur-md border-b border-brand-200/40 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 sm:h-24">
+            
+            <!-- Company Logo & Brand Name Container -->
+            <a href="#" onclick="switchPage('home'); return false;" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-12 flex items-center justify-center bg-brand-100/60 rounded-full border border-brand-800/10 group-hover:scale-105 transition-transform duration-300 company-logo-slot overflow-hidden">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl sm:text-2xl font-black tracking-wide text-brand-700 leading-none" id="nav-brand-title">Smart Bud</span>
+                    <span class="text-[10px] font-extrabold tracking-widest text-brand-800 uppercase mt-0.5" id="nav-brand-subtitle">樂芽選品</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+                <a href="#" onclick="switchPage('home'); return false;" class="nav-link text-sm font-bold hover:text-brand-800 transition-colors py-2 border-b-2 border-transparent" id="btn-nav-home">首頁</a>
+                <a href="#" onclick="switchPage('milestones'); return false;" class="nav-link text-sm font-bold hover:text-brand-800 transition-colors py-2 border-b-2 border-transparent" id="btn-nav-milestones">成長里程碑</a>
+                <a href="#" onclick="switchPage('mommy-shops'); return false;" class="nav-link text-sm font-bold hover:text-brand-800 transition-colors py-2 border-b-2 border-transparent" id="btn-nav-mommy-shops">媽媽小店合作</a>
+                <a href="#" onclick="switchPage('about'); return false;" class="nav-link text-sm font-bold hover:text-brand-800 transition-colors py-2 border-b-2 border-transparent" id="btn-nav-about">關於我們</a>
+                <a href="#" onclick="switchPage('b2b'); return false;" class="nav-link text-sm font-bold hover:text-brand-800 transition-colors py-2 border-b-2 border-transparent" id="btn-nav-b2b">品牌總代 B2B</a>
+            </nav>
+
+            <!-- Language & CTA Actions -->
+            <div class="hidden lg:flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-200 bg-white shadow-sm hover:border-brand-800 hover:text-brand-800 transition-all duration-300 text-xs font-black">
+                    <i class="fa-solid fa-globe text-brand-500 animate-[spin_10s_linear_infinite]"></i>
+                    <span id="lang-indicator">EN</span>
+                </button>
+                <a href="#" onclick="switchPage('b2b'); setTimeout(() => {document.getElementById('b2b-form').scrollIntoView({behavior: 'smooth'})}, 450); return false;" class="px-5 py-2.5 rounded-full bg-brand-700 text-white font-extrabold text-sm hover:bg-brand-500 shadow-md transition-all hover:scale-[1.02]" id="btn-nav-contact">
+                    聯繫我們
+                </a>
+            </div>
+
+            <!-- Mobile Actions -->
+            <div class="flex items-center gap-3 lg:hidden">
+                <button onclick="toggleLanguage()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-brand-200 bg-white text-xs font-black">
+                    <i class="fa-solid fa-globe text-brand-500"></i>
+                    <span id="lang-indicator-mobile">EN</span>
+                </button>
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 text-brand-700 hover:text-brand-800 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-brand-100 border-t border-brand-200/50 shadow-inner px-4 pt-4 pb-6 space-y-3">
+        <a href="#" onclick="switchPage('home'); toggleMobileMenu(); return false;" class="block px-4 py-3 rounded-xl bg-white/60 font-bold hover:bg-brand-200/50" id="btn-mob-home">首頁 Home</a>
+        <a href="#" onclick="switchPage('milestones'); toggleMobileMenu(); return false;" class="block px-4 py-3 rounded-xl bg-white/60 font-bold hover:bg-brand-200/50" id="btn-mob-milestones">成長里程碑 Milestones</a>
+        <a href="#" onclick="switchPage('mommy-shops'); toggleMobileMenu(); return false;" class="block px-4 py-3 rounded-xl bg-white/60 font-bold hover:bg-brand-200/50" id="btn-mob-mommy-shops">媽媽小店合作 Mom Shops</a>
+        <a href="#" onclick="switchPage('about'); toggleMobileMenu(); return false;" class="block px-4 py-3 rounded-xl bg-white/60 font-bold hover:bg-brand-200/50" id="btn-mob-about">關於我們 About Us</a>
+        <a href="#" onclick="switchPage('b2b'); toggleMobileMenu(); return false;" class="block px-4 py-3 rounded-xl bg-white/60 font-bold hover:bg-brand-200/50" id="btn-mob-b2b">品牌總代 B2B</a>
+        <div class="pt-2">
+            <a href="#" onclick="switchPage('b2b'); toggleMobileMenu(); setTimeout(() => {document.getElementById('b2b-form').scrollIntoView({behavior: 'smooth'})}, 450); return false;" class="block w-full text-center py-3 rounded-xl bg-brand-700 text-white font-black shadow" id="btn-mob-contact">聯繫我們 Contact Us</a>
+        </div>
+    </div>
+</header>
+
+<main class="min-h-screen">
+
+    <!-- ================= PAGE 1: HOME PAGE ================= -->
+    <div id="page-home" class="page-transition opacity-100 block">
+        
+        <!-- Premium Hero Segment -->
+        <section class="relative bg-sun-glow overflow-hidden py-16 sm:py-24 lg:py-28 border-b border-brand-200/30">
+            <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
+                <div class="absolute top-10 left-[8%] w-80 h-80 bg-brand-900/20 rounded-full filter blur-3xl"></div>
+                <div class="absolute bottom-5 right-[12%] w-96 h-96 bg-brand-800/15 rounded-full filter blur-3xl"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Text Segment -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-900/30 text-brand-700 text-xs font-extrabold tracking-wider mb-6">
+                            <i class="fa-solid fa-sparkles text-brand-800"></i> Smart Bud HK | Curating Premium Milestones
+                        </span>
+                        
+                        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-brand-700 leading-tight mb-6" id="hero-headline">
+                            用心培育，讓孩子的每個里程碑優雅綻放。
+                        </h1>
+                        <p class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8 font-medium" id="hero-subheadline">
+                            Smart Bud 結合科學育兒與生活美學，嚴選全球頂尖母嬰用品。從自主進食的肌肉鍛鍊，到環境友善的探索玩樂，陪伴寶寶直覺探索、快樂成長。
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#brands-showcase" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-700 text-white font-extrabold text-center hover:bg-brand-500 shadow-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2" id="hero-cta-explore">
+                                <span>探索精選好物</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                            <a href="#" onclick="switchPage('milestones'); return false;" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-brand-700 border border-brand-200 font-extrabold text-center hover:bg-brand-100 transition-all shadow-md flex items-center justify-center gap-2" id="hero-cta-holistic">
+                                <span>啟迪成長里程碑</span>
+                                <i class="fa-solid fa-seedling"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Company Logo Graphic Representation in Polaroid Style -->
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                        <div class="relative w-72 h-72 sm:w-80 sm:h-80 bg-white/70 rounded-[50px] shadow-2xl border border-brand-200/40 p-8 flex flex-col items-center justify-center float-graphic">
+                            <!-- Premium Soft Glow Behind Emblem -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-100/30 to-brand-800/10 rounded-[50px]"></div>
+                            
+                            <div class="company-logo-large-slot z-10 w-48 h-48 flex items-center justify-center">
+                                <!-- Loaded dynamically via JS -->
+                            </div>
+                            <span class="text-xs font-black text-brand-700 tracking-wider font-serif mt-4 relative z-10">Smart Bud Emblem</span>
+                            <span class="text-[9px] text-brand-800 uppercase tracking-widest font-extrabold mt-1 relative z-10" id="lbl-logo-sub">陽光灌溉 · 嫩芽茁壯</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Uncluttered 2-2-1 Grid Brands Showcase -->
+        <section id="brands-showcase" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-700 mb-6" id="brands-title">
+                        全球頂尖合作夥伴
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base font-medium" id="brands-intro">
+                        自主進食與發展性玩樂，看似截然不同，實則共享相同的成長密碼——「鼓勵直覺探索，解鎖天賦技能」。Smart Bud 走遍全球，嚴選符合國際最高安全標準（EN71/ASTM）、榮獲國際大獎、重視兒童發展與環境永續的頂尖品牌。
+                    </p>
+                </div>
+
+                <!-- Custom 2-2-1 Brand Layout (Prevents horizontal crowding) -->
+                <div class="space-y-6">
+                    <!-- Row 1: Doddl and Tidy Tot (2 columns) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                        <!-- Doddl -->
+                        <div class="bg-brand-50 p-8 rounded-[36px] border border-brand-200/40 hover:border-brand-800/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-brand="doddl">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="brand-logo-slot-doddl h-10 flex items-center">
+                                        <!-- Logo injected dynamically -->
+                                    </div>
+                                    <span class="text-[10px] px-3 py-1 rounded-full bg-brand-850 text-brand-700 bg-brand-100 font-extrabold uppercase tracking-wide" id="badge-doddl">香港總代理</span>
+                                </div>
+                                <h3 class="text-lg font-black text-brand-700 mb-1" id="title-doddl">Doddl｜英國人體工學餐具</h3>
+                                <span class="inline-block text-[11px] font-black text-brand-800 bg-brand-200/30 px-2.5 py-0.5 rounded-full mb-3" id="age-range-doddl">適用：12 個月以上</span>
+                                <p class="text-sm text-gray-500 leading-relaxed mb-6 font-medium" id="desc-doddl">專利三點抓握設計，直覺解鎖自主進食，高效鍛鍊手部精細動作。</p>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-800 font-black text-sm group-hover:translate-x-1 transition-transform cursor-pointer" onclick="switchPage('milestones')">
+                                <span>了解發育里程碑</span> <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+
+                        <!-- Tidy Tot -->
+                        <div class="bg-brand-50 p-8 rounded-[36px] border border-brand-200/40 hover:border-brand-800/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-brand="tidytot">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="brand-logo-slot-tidytot h-10 flex items-center">
+                                        <!-- Logo injected dynamically -->
+                                    </div>
+                                    <span class="text-[10px] px-3 py-1 rounded-full bg-brand-850 text-brand-700 bg-brand-100 font-extrabold uppercase tracking-wide" id="badge-tidytot">官方零售商</span>
+                                </div>
+                                <h3 class="text-lg font-black text-brand-700 mb-1" id="title-tidytot">Tidy Tot｜英國防髒托盤圍兜</h3>
+                                <span class="inline-block text-[11px] font-black text-brand-800 bg-brand-200/30 px-2.5 py-0.5 rounded-full mb-3" id="age-range-tidytot">適用：6 個月以上</span>
+                                <p class="text-sm text-gray-500 leading-relaxed mb-6 font-medium" id="desc-tidytot">打造無拘束的感官探索空間，建立寶寶進食自信。</p>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-800 font-black text-sm group-hover:translate-x-1 transition-transform cursor-pointer" onclick="switchPage('milestones')">
+                                <span>了解發育里程碑</span> <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: QBI and Goki (2 columns) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                        <!-- QBI -->
+                        <div class="bg-brand-50 p-8 rounded-[36px] border border-brand-200/40 hover:border-brand-800/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-brand="qbi">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="brand-logo-slot-qbi h-10 flex items-center">
+                                        <!-- Logo injected dynamically -->
+                                    </div>
+                                    <span class="text-[10px] px-3 py-1 rounded-full bg-brand-850 text-brand-700 bg-brand-100 font-extrabold uppercase tracking-wide" id="badge-qbi">官方零售商</span>
+                                </div>
+                                <h3 class="text-lg font-black text-brand-700 mb-1" id="title-qbi">QBI｜益智磁吸軌道玩具</h3>
+                                <span class="inline-block text-[11px] font-black text-brand-800 bg-brand-200/30 px-2.5 py-0.5 rounded-full mb-3" id="age-range-qbi">適用：2 歲以上</span>
+                                <p class="text-sm text-gray-500 leading-relaxed mb-6 font-medium" id="desc-qbi">鍛鍊立體空間邏輯與手眼協調，落實早期 STEAM 啟盟。</p>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-800 font-black text-sm group-hover:translate-x-1 transition-transform cursor-pointer" onclick="switchPage('milestones')">
+                                <span>了解發育里程碑</span> <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+
+                        <!-- Goki -->
+                        <div class="bg-brand-50 p-8 rounded-[36px] border border-brand-200/40 hover:border-brand-800/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-brand="goki">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="brand-logo-slot-goki h-10 flex items-center">
+                                        <!-- Logo injected dynamically -->
+                                    </div>
+                                    <span class="text-[10px] px-3 py-1 rounded-full bg-brand-850 text-brand-700 bg-brand-100 font-extrabold uppercase tracking-wide" id="badge-goki">官方零售商</span>
+                                </div>
+                                <h3 class="text-lg font-black text-brand-700 mb-1" id="title-goki">Goki｜德國經典木玩</h3>
+                                <span class="inline-block text-[11px] font-black text-brand-800 bg-brand-200/30 px-2.5 py-0.5 rounded-full mb-3" id="age-range-goki">適用：0 歲以上</span>
+                                <p class="text-sm text-gray-500 leading-relaxed mb-6 font-medium" id="desc-goki">觸摸大自然溫潤質感，全面引發主動思考與專注力。</p>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-800 font-black text-sm group-hover:translate-x-1 transition-transform cursor-pointer" onclick="switchPage('milestones')">
+                                <span>了解發育里程碑</span> <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Teaser Placement (1 Column Centered & Enlarged) -->
+                    <div class="max-w-2xl mx-auto mt-8">
+                        <div class="organic-border bg-brand-100/30 p-8 flex flex-col justify-between group cursor-pointer hover:bg-brand-100/50 transition-all duration-300" onclick="switchPage('b2b')">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-brand-800/20 text-brand-800 flex items-center justify-center text-sm animate-spin" style="animation-duration: 4s;">
+                                        <i class="fa-solid fa-leaf"></i>
+                                    </div>
+                                    <span class="text-[9px] px-2.5 py-1 rounded-full bg-brand-800 text-white font-black uppercase timeline-pulse" id="badge-teaser">即將進駐</span>
+                                </div>
+                                <h3 class="text-lg font-black text-brand-700 mb-2" id="title-teaser">未來全球頂尖合作夥伴</h3>
+                                <p class="text-sm text-gray-500 leading-relaxed mb-6 font-medium" id="desc-teaser">我們正積極引入共享「環境永續、頂級工藝、自然發展」理念的國際頂尖精品，攜手為香港家庭打造最理想的育兒與綠色玩樂舞台。</p>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-700 font-black text-sm group-hover:translate-x-1 transition-transform">
+                                <span id="btn-teaser">查看商務代理合作</span> <i class="fa-solid fa-circle-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Omni-channel Ecosystem -->
+        <section class="py-20 bg-brand-100/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-black tracking-widest text-brand-800 uppercase" id="eco-tag">Omni-Channel Ecosystem</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-700 mt-2 mb-4" id="eco-title">
+                        線上溫暖陪伴，線下精品體驗
+                    </h2>
+                    <p class="text-gray-500 text-sm sm:text-base font-medium" id="eco-intro">全方位伴隨，實現線上至實體店鋪的無縫融合</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- For Parents -->
+                    <div class="bg-white p-8 sm:p-10 rounded-[36px] border border-brand-200/30 shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-800/10 flex items-center justify-center text-brand-800 text-xl">
+                                <i class="fa-solid fa-hands-holding-child"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-700" id="eco-parent-title">對家長 Parents</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-8 font-medium" id="eco-parent-desc">
+                            我們透過 Instagram 傳遞實用的科學育兒知識，並藉由高黏性的 WhatsApp 媽媽社群與跨店網絡，即時分享全球優質選品的專屬禮遇，成為您最堅實的育兒後盾。
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-brand-50 border border-brand-200/40 flex items-center gap-3">
+                                <i class="fa-brands fa-instagram text-2xl text-pink-600"></i>
+                                <div>
+                                    <h4 class="font-bold text-brand-700 text-xs">Instagram Community</h4>
+                                    <p class="text-[10px] text-gray-500 font-bold animate-pulse" id="lbl-parent-insta">傳播科學育兒知識</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-brand-50 border border-brand-200/40 flex items-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-2xl text-emerald-600"></i>
+                                <div>
+                                    <h4 class="font-bold text-brand-700 text-xs">WhatsApp VIP Group</h4>
+                                    <p class="text-[10px] text-gray-500 font-bold" id="lbl-parent-wa">高互動即時社群網絡</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- For Brands -->
+                    <div class="bg-white p-8 sm:p-10 rounded-[36px] border border-brand-200/30 shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 text-xl">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-700" id="eco-brand-title">對品牌 Brands</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-8 font-medium" id="eco-brand-desc">
+                            我們具備成熟的全渠道落地實力。結合數位行銷聲量與實體零售佈局，我們正積極進駐香港核心商圈的高端百貨與嬰兒精品店，為品牌打造極具視覺衝擊力的陳列舞台。
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-brand-50 border border-brand-200/40 flex items-center gap-3">
+                                <i class="fa-solid fa-store text-2xl text-amber-700"></i>
+                                <div>
+                                    <h4 class="font-bold text-brand-700 text-xs" id="eco-brand-retail-title">高精緻實體店網絡</h4>
+                                    <p class="text-[10px] text-gray-500 font-bold" id="eco-brand-retail-desc">覆蓋核心高端孕嬰精品渠道</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-brand-50 border border-brand-200/40 flex items-center gap-3">
+                                <i class="fa-solid fa-eye text-2xl text-brand-700"></i>
+                                <div>
+                                    <h4 class="font-bold text-brand-700 text-xs" id="eco-brand-mkt-title">品牌視覺定位管控</h4>
+                                    <p class="text-[10px] text-gray-500 font-bold" id="eco-brand-mkt-desc">精心守護跨國品牌市場價值</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================= PAGE 2: CHILDHOOD MILESTONES (Reconstructed with exact data) ================= -->
+    <div id="page-milestones" class="page-transition opacity-0 hidden py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-black tracking-widest text-brand-800 uppercase" id="ms-page-tag">SCIENTIFIC PEDIATRIC DEVELOPMENT</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-700 mt-2 mb-6" id="ms-page-title">
+                    寶寶黃金期發育里程碑導引
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed font-medium" id="ms-page-intro">
+                    我們相信，科學育兒不是強迫性的進度表，而是順應自然的引導。以下是 0-5 歲幼兒關鍵的動作發育、感官建立與邏輯邏輯發展階段。Smart Bud 嚴選各階段最適配的全球頂尖用品，協助媽媽科學化培育、引導孩子直覺解鎖天賦技能。
+                </p>
+            </div>
+
+            <!-- Optimized Milestone Tab Selector (3 Main Re-organized Slots) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+                <button onclick="switchMilestoneTab('0-1y')" id="tab-0-1y" class="py-4 px-4 rounded-3xl text-xs sm:text-sm font-extrabold bg-brand-700 text-white shadow-md transition-all duration-300">
+                    <span class="block text-[10px] uppercase opacity-80 tracking-wider">0 - 1 歲</span>
+                    探索與建立依附感
+                </button>
+                <button onclick="switchMilestoneTab('1-3y')" id="tab-1-3y" class="py-4 px-4 rounded-3xl text-xs sm:text-sm font-extrabold bg-white text-brand-700 hover:bg-brand-100 transition-all duration-300 border border-brand-200/50">
+                    <span class="block text-[10px] uppercase text-gray-400 tracking-wider">1 - 3 歲</span>
+                    動作與語言爆發期
+                </button>
+                <button onclick="switchMilestoneTab('3-5y')" id="tab-3-5y" class="py-4 px-4 rounded-3xl text-xs sm:text-sm font-extrabold bg-white text-brand-700 hover:bg-brand-100 transition-all duration-300 border border-brand-200/50">
+                    <span class="block text-[10px] uppercase text-gray-400 tracking-wider">3 - 5 歲</span>
+                    建立邏輯與同理心
+                </button>
+            </div>
+
+            <!-- Milestone Stages Detailed Panels -->
+            <div class="max-w-4xl mx-auto bg-white rounded-[40px] border border-brand-200/40 p-8 sm:p-12 shadow-xl relative overflow-hidden" id="milestones-panels-wrapper">
+                
+                <!-- Stage 1: 0 - 1 Year -->
+                <div id="panel-0-1y" class="milestone-panel transition-all duration-300 opacity-100 block">
+                    <div class="flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-10 h-10 rounded-full bg-brand-800/10 text-brand-800 flex items-center justify-center font-black">1</span>
+                                <h3 class="text-xl font-bold text-brand-700" id="ms-p1-title">0-1 歲：探索世界與建立依附感</h3>
+                            </div>
+                            <p class="text-xs font-bold text-brand-800 uppercase tracking-widest mb-4">焦點：從臥床到學步的身體控制，以及基礎語音的發出。</p>
+                            <div class="space-y-4 text-sm text-gray-600 leading-relaxed font-medium">
+                                <div class="border-l-2 border-brand-800 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">3 個月里程碑</span>
+                                    趴著時能抬頭並用前臂支撐；手掌開始張開，會抓握塞進手中的玩具；會跟著聲音轉頭，並發出「啊、嗚」的母音。
+                                </div>
+                                <div class="border-l-2 border-brand-800 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">6 個月里程碑</span>
+                                    順利翻身（從趴到仰或反之）；會伸手抓眼前的物品並放入口中探索；開始會發出有高低音調的喃喃自語（baba、mama）。
+                                </div>
+                                <div class="border-l-2 border-brand-800 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">9 個月里程碑</span>
+                                    能自己坐得很穩，並開始學會爬行；會用大拇指和食指指尖抓取小餅乾（夾捏動作）；聽得懂自己的名字與簡單的「不可以」。
+                                </div>
+                                <div class="border-l-2 border-brand-800 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">1 歲 (12個月) 里程碑</span>
+                                    能扶著家具走幾步，甚至獨自站立；會做出「再見」或搖頭表示不要的動作；能叫出有意義的「爸爸、媽媽」。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 flex flex-col gap-4 justify-center items-center">
+                            <!-- Match to Tidy Tot (6m+ pincer sensory) -->
+                            <div class="bg-brand-50 p-6 rounded-3xl border border-brand-100 w-full max-w-sm text-center">
+                                <div class="brand-logo-slot-tidytot h-10 flex items-center justify-center mb-3"></div>
+                                <h4 class="font-black text-brand-700 text-sm">最適配的感官陪伴｜Tidy Tot</h4>
+                                <p class="text-xs text-gray-500 mt-2 font-medium">在 6-9 個月學會抓握與捏食的敏感期，利用安全防髒托盤，提供完美的無拘束自由探索空間，引發大腦極速發育。</p>
+                            </div>
+                            <!-- Match to Goki (0m+ grabbing) -->
+                            <div class="bg-brand-50 p-6 rounded-3xl border border-brand-100 w-full max-w-sm text-center">
+                                <div class="brand-logo-slot-goki h-10 flex items-center justify-center mb-3"></div>
+                                <h4 class="font-black text-brand-700 text-sm">觸覺神經傳導好物｜Goki 經典木玩</h4>
+                                <p class="text-xs text-gray-500 mt-2 font-medium">3 個月起手掌張開嘗試抓握時，Goki 的天然原生木環為寶寶提供乾淨安全、來自大自然高感官反饋的溫潤觸摸體驗。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2: 1 - 3 Years -->
+                <div id="panel-1-3y" class="milestone-panel transition-all duration-300 opacity-0 hidden">
+                    <div class="flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-10 h-10 rounded-full bg-brand-800/10 text-brand-800 flex items-center justify-center font-black">2</span>
+                                <h3 class="text-xl font-bold text-brand-700" id="ms-p2-title">1-3 歲：動作與語言的爆發期</h3>
+                            </div>
+                            <p class="text-xs font-bold text-brand-800 uppercase tracking-widest mb-4 font-black">焦點：走路後探索範圍大增，同時迎來「語言暴漲期」與自我意識覺醒。</p>
+                            <div class="space-y-4 text-sm text-gray-600 leading-relaxed font-medium">
+                                <div class="border-l-2 border-brand-500 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">1.5 歲 (18 個月)</span>
+                                    走路很穩，能嘗試倒退走；會疊 2-3 個積木；會拿筆塗鴉；能聽懂簡單指令（如：把球拿給媽媽）；會說 5-10 個單字；會模仿大人的家務動作；開始用手指出想獲得的物品。
+                                </div>
+                                <div class="border-l-2 border-brand-500 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">2 歲 (24 個月)</span>
+                                    能雙腳原地跳起；會一階一階扶著扶手上下樓梯；<strong>能成功用湯匙吃東西</strong>；迎來「詞彙爆炸」，會說 50 個以上的單字；開始將兩個詞組合成短句（如：媽媽抱、喝捏捏）；出現平行遊戲，出現「不要不要」自主意識。
+                                </div>
+                                <div class="border-l-2 border-brand-500 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">3 歲 (36 個月)</span>
+                                    能單腳站立 1-2 秒；會騎三輪車；能自理脫鞋襪與鬆緊帶褲子；能說出 3-4 字以上的完整句子；常常問「為什麼？」；能辨認形狀與基本顏色；開始有輪流、分享概念，喜歡玩角色扮演。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 flex justify-center">
+                            <!-- Match to Doddl (1.5y-3y Self Feeding) -->
+                            <div class="bg-brand-50 p-6 rounded-3xl border border-brand-100 w-full max-w-sm text-center">
+                                <div class="brand-logo-slot-doddl h-10 flex items-center justify-center mb-3"></div>
+                                <h4 class="font-black text-brand-700 text-sm">手眼動作肌肉解鎖｜Doddl 專利餐具</h4>
+                                <p class="text-xs text-gray-500 mt-3 font-medium">
+                                    在 2 歲用匙羹吃飯與模仿階段，不當餐具會導致代償抓握或挫折。Doddl 英國專利人體工學三點持握設計，引導小手指直覺調用成熟肌肉群，無痛自理進食，直接預備寫字握筆之發展基礎。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 3: 3 - 5 Years -->
+                <div id="panel-3-5y" class="milestone-panel transition-all duration-300 opacity-0 hidden">
+                    <div class="flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-10 h-10 rounded-full bg-brand-800/10 text-brand-800 flex items-center justify-center font-black">3</span>
+                                <h3 class="text-xl font-bold text-brand-700" id="ms-p3-title">3-5 歲：建立邏輯與同理心</h3>
+                            </div>
+                            <p class="text-xs font-bold text-brand-800 uppercase tracking-widest mb-4">焦點：社交、精細動作操弄（如剪紙、繪畫）以及邏輯推理能力更趨成熟。</p>
+                            <div class="space-y-4 text-sm text-gray-600 leading-relaxed font-medium">
+                                <div class="border-l-2 border-brand-800 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">4 歲里程碑</span>
+                                    能靈活單腳跳躍、接住彈跳的球；會用剪刀剪直線、學會畫出十字架或正方形；可以流暢分享故事或日常；正確認知「你、我、他」代名詞；懂得「明天、昨天」概念，與同儕合作，發展同理心。
+                                </div>
+                                <div class="border-l-2 border-brand-800 pl-3">
+                                    <span class="font-extrabold text-brand-700 block text-xs">5 歲里程碑</span>
+                                    平衡感極佳，能單腳站立超過 10 秒；會使用筷子、自己扣扣子或嘗試綁鞋帶；能畫出具體人形；發音清晰，理解因果關係對話（因為…所以…）；理解複雜空間方位（裡面、外面、後面、旁邊）。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 flex flex-col gap-4 justify-center items-center">
+                            <!-- Match to QBI -->
+                            <div class="bg-brand-50 p-6 rounded-3xl border border-brand-100 w-full max-w-sm text-center">
+                                <div class="brand-logo-slot-qbi h-10 flex items-center justify-center mb-3"></div>
+                                <h4 class="font-black text-brand-700 text-sm">邏輯數理空間架構｜QBI 磁吸積木</h4>
+                                <p class="text-xs text-gray-500 mt-2 font-medium">4-5歲孩子已具備因果與空間方位認知，QBI 多維軌道搭建讓其透過親手組裝，試錯重力與磁力方向，訓練超高深度專注力與邏輯抗挫力。</p>
+                            </div>
+                            <!-- Match to Goki Balance -->
+                            <div class="bg-brand-50 p-6 rounded-3xl border border-brand-100 w-full max-w-sm text-center">
+                                <div class="brand-logo-slot-goki h-10 flex items-center justify-center mb-3"></div>
+                                <h4 class="font-black text-brand-700 text-sm">高階重力與美學考驗｜Goki 木製平衡搭建</h4>
+                                <p class="text-xs text-gray-500 mt-2 font-medium">實木觸感是塑膠無法替代的物理常識媒介。Goki 木製多維平衡積木，最適合考驗 5 歲學童極致平衡感，沉靜心神進行物理與幾何演算。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 3: MOMMY SHOPS PARTNERSHIP (New Collaborative Page) ================= -->
+    <div id="page-mommy-shops" class="page-transition opacity-0 hidden py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-black tracking-widest text-brand-800 uppercase" id="moms-page-tag">MOMMY SHOP DISTRIBUTION NETWORK</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-700 mt-2 mb-4" id="moms-page-title">
+                    媽媽小店合作分銷計劃
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed font-medium" id="moms-page-intro">
+                    妳也是用心經營母嬰好物分享的媽媽店主嗎？Smart Bud 誠邀香港各區精品小店與獨立社群加入我們的「溫暖分銷網」，一同將國際獲獎、環保無毒的發育智品推廣至更多家庭。
+                </p>
+            </div>
+
+            <!-- Program Features -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-[32px] border border-brand-200/40 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-900/10 text-brand-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-percent"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-700 text-base mb-2">低門檻小額批發</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed font-medium">針對媽媽社團、小店店主提供極具彈性的首批門檻，免除大量囤貨壓力，輕鬆引進國際頂級好物。</p>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] border border-brand-200/40 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-900/10 text-brand-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-700 text-base mb-2">全套視覺與行銷支援</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed font-medium">提供官方高清商品圖、原廠發育里程碑解說文案、IG 宣傳模組，協助妳輕鬆上手宣傳。</p>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] border border-brand-200/40 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-900/10 text-brand-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-users-rectangle"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-700 text-base mb-2">全香港跨店流量互補</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed font-medium">我們的官方網站與 WhatsApp 社群將主動推薦就近的合作夥伴門市，實現線上到線下的溫暖客流共享。</p>
+                </div>
+            </div>
+
+            <!-- Shop Form -->
+            <div class="bg-white p-8 sm:p-12 rounded-[40px] border border-brand-200/40 shadow-xl max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="font-serif text-2xl font-bold text-brand-700" id="moms-form-title">開啟我們的溫暖合作</h3>
+                    <p class="text-xs text-gray-500 mt-2 font-medium" id="moms-form-sub">請填寫下方基本資訊，我們的小店BD團隊將於 24 小時內與妳取得聯繫！</p>
+                </div>
+
+                <form id="mommy-shop-form" onsubmit="handleMommyFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">小店或社團名稱 Shop/Group Name</label>
+                            <input type="text" id="mom-input-shop" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="例如：媽媽愛好物網店">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">店主/聯絡人姓名 Owner Name</label>
+                            <input type="text" id="mom-input-name" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="例如：陳媽媽 (Iris)">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">WhatsApp 聯絡電話 Phone Number</label>
+                            <input type="tel" id="mom-input-phone" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="例如：91234567">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">網店網址或實體店地址 Store URL / Address</label>
+                            <input type="text" id="mom-input-url" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="例如：www.iris-mommy-shop.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">預計想引進分銷的品牌 Select Brands</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-brand-50 p-4 rounded-xl border border-brand-200/50">
+                            <label class="flex items-center gap-2 text-xs font-bold text-brand-700 cursor-pointer">
+                                <input type="checkbox" name="mom-brands" value="Doddl" class="accent-brand-700"> Doddl 餐具
+                            </label>
+                            <label class="flex items-center gap-2 text-xs font-bold text-brand-700 cursor-pointer">
+                                <input type="checkbox" name="mom-brands" value="Tidy Tot" class="accent-brand-700"> Tidy Tot 圍兜
+                            </label>
+                            <label class="flex items-center gap-2 text-xs font-bold text-brand-700 cursor-pointer">
+                                <input type="checkbox" name="mom-brands" value="QBI" class="accent-brand-700"> QBI 磁軌
+                            </label>
+                            <label class="flex items-center gap-2 text-xs font-bold text-brand-700 cursor-pointer">
+                                <input type="checkbox" name="mom-brands" value="Goki" class="accent-brand-700"> Goki 木玩
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">請簡述妳的經營想法與期望</label>
+                        <textarea rows="4" id="mom-input-message" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="分享妳的客群特點或是想合作的模式..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-full bg-brand-700 text-white font-black hover:bg-brand-500 shadow-lg transition-all hover:scale-[1.01] flex items-center justify-center gap-2" id="moms-btn-submit">
+                        提交分銷申請
+                    </button>
+                </form>
+
+                <!-- Success Box -->
+                <div id="mom-form-success" class="hidden text-center py-8">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-700 animate-pulse" id="mom-success-title">謝謝妳的來信，媽媽店主！</h4>
+                    <p class="text-xs text-gray-500 mt-2 max-w-md mx-auto leading-relaxed font-medium" id="mom-success-desc">
+                        我們的小編媽媽已經收到妳的分銷申請，我們將於 1 個工作天內透過 WhatsApp 與妳對接，為妳提供小店合作簡報與批發價目表！
+                    </p>
+                    <button onclick="resetMomForm()" class="mt-6 px-6 py-2 rounded-full border border-brand-200 text-brand-700 font-semibold hover:bg-brand-50 text-xs transition-all">
+                        再次提交
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 4: ABOUT US ================= -->
+    <div id="page-about" class="page-transition opacity-0 hidden py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <!-- Polaroid Frame Graphic -->
+                    <div class="bg-white p-6 rounded-[32px] shadow-xl border border-brand-200/50 max-w-sm w-full transition-transform hover:scale-[1.01]">
+                        <div class="aspect-square bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-8 relative overflow-hidden border border-brand-200/20 company-logo-large-slot">
+                            <!-- Injected dynamically via JS -->
+                        </div>
+                        <div class="mt-4 text-center">
+                            <span class="font-serif italic text-brand-700 text-base font-bold">"Nurturing Joyful Growth"</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <span class="text-xs font-black tracking-widest text-brand-800 uppercase" id="about-founder-tag">FOUNDER'S JOURNEY</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-700 mt-2 mb-6" id="about-founder-title">
+                        創辦人的心聲
+                    </h2>
+                    
+                    <div id="founder-journey-content" class="text-gray-600 text-sm sm:text-base leading-relaxed space-y-4 font-medium">
+                        <!-- Hydrated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Promises (No microplastics references, premium and aesthetic focus) -->
+            <div>
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-black tracking-widest text-brand-800 uppercase" id="promises-tag">OUR STANDARDS</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-700 mt-2 mb-4" id="promises-title">
+                        四大核心承諾
+                    </h2>
+                    <p class="text-gray-500 text-xs sm:text-sm font-medium" id="promises-subtitle">我們對兒童發展、環境永續、美學及社群的極致追求</p>
+                </div>
+
+                <!-- 3D Card Matrix -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 perspective-1000">
+                    <!-- Promise 1 -->
+                    <div onclick="toggleFlipCard(this)" class="relative h-72 preserve-3d cursor-pointer duration-500 transition-transform group">
+                        <div class="absolute inset-0 backface-hidden bg-white p-8 rounded-[32px] border border-brand-200/40 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-puzzle-piece"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-base font-bold text-brand-700" id="promise-t1">全面發展</h3>
+                                    <p class="text-[9px] font-bold text-brand-800 uppercase tracking-wider" id="promise-sub1">Holistic Development</p>
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <h4 class="font-bold text-brand-700 text-sm mb-2" id="promise-p1-title">精準解鎖成長里程碑</h4>
+                                <p class="text-xs text-gray-500 line-clamp-3 font-medium" id="promise-p1-desc-front">專注於 0-5 歲關鍵發育期，嚴選有助於精細動作、認知邏輯與情感自主的選品，支持孩子全面發育。</p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-extrabold"><i class="fa-regular fa-hand-pointer mr-1 animate-bounce"></i> 點擊翻看核心觀點</span>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-brand-700 text-white p-8 rounded-[32px] flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-brand-800 text-xs uppercase tracking-widest mb-2" id="promise-b1-badge">DEEP INSIGHT</h4>
+                                <p class="text-xs text-brand-100 leading-relaxed font-medium" id="promise-p1-desc-back">
+                                    將兒童發展學融入生活物件。不論是人體工學餐具或是啟發邏輯的多維玩具，我們堅持用科學驗證、可視化寶寶肌肉進展的標準，挑選讓家長與兒科專家皆讚賞的輔助工具。
+                                </p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-bold"><i class="fa-solid fa-rotate mr-1"></i> 再次點擊翻回</span>
+                        </div>
+                    </div>
+
+                    <!-- Promise 2 -->
+                    <div onclick="toggleFlipCard(this)" class="relative h-72 preserve-3d cursor-pointer duration-500 transition-transform group">
+                        <div class="absolute inset-0 backface-hidden bg-white p-8 rounded-[32px] border border-brand-200/40 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-shield-heart"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-base font-bold text-brand-700" id="promise-t2">0妥協與永續安全</h3>
+                                    <p class="text-[9px] font-bold text-brand-800 uppercase tracking-wider" id="promise-sub2">Safety & Sustainability</p>
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <h4 class="font-bold text-brand-700 text-sm mb-2" id="promise-p2-title">嚴格把關，安心陪伴</h4>
+                                <p class="text-xs text-gray-500 line-clamp-3 font-medium" id="promise-p2-desc-front">所有選品必須通過最高規格國際安全認證（EN71/ASTM）。我們堅持挑選高品質、耐用且安全的環境友善材質，承諾地球永續、守護健康。</p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-extrabold"><i class="fa-regular fa-hand-pointer mr-1"></i> 點擊翻開核心觀點</span>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-brand-700 text-white p-8 rounded-[32px] flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-brand-800 text-xs uppercase tracking-widest mb-2" id="promise-b2-badge">DEEP INSIGHT</h4>
+                                <p class="text-xs text-brand-100 leading-relaxed font-medium" id="promise-p2-desc-back">
+                                    我們挑選的每一款木玩與餐具，皆採用天然無毒、歐盟環保規範的原生木材或醫療級矽膠，並通過無數次跌落、拉力、安全咬合等耐用測試，確保寶寶在自由探索時獲得環境無毒的安全守護。
+                                </p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-bold"><i class="fa-solid fa-rotate mr-1"></i> 再次點擊翻回</span>
+                        </div>
+                    </div>
+
+                    <!-- Promise 3 -->
+                    <div onclick="toggleFlipCard(this)" class="relative h-72 preserve-3d cursor-pointer duration-500 transition-transform group">
+                        <div class="absolute inset-0 backface-hidden bg-white p-8 rounded-[32px] border border-brand-200/40 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-compass-drafting"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-base font-bold text-brand-700" id="promise-t3">美學與實用</h3>
+                                    <p class="text-[9px] font-bold text-brand-800 uppercase tracking-wider" id="promise-sub3">Aesthetics & Functionality</p>
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <h4 class="font-bold text-brand-700 text-sm mb-2" id="promise-p3-title">融入現代家庭的生活美學</h4>
+                                <p class="text-xs text-gray-500 line-clamp-3 font-medium" id="promise-p3-desc-front">兼具國際設計美學與極高的實用機能，擺脫母嬰用品的雜亂感，完美融入香港都市家庭的精緻空間。</p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-extrabold"><i class="fa-regular fa-hand-pointer mr-1"></i> 點擊翻開核心觀點</span>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-brand-700 text-white p-8 rounded-[32px] flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-brand-800 text-xs uppercase tracking-widest mb-2" id="promise-b3-badge">DEEP INSIGHT</h4>
+                                <p class="text-xs text-brand-100 leading-relaxed font-medium" id="promise-p3-desc-back">
+                                    育兒生活與家居美學無需妥協。我們引進兼顧北歐極簡與德式經典幾何美學的選品，並確保其便於收納與清潔，讓高品質的設計與香港現代精緻的小宅空間完美融合。
+                                </p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-bold"><i class="fa-solid fa-rotate mr-1"></i> 再次點擊翻回</span>
+                        </div>
+                    </div>
+
+                    <!-- Promise 4 -->
+                    <div onclick="toggleFlipCard(this)" class="relative h-72 preserve-3d cursor-pointer duration-500 transition-transform group">
+                        <div class="absolute inset-0 backface-hidden bg-white p-8 rounded-[32px] border border-brand-200/40 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-base font-bold text-brand-700" id="promise-t4">社群陪伴</h3>
+                                    <p class="text-[9px] font-bold text-brand-800 uppercase tracking-wider" id="promise-sub4">Community & Guidance</p>
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <h4 class="font-bold text-brand-700 text-sm mb-2" id="promise-p4-title">您最溫暖的育兒後盾</h4>
+                                <p class="text-xs text-gray-500 line-clamp-3 font-medium" id="promise-p4-desc-front">不只銷售，更透過 Instagram 科學育兒知識與 WhatsApp 媽咪社群，提供即時、專業的在地化引導、交流與陪伴。</p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-extrabold"><i class="fa-regular fa-hand-pointer mr-1"></i> 點擊翻開核心觀點</span>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-brand-700 text-white p-8 rounded-[32px] flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-brand-800 text-xs uppercase tracking-widest mb-2" id="promise-b4-badge">DEEP INSIGHT</h4>
+                                <p class="text-xs text-brand-100 leading-relaxed font-medium" id="promise-p4-desc-back">
+                                    育兒從來不是孤軍奮戰。我們建立了緊密而精細的 WhatsApp 跨店社群網絡與在地專業母嬰諮詢，隨時為香港媽媽們解答有關離乳期、寶寶手部協調等科學疑難，相伴共同成長。
+                                </p>
+                            </div>
+                            <span class="text-[10px] text-brand-800 font-bold"><i class="fa-solid fa-rotate mr-1"></i> 再次點擊翻回</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= PAGE 5: BRAND PARTNERSHIP (B2B) ================= -->
+    <div id="page-b2b" class="page-transition opacity-0 hidden py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-gradient-to-br from-brand-100 to-white p-8 sm:p-12 rounded-[40px] border border-brand-200/50 shadow-xl mb-16 relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-44 h-44 bg-brand-800/10 rounded-full blur-3xl"></div>
+                <div class="max-w-4xl relative z-10">
+                    <span class="text-xs font-bold tracking-widest text-brand-800 uppercase" id="b2b-badge">ASIA-PACIFIC STRATEGIC COOPERATION</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-700 mt-3 mb-6 leading-tight" id="b2b-title">
+                        成為您的跨國品牌價值守護者與亞太區市場放大者
+                    </h2>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 font-medium" id="b2b-intro-p1">
+                        在 Smart Bud，我們深知拓展全新市場的挑戰。對於一個重視精湛工藝、頂級安全與環境永續價值的跨國頂尖品牌而言，您需要的絕不只是一個單純將貨品上架的批發商，而是一個在本地市場深諳品牌營銷（Brand Marketing）、珍視品牌資產（Brand Equity），且具備全渠道價格管控與落地執行力的戰略合作夥伴。
+                    </p>
+                    <p class="text-brand-700 font-black text-sm sm:text-base border-l-4 border-brand-800 pl-4" id="b2b-intro-p2">
+                        我們已成功拿下英國 Doddl 的香港獨家總代理（Sole Distribution）策略佈局，並建立了 Tidy Tot、Goki、QBI 的官方授權零售商結構。我們對渠道與價格的嚴格維護、對整體品牌行銷的投入，以及對中高端家庭需求的精準洞察，是我們商業操盤能力的最佳證明。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Commercial entry strategy -->
+            <div class="mb-24">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs font-bold tracking-widest text-brand-800 uppercase" id="timeline-badge">COMMERCIAL BLUEPRINT</span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-700 mt-2 mb-4" id="timeline-title">
+                        我們的 12 個月市場進入策略
+                    </h3>
+                    <p class="text-gray-500 text-xs sm:text-sm font-medium" id="timeline-subtitle">精準、高端、可控的品牌發育與增長渠道</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-[40px] border border-brand-200/40 shadow-lg">
+                    <!-- Steps Select Tab -->
+                    <div class="grid grid-cols-3 gap-2 bg-brand-50 p-2 rounded-2xl mb-8">
+                        <button onclick="setActiveTimelineStep(1)" id="btn-step-1" class="py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 bg-brand-700 text-white shadow">
+                            <span class="block text-[9px] uppercase tracking-wider text-brand-100 font-extrabold">Step 1</span>
+                            Months 1-3
+                        </button>
+                        <button onclick="setActiveTimelineStep(2)" id="btn-step-2" class="py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 text-gray-500 hover:text-brand-700">
+                            <span class="block text-[9px] uppercase tracking-wider text-gray-400 font-extrabold">Step 2</span>
+                            Months 4-6
+                        </button>
+                        <button onclick="setActiveTimelineStep(3)" id="btn-step-3" class="py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 text-gray-500 hover:text-brand-700">
+                            <span class="block text-[9px] uppercase tracking-wider text-gray-400 font-extrabold">Step 3</span>
+                            Months 7-12
+                        </button>
+                    </div>
+
+                    <!-- Step Panels -->
+                    <div id="step-panel-1" class="transition-all duration-300 opacity-100 block">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="w-12 h-12 rounded-full bg-brand-800 text-white flex items-center justify-center font-black text-lg shrink-0 shadow-lg">1</div>
+                            <div>
+                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s1-title">第 1-3 個月：本地化定位與全渠道價格管控 (Price Control)</h4>
+                                <span class="text-[10px] font-black text-brand-800 uppercase tracking-widest" id="timeline-s1-eng">Price Control & Localization</span>
+                                <p class="text-sm text-gray-600 mt-4 leading-relaxed font-medium" id="timeline-s1-desc">
+                                    精準對接香港高淨值母嬰市場與教育剛需（如將產品的核心發展價值連結至在地家庭關注的能力養成定位），制定嚴格的價格維護機制，杜絕破壞性的惡性價格競爭，誓死捍衛品牌跨國的高端與專業形象。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="step-panel-2" class="transition-all duration-300 opacity-0 hidden">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-black text-lg shrink-0 shadow-lg">2</div>
+                            <div>
+                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s2-title">第 4-6 個月：跨店社群網絡引爆與高轉化 KOL 營銷</h4>
+                                <span class="text-[10px] font-black text-brand-800 uppercase tracking-widest" id="timeline-s2-eng">Community Amplification & KOLS</span>
+                                <p class="text-sm text-gray-600 mt-4 leading-relaxed font-medium" id="timeline-s2-desc">
+                                    除了自營社群，我們更與香港多家優質媽媽小店社群及零售網絡（Mom-and-Pop Shop Networks）達成戰略結盟。透過這套覆蓋龐大實體用家（Active Physical End-users）的網絡，結合活躍的 Instagram 內容與精準的 WhatsApp 媽咪團購群組，快速為品牌引爆在地的深度聲量與信任。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="step-panel-3" class="transition-all duration-300 opacity-0 hidden">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="w-12 h-12 rounded-full bg-brand-700 text-white flex items-center justify-center font-black text-lg shrink-0 shadow-lg">3</div>
+                            <div>
+                                <h4 class="text-lg font-extrabold text-brand-700 mb-1" id="timeline-s3-title">第 7-12 個月：線下精品陳列與極致視覺衝擊 (On-shelf Visual Impact)</h4>
+                                <span class="text-[10px] font-black text-brand-800 uppercase tracking-widest" id="timeline-s3-eng">On-shelf Visual Impact</span>
+                                <p class="text-sm text-gray-600 mt-4 leading-relaxed font-medium" id="timeline-s3-desc">
+                                    將線上與跨店社群累積的龐大實體用家數據轉化為實體效益。我們正積極推進與香港核心商圈的精品百貨及高端嬰兒用品連鎖店的深度合作，承諾為您的產品打造最具視覺衝擊力、完整傳遞品牌理念的體驗式陳列舞台。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantages -->
+            <div class="mb-24">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold tracking-widest text-brand-800 uppercase" id="why-badge">STRATEGIC ADVANTAGES</span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-700 mt-2 mb-4" id="why-title">
+                        為什麼選擇 Smart Bud 成為您的香港合作夥伴？
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-[32px] border border-brand-200/40 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p1-title font-black">強大的跨店社群網絡與實體用家基礎</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed font-medium" id="why-p1-desc">
+                            我們的生態圈精準聚集了香港 22-40 歲、極度重視孩子黃金發育期、追求永續與品質的高消費力實體用家。我們最擅長將高品質的永續與教育價值，轉化為她們心中的「育兒必備選品」。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-[32px] border border-brand-200/40 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-rectangle-ad"></i>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p2-title font-black">全渠道品牌營銷（Brand Marketing）實力</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed font-medium" id="why-p2-desc">
+                            我們不只做銷售，更擅長為品牌進行整體的在地化包裝與推廣。我們懂得將品牌的工藝價值、環保承諾與在地化的育兒里程碑相結合，創造無可替代的購買剛需。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-[32px] border border-brand-200/40 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-900/20 text-brand-700 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-building-shield"></i>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-brand-700 mb-3" id="why-p3-title font-black">嚴格的控價與資產保護機制</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed font-medium" id="why-p3-desc">
+                            作為英國 Doddl 的香港獨家總代理，我們已建立完整的供應鏈、行銷和價格防護機制，具備跨國精品品牌落地所需的全面操盤基礎，誓與品牌方並肩守護每一步價值。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B2B Strategic Form -->
+            <section id="b2b-form" class="bg-white p-8 sm:p-12 rounded-[40px] border border-brand-200/40 shadow-xl max-w-3xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="font-serif text-2xl font-bold text-brand-700" id="form-title">即刻與我們的商務發展團隊展開對話</h3>
+                    <p class="text-xs text-gray-500 mt-2 font-medium" id="form-subtitle">讓我們在香港，為您的品牌用心培育出最豐碩的市場果實。</p>
+                </div>
+
+                <form id="bd-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2" id="form-lbl-name">聯絡人姓名 Name</label>
+                            <input type="text" id="input-name" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="e.g. Sarah Wong">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2" id="form-lbl-email">商業電子郵件 Business Email</label>
+                            <input type="email" id="input-email" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="e.g. brand@partner.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2" id="form-lbl-brand">品牌名稱 Brand Name</label>
+                            <input type="text" id="input-brand" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="e.g. Doddl">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2" id="form-lbl-country">總部國家 Country of HQ</label>
+                            <input type="text" id="input-country" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="e.g. United Kingdom">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2" id="form-lbl-msg">合作願景與簡述 Collaboration Vision</label>
+                        <textarea rows="4" id="input-message" required class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium" placeholder="Describe your brand and vision for the HK market..."></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-brand-200/50">
+                        <div class="flex items-center gap-2 text-brand-850 font-bold text-sm">
+                            <i class="fa-solid fa-envelope text-brand-800"></i>
+                            <span>bd@smartbud.com.hk</span>
+                        </div>
+                        <button type="submit" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-700 text-white font-extrabold hover:bg-brand-500 shadow-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
+                            <span id="form-btn-submit">提交合作提案</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="form-success" class="hidden text-center py-8">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-700 animate-pulse" id="success-title">提案提交成功！</h4>
+                    <p class="text-xs text-gray-500 mt-2 max-w-md mx-auto font-medium" id="success-desc">
+                        感謝您對 Smart Bud 樂芽的支持。我們的商務發展團隊將在 2 個工作天內，透過 bd@smartbud.com.hk 與您取得聯繫。
+                    </p>
+                    <button onclick="resetForm()" class="mt-6 px-6 py-2 rounded-full border border-brand-200 text-brand-700 font-semibold hover:bg-brand-50 text-xs transition-all">
+                        再次提交
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- ================= PAGE 6: ADMIN BACK-OFFICE (Fully functional local configuration panel) ================= -->
+    <div id="page-admin" class="page-transition opacity-0 hidden py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-black tracking-widest text-brand-800 uppercase">SYSTEM BACK-OFFICE</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-700 mt-2 mb-4">
+                    Smart Bud 樂芽全功能後台編輯系統
+                </h2>
+                <p class="text-gray-500 text-sm font-medium">在此可以置換全站與品牌 Logo、自由編輯全站網頁任何雙語文字內容（包括適用年齡）、並審查所有收到的分銷申請與商務提單（全部資料儲存於 localStorage 中）。</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Sidebar tabs controller -->
+                <div class="lg:col-span-3 space-y-2 bg-white p-6 rounded-[32px] border border-brand-200/40 shadow-sm h-fit">
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">後台功能選項</h3>
+                    <button onclick="switchAdminTab('general')" id="admin-tab-general" class="w-full text-left px-4 py-3 rounded-xl text-sm font-bold bg-brand-700 text-white flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-font"></i> 編輯全站文字內容
+                    </button>
+                    <button onclick="switchAdminTab('images')" id="admin-tab-images" class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-gray-600 hover:bg-brand-50 flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-images"></i> 置換全站與品牌 Logo
+                    </button>
+                    <button onclick="switchAdminTab('brands')" id="admin-tab-brands" class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-gray-600 hover:bg-brand-50 flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-tags"></i> 編輯品牌及適用年齡
+                    </button>
+                    <button onclick="switchAdminTab('milestones')" id="admin-tab-milestones" class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-gray-600 hover:bg-brand-50 flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-graduation-cap"></i> 編輯發展里程碑細節
+                    </button>
+                    <button onclick="switchAdminTab('leads')" id="admin-tab-leads" class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-gray-600 hover:bg-brand-50 flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-inbox"></i> 查看合作提單收件箱
+                    </button>
+                </div>
+
+                <!-- Admin panels details -->
+                <div class="lg:col-span-9 bg-white p-8 rounded-[40px] border border-brand-200/40 shadow-md">
+                    
+                    <!-- Admin Panel 1: General Texts Config -->
+                    <div id="admin-panel-general" class="admin-panel block">
+                        <h4 class="font-bold text-brand-700 text-lg border-b pb-4 mb-6"><i class="fa-solid fa-font mr-2"></i>編輯全站通用繁簡與雙語文字</h4>
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">公司商標文字 Company Name Text</label>
+                                    <input type="text" id="edit-nav-brand-title" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">公司副標文字 Subtitle (ZH)</label>
+                                    <input type="text" id="edit-nav-brand-subtitle-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <h5 class="text-xs font-black text-brand-800 uppercase tracking-widest border-l-2 border-brand-800 pl-2">首頁 Hero 主打文字</h5>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">首頁繁中標題 headline (ZH)</label>
+                                    <input type="text" id="edit-hero-headline-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">首頁英文標題 headline (EN)</label>
+                                    <input type="text" id="edit-hero-headline-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">首頁繁中副標題 subheadline (ZH)</label>
+                                    <textarea rows="3" id="edit-hero-subheadline-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">首頁英文副標題 subheadline (EN)</label>
+                                    <textarea rows="3" id="edit-hero-subheadline-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <h5 class="text-xs font-black text-brand-800 uppercase tracking-widest border-l-2 border-brand-800 pl-2">代理品牌專區引導文字</h5>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">專區主標題 (ZH)</label>
+                                    <input type="text" id="edit-brands-title-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">專區主標題 (EN)</label>
+                                    <input type="text" id="edit-brands-title-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">專區詳細介紹 (ZH)</label>
+                                    <textarea rows="3" id="edit-brands-intro-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">專區詳細介紹 (EN)</label>
+                                    <textarea rows="3" id="edit-brands-intro-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-medium"></textarea>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t flex justify-end gap-3">
+                                <button onclick="resetGeneralContent()" class="px-5 py-2.5 rounded-full border border-brand-200 text-xs font-bold hover:bg-brand-50 text-brand-700">還原預設</button>
+                                <button onclick="saveGeneralContent()" class="px-6 py-2.5 rounded-full bg-brand-700 text-xs text-white font-extrabold hover:bg-brand-550 shadow">儲存並即時更新</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Panel 2: Brand/Company Image Uplinks -->
+                    <div id="admin-panel-images" class="admin-panel hidden">
+                        <h4 class="font-bold text-brand-700 text-lg border-b pb-4 mb-6"><i class="fa-solid fa-images mr-2"></i>置換全站與品牌 Logo (Base64 儲存)</h4>
+                        <div class="space-y-8">
+                            <!-- Company Logo Uplink -->
+                            <div class="p-6 bg-brand-50 rounded-3xl border border-brand-200/50">
+                                <h5 class="text-sm font-black text-brand-700 mb-4">1. 置換「樂芽公司」主商標標誌 (Company Logo)</h5>
+                                <div class="flex flex-col sm:flex-row items-center gap-6">
+                                    <div class="w-20 h-20 rounded-full border border-brand-200 bg-white flex items-center justify-center overflow-hidden shrink-0" id="admin-logo-preview-box">
+                                        <!-- Realtime Preview Injected via JS -->
+                                    </div>
+                                    <div class="space-y-2 w-full">
+                                        <p class="text-xs text-gray-400 font-medium">支援透明背景的 .png, .jpeg 或 .svg 圖片檔案。上傳後將置換全站頁首、頁尾、關於我們 Polaroid 卡片中的 Logo_8 標誌。</p>
+                                        <div class="flex gap-2">
+                                            <input type="file" id="company-logo-input" onchange="uploadCompanyLogo(event)" class="text-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-brand-100 file:text-brand-700 hover:file:bg-brand-200 cursor-pointer">
+                                            <button onclick="clearCustomLogo()" class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-bold hover:bg-red-100">還原預設</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Specific Brand Logo Uplink -->
+                            <div class="p-6 bg-brand-50 rounded-3xl border border-brand-200/50">
+                                <h5 class="text-sm font-black text-brand-700 mb-4">2. 置換指定代理品牌之獨立標誌 (Brand Logos)</h5>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">選擇需要修改的品牌 Select Brand</label>
+                                        <select id="image-select-brand" onchange="updateBrandImagePreview()" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-white text-sm font-bold">
+                                            <option value="doddl">英國 Doddl</option>
+                                            <option value="tidytot">英國 Tidy Tot</option>
+                                            <option value="qbi">台灣 QBI</option>
+                                            <option value="goki">德國 Goki</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <div class="w-40 h-16 rounded-xl border border-dashed border-gray-300 bg-white flex items-center justify-center" id="brand-logo-preview-box">
+                                            <!-- Preview -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-xs text-gray-400 font-medium">支援為各獨家/授權品牌上載專屬的商標。置換後，首頁網格與里程碑推薦卡片中的預設文字將會替換成精緻的商標圖檔。</p>
+                                    <div class="flex gap-2">
+                                        <input type="file" id="brand-logo-input" onchange="uploadBrandLogo(event)" class="text-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-brand-100 file:text-brand-700 hover:file:bg-brand-200 cursor-pointer">
+                                        <button onclick="clearBrandLogo()" class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-bold hover:bg-red-100">還原預設</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Panel 3: Brand Details (Including Recommended Ages) -->
+                    <div id="admin-panel-brands" class="admin-panel hidden">
+                        <h4 class="font-bold text-brand-700 text-lg border-b pb-4 mb-6"><i class="fa-solid fa-tags mr-2"></i>編輯合作夥伴細節與適用年齡 (Showcase Editor)</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">選擇要修改的品牌 Select Brand</label>
+                                <select id="admin-select-brand" onchange="loadAdminBrandData()" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-bold">
+                                    <option value="doddl">Doddl｜英國人體工學餐具</option>
+                                    <option value="tidytot">Tidy Tot｜英國防髒托盤圍兜</option>
+                                    <option value="qbi">QBI｜益智磁吸軌道玩具</option>
+                                    <option value="goki">Goki｜德國經典木玩</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文推薦適用年齡 Age Rating (ZH)</label>
+                                    <input type="text" id="admin-brand-age-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">英文推薦適用年齡 Age Rating (EN)</label>
+                                    <input type="text" id="admin-brand-age-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-medium">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文品牌標題 Brand Title (ZH)</label>
+                                    <input type="text" id="admin-brand-title-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">英文品牌標題 Brand Title (EN)</label>
+                                    <input type="text" id="admin-brand-title-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文標籤 Badge (ZH)</label>
+                                    <input type="text" id="admin-brand-badge-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">英文標籤 Badge (EN)</label>
+                                    <input type="text" id="admin-brand-badge-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文核心介紹 (ZH)</label>
+                                <textarea rows="3" id="admin-brand-desc-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">英文核心介紹 (EN)</label>
+                                <textarea rows="3" id="admin-brand-desc-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm"></textarea>
+                            </div>
+
+                            <div class="pt-4 border-t flex justify-end gap-3">
+                                <button onclick="resetAdminBrandData()" class="px-5 py-2.5 rounded-full border border-brand-200 font-semibold text-xs hover:bg-brand-50 text-brand-700">還原預設 Reset</button>
+                                <button onclick="saveAdminBrandData()" class="px-6 py-2.5 rounded-full bg-brand-700 hover:bg-brand-500 font-bold text-xs text-white shadow-md">儲存並即時更新 Save & Sync</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Panel 4: Milestones Setup -->
+                    <div id="admin-panel-milestones" class="admin-panel hidden">
+                        <h4 class="font-bold text-brand-700 text-lg border-b pb-4 mb-6"><i class="fa-solid fa-graduation-cap mr-2"></i>編輯兒童發育里程碑 (Milestones Editor)</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">選擇要修改的里程碑階段 Select Milestone Stage</label>
+                                <select id="admin-select-milestone" onchange="loadAdminMilestoneData()" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm font-bold">
+                                    <option value="0-1y">Stage 1: 0 - 1 歲 探索與依附</option>
+                                    <option value="1-3y">Stage 2: 1 - 3 歲 動作與語言爆發</option>
+                                    <option value="3-5y">Stage 3: 3 - 5 歲 邏輯與同理心</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文階段主標題 Stage Title (ZH)</label>
+                                    <input type="text" id="admin-ms-title-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">英文階段主標題 Stage Title (EN)</label>
+                                    <input type="text" id="admin-ms-title-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">中文推薦卡片標題 Rec Card Title (ZH)</label>
+                                    <input type="text" id="admin-ms-rec-zh" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">英文推薦卡片標題 Rec Card Title (EN)</label>
+                                    <input type="text" id="admin-ms-rec-en" class="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:border-brand-700 bg-brand-50 text-sm">
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t flex justify-end gap-3">
+                                <button onclick="resetAdminMilestoneData()" class="px-5 py-2.5 rounded-full border border-brand-200 font-semibold text-xs hover:bg-brand-50 text-brand-700">還原預設 Reset</button>
+                                <button onclick="saveAdminMilestoneData()" class="px-6 py-2.5 rounded-full bg-brand-700 hover:bg-brand-500 font-bold text-xs text-white shadow-md">儲存並即時更新 Save & Sync</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Panel 5: Viewed B2B & Mommy Leads -->
+                    <div id="admin-panel-leads" class="admin-panel hidden">
+                        <h4 class="font-bold text-brand-700 text-lg border-b pb-4 mb-6"><i class="fa-solid fa-inbox mr-2"></i>戰略合作諮詢與媽媽小店申請 (Inbound Leads)</h4>
+                        
+                        <div class="space-y-8">
+                            <!-- B2B Leads -->
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <h5 class="text-sm font-black text-brand-700 uppercase tracking-wider">1. 品牌總代 B2B 戰略諮詢 (${leadsDb.length})</h5>
+                                    <button onclick="clearAdminLeads()" class="text-[10px] text-red-600 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-full font-bold">清空紀錄 Clear</button>
+                                </div>
+                                <div class="space-y-4 max-h-[300px] overflow-y-auto pr-2" id="admin-leads-list">
+                                    <!-- Dynamic -->
+                                </div>
+                            </div>
+
+                            <!-- Mommy Shop Leads -->
+                            <div class="border-t pt-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h5 class="text-sm font-black text-brand-700 uppercase tracking-wider">2. 媽媽小店分銷申請 (${mommyLeadsDb.length})</h5>
+                                    <button onclick="clearMommyLeads()" class="text-[10px] text-red-600 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-full font-bold">清空紀錄 Clear</button>
+                                </div>
+                                <div class="space-y-4 max-h-[300px] overflow-y-auto pr-2" id="admin-mommy-leads-list">
+                                    <!-- Dynamic -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- Beautiful Footer Section -->
+<footer class="bg-brand-dark text-white pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+            <!-- Brand Info -->
+            <div class="md:col-span-5 flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full border border-white/20 company-logo-slot overflow-hidden">
+                        <!-- Loaded dynamically via JS -->
+                    </div>
+                    <span class="font-serif text-2xl font-bold tracking-wide" id="footer-brand-title">Smart Bud</span>
+                </div>
+                <p class="text-gray-400 text-xs leading-relaxed max-w-sm" id="footer-bio">
+                    Smart Bud 結合科學育兒與生活美學，嚴選全球頂尖母嬰用品。陪伴寶寶直覺探索、快樂成長。
+                </p>
+                <div class="flex items-center gap-4 text-gray-400 text-lg mt-2">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:bd@smartbud.com.hk" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Directory -->
+            <div class="md:col-span-3">
+                <h4 class="font-serif text-base font-bold mb-6 text-brand-800" id="footer-nav-title">網站地圖 Directory</h4>
+                <ul class="space-y-3 text-xs text-gray-400">
+                    <li><a href="#" onclick="switchPage('home'); return false;" class="hover:text-white transition-colors">首頁 Home Page</a></li>
+                    <li><a href="#" onclick="switchPage('milestones'); return false;" class="hover:text-white transition-colors">成長里程碑 Milestones</a></li>
+                    <li><a href="#" onclick="switchPage('mommy-shops'); return false;" class="hover:text-white transition-colors">媽媽小店合作 Mom Shops</a></li>
+                    <li><a href="#" onclick="switchPage('about'); return false;" class="hover:text-white transition-colors">關於我們 About Us</a></li>
+                    <li><a href="#" onclick="switchPage('b2b'); return false;" class="hover:text-white transition-colors">品牌總代 B2B Partnership</a></li>
+                </ul>
+            </div>
+
+            <!-- Certifications and Standards -->
+            <div class="md:col-span-4 flex flex-col gap-4">
+                <h4 class="font-serif text-base font-bold text-brand-800" id="footer-compliance-title">官方認證與環境永續</h4>
+                <p class="text-[11px] text-gray-400 leading-relaxed" id="footer-compliance-desc">
+                    Smart Bud (香港) 所引進的幼兒食具與智玩均嚴格符合歐盟 EN71 與美國 ASTM 安全認證標準，我們堅守環境友善承諾，不含有害重金屬，為您的寶寶編織健康的成長舞台。
+                </p>
+                <div class="flex gap-2">
+                    <span class="px-2.5 py-1 bg-white/10 text-[9px] font-bold uppercase rounded tracking-wider text-brand-900">EN71 Certified</span>
+                    <span class="px-2.5 py-1 bg-white/10 text-[9px] font-bold uppercase rounded tracking-wider text-brand-900">ASTM Standards</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+            <span id="footer-copyright">© 2026 Smart Bud 樂芽 (香港). 版權所有.</span>
+            <div class="flex flex-col items-center sm:items-end">
+                <span class="text-[11px] text-gray-500">Curating happy milestones for modern Hong Kong families.</span>
+                <!-- Hidden Admin Entrance styled perfectly into background details -->
+                <a href="#" onclick="switchPage('admin'); return false;" class="text-[9px] text-gray-600/15 hover:text-gray-400/80 transition-all duration-300 mt-1 block select-none cursor-default hover:cursor-pointer" style="font-family: monospace;" title="System console access">[Admin Console]</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Toast notification replacing native alert() -->
+<div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-300 bg-brand-700 text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3 border border-brand-800/10 max-w-sm">
+    <i class="fa-solid fa-bell-ring text-brand-800 animate-bounce"></i>
+    <span id="toast-message" class="text-xs font-bold">訊息已更新！</span>
+</div>
+
+<script>
+    // Global state variables
+    let currentLang = 'zh';
+
+    // Default SVG graphic representations for logo_8 (Golden Warm Radiant Sun with Rising Green Sprout)
+    const defaultCompanyLogoSVG = `
+        <svg class="w-10 h-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="38" r="14" fill="#D2A350" fill-opacity="0.25"/>
+            <circle cx="50" cy="38" r="9" fill="#D2A350" fill-opacity="0.85"/>
+            <line x1="50" y1="18" x2="50" y2="23" stroke="#D2A350" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50" y1="53" x2="50" y2="58" stroke="#D2A350" stroke-width="2" stroke-linecap="round"/>
+            <line x1="30" y1="38" x2="35" y2="38" stroke="#D2A350" stroke-width="2" stroke-linecap="round"/>
+            <line x1="65" y1="38" x2="70" y2="38" stroke="#D2A350" stroke-width="2" stroke-linecap="round"/>
+            <path d="M50 78C50 63 64 56 64 56C64 56 52 58 50 66C48 58 36 56 36 56C36 56 50 63 50 78Z" fill="#5F6F52"/>
+            <path d="M50 82V65" stroke="#5F6F52" stroke-width="3" stroke-linecap="round"/>
+            <path d="M28 82H72" stroke="#254336" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    `;
+
+    const defaultCompanyLogoLargeSVG = `
+        <svg class="w-48 h-48 drop-shadow-xl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="38" r="15" fill="#D2A350" fill-opacity="0.25"/>
+            <circle cx="50" cy="38" r="10" fill="#D2A350" fill-opacity="0.85"/>
+            <line x1="50" y1="17" x2="50" y2="22" stroke="#D2A350" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="50" y1="54" x2="50" y2="59" stroke="#D2A350" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="29" y1="38" x2="34" y2="38" stroke="#D2A350" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="66" y1="38" x2="71" y2="38" stroke="#D2A350" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M50 78C50 63 65 55 65 55C65 55 52 57 50 66C48 57 35 55 35 55C35 55 50 63 50 78Z" fill="#5F6F52"/>
+            <path d="M50 82V65" stroke="#5F6F52" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M22 82H78" stroke="#254336" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    `;
+
+    // Premium dual-lang localization
+    const dictionary = {
+        zh: {
+            "nav-brand-subtitle": "樂芽選品",
+            "btn-nav-home": "首頁",
+            "btn-nav-milestones": "成長里程碑",
+            "btn-nav-mommy-shops": "媽媽小店合作",
+            "btn-nav-about": "關於我們",
+            "btn-nav-b2b": "品牌總代 B2B",
+            "btn-nav-contact": "聯繫我們",
+            "btn-mob-home": "首頁 Home",
+            "btn-mob-milestones": "成長里程碑 Milestones",
+            "btn-mob-mommy-shops": "媽媽小店合作 Mom Shops",
+            "btn-mob-about": "關於我們 About Us",
+            "btn-mob-b2b": "品牌總代 B2B",
+            "btn-mob-contact": "聯繫我們 Contact Us",
+            
+            // Home Hero
+            "hero-headline": "用心培育，讓孩子的每個里程碑優雅綻放。",
+            "hero-subheadline": "Smart Bud 結合科學育兒與生活美學，嚴選全球頂尖母嬰用品。從自主進食的肌肉鍛鍊，到環境友善的探索玩樂，陪伴寶寶直覺探索、快樂成長。",
+            "hero-cta-explore": "探索精選好物",
+            "hero-cta-holistic": "啟迪成長里程碑",
+            "lbl-logo-sub": "陽光灌溉 · 嫩芽茁壯",
+
+            // Home Brands Showcase Title
+            "brands-title": "全球頂尖合作夥伴",
+            "brands-intro": "自主進食與發展性玩樂，看似截然不同，實則共享相同的成長密碼——「鼓勵直覺探索，解鎖天賦技能」。Smart Bud 走遍全球，嚴選符合國際最高安全標準（EN71/ASTM）、榮獲國際大獎、重視兒童發展與環境永續的頂尖品牌。",
+            "badge-teaser": "即將進駐",
+            "title-teaser": "未來全球頂尖合作夥伴",
+            "desc-teaser": "我們正積極引入共享「環境永續、頂級工藝、自然發展」理念的國際頂尖精品，攜手為香港家庭打造最理想的育兒與綠色玩樂舞台。",
+            "btn-teaser": "查看商務代理合作",
+
+            // Mommy shops
+            "moms-page-tag": "MOMMY SHOP DISTRIBUTION NETWORK",
+            "moms-page-title": "媽媽小店合作分銷計劃",
+            "moms-page-intro": "妳也是用心經營母嬰好物分享的媽媽店主嗎？Smart Bud 誠邀香港各區精品小店與獨立社群加入我們的「溫暖分銷網」，一同將國際獲獎、環保無毒的發育智品推廣至更多家庭。",
+            "moms-form-title": "開啟我們的溫暖合作",
+            "moms-form-sub": "請填寫下方基本資訊，我們的小店BD團隊將於 24 小時內與妳取得聯繫！",
+            "moms-btn-submit": "提交分銷申請",
+            "mom-success-title": "謝謝妳的來信，媽媽店主！",
+            "mom-success-desc": "我們的小編媽媽已經收到妳的分銷申請，我們將於 1 個工作天內透過 WhatsApp 與妳對接，為妳提供小店合作簡報與批發價目表！",
+
+            // Milestones page general metadata
+            "ms-page-tag": "SCIENTIFIC PEDIATRIC DEVELOPMENT",
+            "ms-page-title": "寶寶黃金期發育里程碑導引",
+            "ms-page-intro": "我們相信，科學育兒不是強迫性的進度表，而是順應自然的引導。以下是 0-5 歲幼兒關鍵的身體動作、感官感知與認知的黃金發展階段。Smart Bud 精心為您對接了最適配的全球頂尖用品。",
+
+            // About Us
+            "about-founder-tag": "FOUNDER'S JOURNEY",
+            "about-founder-title": "創辦人的心聲",
+            "promises-tag": "OUR STANDARDS",
+            "promises-title": "四大核心承諾",
+            "promises-subtitle": "我們對兒童發展、環境永續、美學及社群的極致追求",
+            
+            "promise-t1": "全面發展",
+            "promise-sub1": "Holistic Development",
+            "promise-p1-title": "精準解鎖成長里程碑",
+            "promise-p1-desc-front": "專注於 0-5 歲關鍵發育期，嚴選有助於精細動作、認知邏輯與情感自主的選品，支持孩子全面發育。",
+            "promise-t2": "0妥協與永續安全",
+            "promise-sub2": "Safety & Sustainability",
+            "promise-p2-title": "嚴格把關，安心陪伴",
+            "promise-p2-desc-front": "所有選品必須通過最高規格國際安全認證（EN71/ASTM）。我們堅持挑選高品質、耐用且安全的環境友善材質，承諾地球永續、守護健康。",
+            "promise-t3": "美學與實用",
+            "promise-sub3": "Aesthetics & Functionality",
+            "promise-p3-title": "融入現代家庭的生活美學",
+            "promise-p3-desc-front": "兼具國際設計美學與極高的實用機能，擺脫母嬰用品的雜亂感，完美融入香港都市家庭的精緻空間。",
+            "promise-t4": "社群陪伴",
+            "promise-sub4": "Community & Guidance",
+            "promise-p4-title": "您最溫暖的育兒後盾",
+            "promise-p4-desc-front": "不只銷售，更透過 Instagram 科學育兒知識與 WhatsApp 媽咪社群，提供即時、專業的在地化引導、交流與陪伴。",
+
+            // B2B Page
+            "b2b-badge": "ASIA-PACIFIC STRATEGIC COOPERATION",
+            "b2b-title": "成為您的跨國品牌價值守護者與亞太區市場放大者",
+            "b2b-intro-p1": "在 Smart Bud，我們深知拓展全新市場的挑戰。對於一個重視精湛工藝、頂級安全與環境永續價值的跨國頂尖品牌而言，您需要的絕不只是一個單純將貨品上架的批發商，而是一個在本地市場深諳品牌營銷（Brand Marketing）、珍視品牌資產（Brand Equity），且具備全渠道價格管控與落地執行力的戰略合作夥伴。",
+            "b2b-intro-p2": "我們已成功拿下英國 Doddl 的香港獨家總代理（Sole Distribution）策略佈局，並建立了 Tidy Tot、Goki、QBI 的官方授權零售商結構。我們對渠道與價格的嚴格維護、對整體品牌行銷的投入，以及對中高端家庭需求的精準洞察，是我們商業操盤能力的最佳證明。",
+            "timeline-badge": "COMMERCIAL BLUEPRINT",
+            "timeline-title": "我們的 12 個月市場進入策略",
+            "timeline-subtitle": "精準、高端、可控的品牌發育與增長渠道",
+            "timeline-s1-title": "第 1-3 個月：本地化定位與全渠道價格管控 (Price Control)",
+            "timeline-s1-eng": "Price Control & Localization",
+            "timeline-s1-desc": "精準對接香港高淨值母嬰市場與教育剛需（如將產品的核心發展價值連結至在地家庭關注的能力養成定位），制定嚴格的價格維護機制，杜絕破壞性的惡性價格競爭，誓死捍衛品牌跨國的高端與專業形象。",
+            "timeline-s2-title": "第 4-6 個月：跨店社群網絡引爆與高轉化 KOL 營銷",
+            "timeline-s2-eng": "Community Amplification & KOLS",
+            "timeline-s2-desc": "除了自營社群，我們更與香港多家優質媽媽小店社群及零售網絡（Mom-and-Pop Shop Networks）達成戰略結盟。透過這套覆蓋龐大實體用家（Active Physical End-users）的矩陣，結合活躍的 Instagram 內容營銷與精準的 WhatsApp 媽咪團購群組，邀請具備專業背景的 KOL 媽媽進行體驗行銷，透過「環境永續與科學育兒」的真實反饋，快速為品牌引爆在地的深度聲量與信任。",
+            "timeline-s3-title": "第 7-12 個月：線下精品陳列與極致視覺衝擊 (On-shelf Visual Impact)",
+            "timeline-s3-eng": "On-shelf Visual Impact",
+            "timeline-s3-desc": "將線上與跨店社群累積的龐大實體用家數據轉化為實體效益。我們正積極推進與香港核心商圈的精品百貨及高端嬰兒用品連鎖店的深度合作，承諾為您的產品打造最具視覺衝擊力、完整傳遞品牌理念的體驗式陳列舞台。",
+
+            "why-badge": "STRATEGIC ADVANTAGES",
+            "why-title": "為什麼選擇 Smart Bud 成為您的香港合作夥伴？",
+            "why-p1-title": "強大的跨店社群網絡與實體用家基礎",
+            "why-p1-desc": "我們的生態圈精準聚集了香港 22-40 歲、極度重視孩子黃金發育期、追求永續與品質的高消費力實體用家。我們最擅長將高品質的永續與教育價值，轉化為她們心中的「育兒必備選品」。",
+            "why-p2-title": "全渠道品牌營銷（Brand Marketing）實力",
+            "why-p2-desc": "我們不只做銷售，更擅長為品牌進行整體的在地化包裝與推廣。我們懂得將品牌的工藝價值、環保承諾與在地化的育兒里程碑相結合，創造無可替代的購買剛需。",
+            "why-p3-title": "嚴格的控價與資產保護機制",
+            "why-p3-desc": "作為英國 Doddl 的香港獨家總代理，我們已建立完整的供應鏈、行銷和價格防護機制，具備跨國精品品牌落地所需的全面操盤基礎，誓與品牌方並肩守護每一步價值。",
+
+            "form-title": "即刻與我們的商務發展團隊展開對話",
+            "form-subtitle": "讓我們在香港，為您的品牌用心培育出最豐碩的市場果實。",
+            "form-lbl-name": "聯絡人姓名 Name",
+            "form-lbl-email": "商業電子郵件 Business Email",
+            "form-lbl-brand": "品牌名稱 Brand Name",
+            "form-lbl-country": "總部國家 Country of HQ",
+            "form-lbl-msg": "合作願景與簡述 Collaboration Vision",
+            "form-btn-submit": "提交合作提案",
+            "success-title": "提案提交成功！",
+            "success-desc": "感謝您對 Smart Bud 樂芽的支持。我們的商務發展團隊將在 2 個工作天內，透過 bd@smartbud.com.hk 與您取得聯繫。",
+
+            // Footer
+            "footer-bio": "Smart Bud 結合科學育兒與生活美學，嚴選全球頂尖母嬰用品。陪伴寶寶直覺探索、快樂成長。",
+            "footer-nav-title": "網站地圖 Directory",
+            "footer-compliance-title": "官方認證與環境永續",
+            "footer-compliance-desc": "Smart Bud (香港) 所引進的幼兒食具與智玩均嚴格符合歐盟 EN71 與美國 ASTM 安全認證標準，我們堅守環境友善承諾，不含有害重金屬，為您的寶寶編織健康的成長舞台。",
+            "footer-copyright": "© 2026 Smart Bud 樂芽 (香港). 版權所有。"
+        },
+        en: {
+            "nav-brand-subtitle": "Premium Baby Curation",
+            "btn-nav-home": "Home",
+            "btn-nav-milestones": "Milestones",
+            "btn-nav-mommy-shops": "Mom Shops",
+            "btn-nav-about": "About Us",
+            "btn-nav-b2b": "B2B Curation",
+            "btn-nav-contact": "Contact Us",
+            "btn-mob-home": "Home",
+            "btn-mob-milestones": "Milestones",
+            "btn-mob-mommy-shops": "Mom Shops",
+            "btn-mob-about": "About Us",
+            "btn-mob-b2b": "B2B Partnership",
+            "btn-mob-contact": "Contact Us",
+
+            // Hero
+            "hero-headline": "Nurturing Milestones, Inspiring Joyful Growth.",
+            "hero-subheadline": "Bridging scientific parenting with modern aesthetics, Smart Bud curates world-class baby essentials. From fine motor skills to exploratory play, we empower intuitive self-discovery.",
+            "hero-cta-explore": "Explore Our Selection",
+            "hero-cta-holistic": "Celebrate Milestones",
+            "lbl-logo-sub": "Nurtured by Sunlight, Sprouted with Love",
+
+            // Brands Showcase
+            "brands-title": "Our Curated Brands & Aesthetic Depth",
+            "brands-intro": "From early self-feeding to developmental play, every stage of childhood shares a core foundation: \"Empowering intuitive exploration to unlock natural potential.\"",
+            "badge-teaser": "Coming Soon",
+            "title-teaser": "Future Global Partner",
+            "desc-teaser": "We are actively partnering with world-leading brands that share our devotion to sustainability, premium craftsmanship, and purposeful milestone development.",
+            "btn-teaser": "Explore B2B Opportunities",
+
+            // Mommy shops
+            "moms-page-tag": "MOMMY SHOP DISTRIBUTION NETWORK",
+            "moms-page-title": "Mommy Shop Distribution Partnership",
+            "moms-page-intro": "Are you a boutique parenting store owner? Smart Bud warmly invites mom-owned local businesses to join our selective local network. Let us promote world-class, toxic-free baby tools together.",
+            "moms-form-title": "Initiate Our Partnership",
+            "moms-form-sub": "Complete the form below. Our boutique BD mama squad will respond within 24 hours!",
+            "moms-btn-submit": "Submit Application",
+            "mom-success-title": "Thank you, Mom-preneur!",
+            "mom-success-desc": "We have received your distribution details. Our coordination team will reach out via WhatsApp with product kits and wholesale pricing shortly!",
+
+            // Milestones Page
+            "ms-page-tag": "SCIENTIFIC PEDIATRIC DEVELOPMENT",
+            "ms-page-title": "Scientific Developmental Milestones",
+            "ms-page-intro": "We believe scientific parenting respects natural flow. Below are the key milestones of physical, sensory, and cognitive development. Smart Bud aligns premium selections with each golden stage.",
+
+            // About Us
+            "about-founder-tag": "FOUNDER'S JOURNEY",
+            "about-founder-title": "Founder's Vision",
+            "promises-tag": "OUR STANDARDS",
+            "promises-title": "Our Four Core Promises",
+            "promises-subtitle": "Committed to Developmental Care, Sustainable Materials, and Sincere Local Community Support",
+            
+            "promise-t1": "Holistic Development",
+            "promise-sub1": "Developmental Support",
+            "promise-p1-title": "Unlocking Growth Milestones",
+            "promise-p1-desc-front": "Focusing on the critical 0-5 development window, we select products that naturally stimulate fine motor skills, cognitive logic, and emotional autonomy.",
+            "promise-t2": "Safety & Sustainability",
+            "promise-sub2": "Zero Compromises",
+            "promise-p2-title": "Uncompromising & Sustainable",
+            "promise-p2-desc-front": "Every item clears the highest international safety benchmarks (EN71/ASTM). We pledge durable, rigorously tested, toxic-free, and eco-friendly materials to protect our children's future.",
+            "promise-t3": "Aesthetics & Functionality",
+            "promise-sub3": "Elevating Modern Living",
+            "promise-p3-title": "Elevating Modern Spaces",
+            "promise-p3-desc-front": "We curate baby essentials that harmoniously blend sleek global aesthetics with high functionality, fitting seamlessly into modern Hong Kong homes.",
+            "promise-t4": "Community & Guidance",
+            "promise-sub4": "Your Trusted Village",
+            "promise-p4-title": "Your Trusted Village",
+            "promise-p4-desc-front": "Beyond retail, we build a supportive network. Through expert insights on Instagram and highly connected WhatsApp networks, we provide local mothers with real-time community.",
+
+            // B2B Page
+            "b2b-badge": "ASIA-PACIFIC STRATEGIC COOPERATION",
+            "b2b-title": "Protecting Your Brand Equity. Amplifying Your Global Value in Hong Kong.",
+            "b2b-intro-p1": "At Smart Bud, we understand that entering a competitive, sophisticated market requires more than traditional distribution. For visionary global brands rooted in heritage, safety, and eco-friendly child development, you do not just need an importer. You need a strategic partner mastering local Brand Marketing, one who fiercely protects your global brand equity and possesses full omni-channel price control capabilities.",
+            "b2b-intro-p2": "Having secured the exclusive Sole Distribution for Doddl UK alongside official partnerships with Tidy Tot, Goki, and QBI, our highly controlled channel infrastructure and precise targeting of affluent families stand as concrete proof of our market execution.",
+            "timeline-badge": "COMMERCIAL BLUEPRINT",
+            "timeline-title": "Our 12-Month Market Entry Strategy",
+            "timeline-subtitle": "Carefully managed localized launch ensuring robust market penetration",
+            "timeline-s1-title": "Months 1-3: Strategic Positioning & Rigid Price Architecture",
+            "timeline-s1-eng": "Price Control & Localization",
+            "timeline-s1-desc": "Positioning your products directly at Hong Kong's premium parenting segments—linking global brand assets with high-value localized childhood milestones—while enforcing strict channel control mechanisms to protect international brand valuation and eliminate price wars.",
+            "timeline-s2-title": "Months 4-6: Decentralized Community Amplification & Active End-User Networks",
+            "timeline-s2-eng": "Community Amplification & KOLS",
+            "timeline-s2-desc": "Beyond our owned channels, we leverage a powerful, strategic Mom-and-Pop Boutique & Social Network. This extensive ecosystem connects us directly with a massive database of active physical end-users across Hong Kong. By uniting Instagram narrative campaigns, curated WhatsApp Mom Groups, and trusted local mother-influencers (KOLs), we launch purposeful milestone marketing that drives grassroots brand adoption and deep consumer trust.",
+            "timeline-s3-title": "Months 7-12: Premium Brick-and-Mortar Placement & Visual Impact",
+            "timeline-s3-eng": "On-shelf Visual Impact",
+            "timeline-s3-desc": "Translating digital traction and our cross-store boutique network data into prime physical retail shelf spaces. We are actively establishing deep partnerships with Hong Kong's luxury department stores and elite baby boutiques, promising to build high-impact, experiential displays that mirror your global visual standards.",
+
+            "why-badge": "STRATEGIC ADVANTAGES",
+            "why-title": "Why Partner with Smart Bud?",
+            "why-p1-title": "Expansive Multi-Boutique Network & Physical Scale",
+            "why-p1-desc": "Our unique alliance with local mom-and-pop community networks allows us to instantly mobilize high-spending, discerning Hong Kong mothers aged 22-40 who prioritize cognitive acceleration, eco-friendly safety, and aesthetic presentation.",
+            "why-p2-title": "Dedicated End-to-End Brand Marketing",
+            "why-p2-desc": "We don't just sell playthings or feeding tools; we actively manage your brand's narrative. We excel at translating global sustainability and craftsmanship values into localized milestones, creating an absolute necessity for local consumers.",
+            "why-p3-title": "Robust Channel & Price Architecture Protection",
+            "why-p3-desc": "As the Sole Distributor for Doddl UK in Hong Kong, we maintain a mature logistical, pricing, and social framework built to support the entry of world-class brands without cross-channel conflict, standing with you as true guardians of your brand equity.",
+
+            "form-title": "Connect with Our Business Development Team",
+            "form-subtitle": "Let us nurture your brand’s next major growth chapter in Hong Kong.",
+            "form-lbl-name": "Your Name",
+            "form-lbl-email": "Business Email",
+            "form-lbl-brand": "Brand Name",
+            "form-lbl-country": "HQ Country",
+            "form-lbl-msg": "Collaboration Vision",
+            "form-btn-submit": "Submit Strategic Inquiry",
+            "success-title": "Inquiry Submitted Successfully!",
+            "success-desc": "Thank you for your interest in Smart Bud. Our business development team will contact you via bd@smartbud.com.hk within 2 business days to schedule a virtual introductory call.",
+
+            // Footer
+            "footer-bio": "Bridging scientific parenting with modern aesthetics, Smart Bud curates world-class baby essentials. Empowering intuitive childhood milestones.",
+            "footer-nav-title": "Sitemap & Directory",
+            "footer-compliance-title": "Certifications & Compliance",
+            "footer-compliance-desc": "All products curated by Smart Bud HK align with strict safety parameters (including EN71 and ASTM standards), promising earth-friendly, toxic-free child environments.",
+            "footer-copyright": "© 2026 Smart Bud HK. All rights reserved."
+        }
+    };
+
+    const founderJourneyZH = `
+        <p class="font-semibold text-brand-700 italic border-l-4 border-brand-800 pl-4 mb-4">
+            「看著 Smart Bud 的標誌——那一輪溫慢的太陽與破土而出的嫩芽，這正是我們創立品牌的初衷：用愛與科學，用心培育每一顆正在探索世界的幼芽。」
+        </p>
+        <p class="mb-4">
+            育兒是一場寶寶與父母共同成長、互相成就的奇妙旅程。在節奏緊湊的香港，現代媽媽常常在『給孩子最好』與『如何平衡生活』之間感到焦慮。我深知自主進食時的手忙腳亂，也理解面對琳瑯滿目的玩具時，渴望找到兼具科學教育、安全、環境友善與美學用品的掙扎。
+        </p>
+        <p class="mb-4">
+            Smart Bud (樂芽) 的誕生，不是為了盲目追隨潮流，而是為了創造『有意義的連結（Meaningful Connection）』。我們引進符合兒童發展心理學與動作發育規律的優質選品，提供專業引導，幫助孩子在 0-5 歲的黃金期自然探索、建立自信。
+        </p>
+    `;
+
+    const founderJourneyEN = `
+        <p class="font-semibold text-brand-700 italic border-l-4 border-brand-800 pl-4 mb-4">
+            "The Smart Bud emblem—a warm sun nurturing a resilient young sprout—perfectly captures our core mission: to nurture every child with scientific care, thoughtful guidance, and unconditional love."
+        </p>
+        <p class="mb-4">
+            Parenting is a beautiful, shared milestone of growth between parent and child. In a fast-paced city like Hong Kong, modern mothers constantly navigate the tension between providing the absolute best and maintaining life balance. As a mother, I have experienced the chaotic trials of early weaning and the immense pressure of searching for educational tools that are genuinely safe, beautifully designed, and deeply committed to environmental wellness.
+        </p>
+        <p class="mb-4">
+            Smart Bud was founded to create Meaningful Connections, not just sell commodities. We curate international tools and toys that align with early child psychology and motor developmental science, providing professional guidance that empowers children to explore naturally and build autonomy during their golden years.
+        </p>
+    `;
+
+    // Database fallback structures
+    const defaultBrands = {
+        doddl: {
+            title_zh: "Doddl｜英國人體工學餐具",
+            title_en: "Doddl | Ergonomic Cutlery",
+            badge_zh: "香港總代理",
+            badge_en: "Sole Distributor",
+            age_zh: "12 個月以上",
+            age_en: "12 Months+",
+            desc_zh: "專利三點抓握設計，直覺解鎖自主進食，高效鍛鍊手部精細動作。",
+            desc_en: "Patented three-point grip naturally accelerates fine motor skills for independent eating."
+        },
+        tidytot: {
+            title_zh: "Tidy Tot｜英國防髒托盤圍兜",
+            title_en: "Tidy Tot | Weaning Bib & Tray Kit",
+            badge_zh: "官方零售商",
+            badge_en: "Official Reseller",
+            age_zh: "6 個月以上",
+            age_en: "6 Months+",
+            desc_zh: "打造無拘束的感官探索空間，建立寶寶進食自信。",
+            desc_en: "Creates comfortable sensory boundaries, fostering high mealtime confidence."
+        },
+        qbi: {
+            title_zh: "QBI｜益智磁吸軌道玩具",
+            title_en: "QBI | Magnetic Cube & Track",
+            badge_zh: "官方零售商",
+            badge_en: "Official Reseller",
+            age_zh: "2 歲以上",
+            age_en: "2 Years+",
+            desc_zh: "鍛鍊立體空間邏輯與手眼協調，落實早期 STEAM 啟盟。",
+            desc_en: "Sparks spatial logical thinking and hand-eye coordinates for STEM learning."
+        },
+        goki: {
+            title_zh: "Goki｜德國經典木玩",
+            title_en: "Goki | Classic German Wooden Toys",
+            badge_zh: "官方零售商",
+            badge_en: "Official Reseller",
+            age_zh: "0 歲以上",
+            age_en: "0 Years+",
+            desc_zh: "觸摸大自然溫潤質感，全面引發主動思考與專注力。",
+            desc_en: "Connects children with the tactile elegance of nature while optimizing focus span."
+        }
+    };
+
+    const defaultMilestones = {
+        "0-1y": {
+            title_zh: "0 - 1 歲：探索世界與建立依附感",
+            title_en: "0 - 1 Years: Exploration & Attachment",
+            rec_zh: "最適配的感官伴侶",
+            rec_en: "Best Sensory Companion"
+        },
+        "1-3y": {
+            title_zh: "1 - 3 歲：動作與語言的爆發期",
+            title_en: "1 - 3 Years: Motor & Language Explosion",
+            rec_zh: "動作訓練智選",
+            rec_en: "Smart Motor Guidance"
+        },
+        "3-5y": {
+            title_zh: "3 - 5 歲：建立邏輯與同理心",
+            title_en: "3 - 5 Years: Logic & Empathy Blueprint",
+            rec_zh: "高階立體思維",
+            rec_en: "High-Dimensional Spatial Curation"
+        }
+    };
+
+    const defaultGeneralContent = {
+        nav_brand_title: "Smart Bud",
+        nav_brand_subtitle_zh: "樂芽選品",
+        nav_brand_subtitle_en: "Premium Baby Curation",
+        hero_headline_zh: "用心培育，讓孩子的每個里程碑優雅綻放。",
+        hero_headline_en: "Nurturing Milestones, Inspiring Joyful Growth.",
+        hero_subheadline_zh: "Smart Bud 結合科學育兒與生活美學，嚴選全球頂尖母嬰用品。從自主進食的肌肉鍛鍊，到環境友善的探索玩樂，陪伴寶寶直覺探索、快樂成長。",
+        hero_subheadline_en: "Bridging scientific parenting with modern aesthetics, Smart Bud curates world-class baby essentials. From fine motor skills at the dinner table to eco-friendly exploratory play, we empower intuitive self-discovery.",
+        brands_title_zh: "全球頂尖合作夥伴",
+        brands_title_en: "Global Premium Curations",
+        brands_intro_zh: "自主進食與發展性玩樂，看似截然不同，實則共享相同的成長密碼——「鼓勵直覺探索，解鎖天賦技能」。Smart Bud 走遍全球，嚴選符合國際最高安全標準（EN71/ASTM）、榮獲國際大獎、重視兒童發展與環境永續的頂尖品牌。",
+        brands_intro_en: "From early self-feeding to developmental play, every stage of childhood shares a core foundation: \"Empowering intuitive exploration to unlock natural potential.\" Smart Bud traverses the globe to curate award-winning, premium brands aligned with strict international safety standards."
+    };
+
+    // Databases loaded from storage
+    let brandsDb = JSON.parse(localStorage.getItem('sb_brands_db')) || defaultBrands;
+    let milestonesDb = JSON.parse(localStorage.getItem('sb_milestones_db')) || defaultMilestones;
+    let leadsDb = JSON.parse(localStorage.getItem('sb_leads_db')) || [];
+    let mommyLeadsDb = JSON.parse(localStorage.getItem('sb_mommy_leads_db')) || [];
+    let generalContentDb = JSON.parse(localStorage.getItem('sb_general_content_db')) || defaultGeneralContent;
+
+    // Multi-page Router
+    function switchPage(pageId) {
+        const pages = ['home', 'milestones', 'mommy-shops', 'about', 'b2b', 'admin'];
+        pages.forEach(p => {
+            const el = document.getElementById(`page-${p}`);
+            const btnNav = document.getElementById(`btn-nav-${p}`);
+            const btnMob = document.getElementById(`btn-mob-${p}`);
+            
+            if (p === pageId) {
+                if (el) el.classList.remove('hidden');
+                setTimeout(() => {
+                    if (el) el.classList.remove('opacity-0');
+                    if (el) el.classList.add('opacity-100', 'block');
+                }, 50);
+                
+                if (btnNav) {
+                    btnNav.classList.add('text-brand-800', 'border-brand-800');
+                    btnNav.classList.remove('text-brand-700', 'border-transparent');
+                }
+                if (btnMob) {
+                    btnMob.classList.add('bg-brand-900/30', 'text-brand-700', 'font-bold');
+                }
+            } else {
+                if (el) el.classList.remove('opacity-100', 'block');
+                if (el) el.classList.add('opacity-0', 'hidden');
+                
+                if (btnNav) {
+                    btnNav.classList.remove('text-brand-800', 'border-brand-800');
+                    btnNav.classList.add('text-brand-700', 'border-transparent');
+                }
+                if (btnMob) {
+                    btnMob.classList.remove('bg-brand-900/30', 'text-brand-700', 'font-bold');
+                }
+            }
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle languages seamlessly
+    function toggleLanguage() {
+        currentLang = currentLang === 'zh' ? 'en' : 'zh';
+        localizeApp();
+        showToast(currentLang === 'zh' ? "語言已切換為：繁體中文" : "Language switched to English");
+    }
+
+    // Localize Frontend
+    function localizeApp() {
+        const translations = dictionary[currentLang];
+        for (const [key, value] of Object.entries(translations)) {
+            const el = document.getElementById(key);
+            if (el) {
+                el.innerHTML = value;
+            }
+        }
+
+        // About Story
+        const journeyBox = document.getElementById('founder-journey-content');
+        if (journeyBox) {
+            journeyBox.innerHTML = currentLang === 'zh' ? founderJourneyZH : founderJourneyEN;
+        }
+
+        // Adjust Language Indicator UI values
+        document.getElementById('lang-indicator').innerText = currentLang === 'zh' ? 'EN' : '繁中';
+        document.getElementById('lang-indicator-mobile').innerText = currentLang === 'zh' ? 'EN' : '繁中';
+
+        // Apply general texts and db sync
+        applyGeneralTexts();
+        syncFrontContent();
+        renderCompanyLogos();
+        renderBrandLogos();
+    }
+
+    // General Bilingual dynamic customizations
+    function applyGeneralTexts() {
+        const isZH = currentLang === 'zh';
+        document.getElementById('nav-brand-title').innerText = generalContentDb.nav_brand_title;
+        document.getElementById('footer-brand-title').innerText = generalContentDb.nav_brand_title;
+        document.getElementById('nav-brand-subtitle').innerText = isZH ? generalContentDb.nav_brand_subtitle_zh : generalContentDb.nav_brand_subtitle_en;
+
+        document.getElementById('hero-headline').innerText = isZH ? generalContentDb.hero_headline_zh : generalContentDb.hero_headline_en;
+        document.getElementById('hero-subheadline').innerText = isZH ? generalContentDb.hero_subheadline_zh : generalContentDb.hero_subheadline_en;
+
+        document.getElementById('brands-title').innerText = isZH ? generalContentDb.brands_title_zh : generalContentDb.brands_title_en;
+        document.getElementById('brands-intro').innerText = isZH ? generalContentDb.brands_intro_zh : generalContentDb.brands_intro_en;
+    }
+
+    // Render Custom Base64 Company Logos or SVGs
+    function renderCompanyLogos() {
+        const savedLogo = localStorage.getItem('sb_company_logo');
+        const slots = document.querySelectorAll('.company-logo-slot');
+        const largeSlots = document.querySelectorAll('.company-logo-large-slot');
+
+        slots.forEach(slot => {
+            if (savedLogo) {
+                slot.innerHTML = `<img src="${savedLogo}" class="w-full h-full object-cover rounded-full" alt="Smart Bud">`;
+            } else {
+                slot.innerHTML = defaultCompanyLogoSVG;
+            }
+        });
+
+        largeSlots.forEach(slot => {
+            if (savedLogo) {
+                slot.innerHTML = `<img src="${savedLogo}" class="w-full h-full object-cover rounded-full shadow-lg" alt="Smart Bud">`;
+            } else {
+                slot.innerHTML = defaultCompanyLogoLargeSVG;
+            }
+        });
+
+        // Admin panel preview
+        const adminPreview = document.getElementById('admin-logo-preview-box');
+        if (adminPreview) {
+            if (savedLogo) {
+                adminPreview.innerHTML = `<img src="${savedLogo}" class="w-full h-full object-cover" alt="Preview">`;
+            } else {
+                adminPreview.innerHTML = defaultCompanyLogoSVG;
+            }
+        }
+    }
+
+    // Render Brands Custom Base64 Logos or default stylings
+    function renderBrandLogos() {
+        const brands = ['doddl', 'tidytot', 'qbi', 'goki'];
+        brands.forEach(b => {
+            const savedBrandLogo = localStorage.getItem(`sb_brand_logo_${b}`);
+            const slots = document.querySelectorAll(`.brand-logo-slot-${b}`);
+
+            slots.forEach(slot => {
+                if (savedBrandLogo) {
+                    slot.innerHTML = `<img src="${savedBrandLogo}" class="w-full h-full object-contain p-1" alt="${b}">`;
+                } else {
+                    if (b === 'doddl') {
+                        slot.innerHTML = `<span class="text-xl font-black tracking-tighter text-indigo-950 font-sans">doddl</span>`;
+                    } else if (b === 'tidytot') {
+                        slot.innerHTML = `<span class="text-sm font-bold tracking-tight text-emerald-850 font-serif">tidy tot</span>`;
+                    } else if (b === 'qbi') {
+                        slot.innerHTML = `<span class="text-lg font-black tracking-widest text-amber-500 font-sans font-bold">QBI</span>`;
+                    } else if (b === 'goki') {
+                        slot.innerHTML = `<span class="text-lg font-serif text-amber-950 font-bold">goki</span>`;
+                    }
+                }
+            });
+        });
+    }
+
+    // Toggle Mobile Drawer
+    function toggleMobileMenu() {
+        const mobMenu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        
+        if (mobMenu.classList.contains('hidden')) {
+            mobMenu.classList.remove('hidden');
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            mobMenu.classList.add('hidden');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    }
+
+    // Toggle 3D Flippable Cards
+    function toggleFlipCard(card) {
+        if (card.style.transform === "rotateY(180deg)") {
+            card.style.transform = "rotateY(0deg)";
+        } else {
+            card.style.transform = "rotateY(180deg)";
+        }
+    }
+
+    // Timeline commercial entry switcher
+    function setActiveTimelineStep(step) {
+        for (let i = 1; i <= 3; i++) {
+            const btn = document.getElementById(`btn-step-${i}`);
+            const panel = document.getElementById(`step-panel-${i}`);
+            if (i === step) {
+                if (btn) btn.className = "py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 bg-brand-700 text-white shadow";
+                if (panel) {
+                    panel.classList.remove('hidden');
+                    setTimeout(() => {
+                        panel.classList.remove('opacity-0');
+                        panel.classList.add('opacity-100');
+                    }, 50);
+                }
+            } else {
+                if (btn) btn.className = "py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 text-gray-500 hover:text-brand-700";
+                if (panel) panel.classList.add('opacity-0', 'hidden');
+            }
+        }
+    }
+
+    // Milestones switcher
+    function switchMilestoneTab(tabId) {
+        const tabs = ['0-1y', '1-3y', '3-5y'];
+        tabs.forEach(t => {
+            const btn = document.getElementById(`tab-${t}`);
+            const panel = document.getElementById(`panel-${t}`);
+            if (t === tabId) {
+                if (btn) btn.className = "py-4 px-4 rounded-3xl text-xs sm:text-sm font-extrabold bg-brand-700 text-white shadow-md transition-all duration-300";
+                if (panel) {
+                    panel.classList.remove('hidden');
+                    setTimeout(() => {
+                        panel.classList.remove('opacity-0');
+                        panel.classList.add('opacity-100');
+                    }, 50);
+                }
+            } else {
+                if (btn) btn.className = "py-4 px-4 rounded-3xl text-xs sm:text-sm font-extrabold bg-white text-brand-700 hover:bg-brand-100 transition-all duration-300 border border-brand-200/50";
+                if (panel) panel.classList.add('opacity-0', 'hidden');
+            }
+        });
+    }
+
+    // Save Sole Distribution corporate lead
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const lead = {
+            id: Date.now(),
+            name: document.getElementById('input-name').value,
+            email: document.getElementById('input-email').value,
+            brand: document.getElementById('input-brand').value,
+            country: document.getElementById('input-country').value,
+            message: document.getElementById('input-message').value,
+            date: new Date().toLocaleString()
+        };
+        leadsDb.unshift(lead);
+        localStorage.setItem('sb_leads_db', JSON.stringify(leadsDb));
+
+        document.getElementById('bd-form').classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+        renderAdminLeads();
+        showToast("提案提交成功！已即時存檔至後台收件箱。");
+    }
+
+    function resetForm() {
+        document.getElementById('bd-form').reset();
+        document.getElementById('bd-form').classList.remove('hidden');
+        document.getElementById('form-success').classList.add('hidden');
+    }
+
+    // Process Mommy Shop Partnership Request Form
+    function handleMommyFormSubmit(e) {
+        e.preventDefault();
+        const selectedBrands = [];
+        const checkboxes = document.getElementsByName('mom-brands');
+        checkboxes.forEach(c => {
+            if (c.checked) selectedBrands.push(c.value);
+        });
+
+        const lead = {
+            id: Date.now(),
+            shop: document.getElementById('mom-input-shop').value,
+            name: document.getElementById('mom-input-name').value,
+            phone: document.getElementById('mom-input-phone').value,
+            url: document.getElementById('mom-input-url').value,
+            brands: selectedBrands.join(', '),
+            message: document.getElementById('mom-input-message').value,
+            date: new Date().toLocaleString()
+        };
+
+        mommyLeadsDb.unshift(lead);
+        localStorage.setItem('sb_mommy_leads_db', JSON.stringify(mommyLeadsDb));
+
+        document.getElementById('mommy-shop-form').classList.add('hidden');
+        document.getElementById('mom-form-success').classList.remove('hidden');
+        renderAdminLeads();
+        showToast("媽媽小店分銷提案提交成功！");
+    }
+
+    function resetMomForm() {
+        document.getElementById('mommy-shop-form').reset();
+        document.getElementById('mommy-shop-form').classList.remove('hidden');
+        document.getElementById('mom-form-success').classList.add('hidden');
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-message');
+        toastMsg.innerText = msg;
+        toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(() => {
+            toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 4000);
+    }
+
+    // Switch admin panels
+    function switchAdminTab(subTabId) {
+        const tabs = ['general', 'images', 'brands', 'milestones', 'leads'];
+        tabs.forEach(t => {
+            const btn = document.getElementById(`admin-tab-${t}`);
+            const panel = document.getElementById(`admin-panel-${t}`);
+            if (t === subTabId) {
+                if (btn) btn.className = "w-full text-left px-4 py-3 rounded-xl text-sm font-bold bg-brand-700 text-white flex items-center gap-2 transition-all";
+                if (panel) panel.classList.remove('hidden');
+            } else {
+                if (btn) btn.className = "w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-gray-600 hover:bg-brand-50 flex items-center gap-2 transition-all";
+                if (panel) panel.classList.add('hidden');
+            }
+        });
+    }
+
+    // Hydrate general customize inputs
+    function loadGeneralContentInputs() {
+        document.getElementById('edit-nav-brand-title').value = generalContentDb.nav_brand_title;
+        document.getElementById('edit-nav-brand-subtitle-zh').value = generalContentDb.nav_brand_subtitle_zh;
+
+        document.getElementById('edit-hero-headline-zh').value = generalContentDb.hero_headline_zh;
+        document.getElementById('edit-hero-headline-en').value = generalContentDb.hero_headline_en;
+        document.getElementById('edit-hero-subheadline-zh').value = generalContentDb.hero_subheadline_zh;
+        document.getElementById('edit-hero-subheadline-en').value = generalContentDb.hero_subheadline_en;
+
+        document.getElementById('edit-brands-title-zh').value = generalContentDb.brands_title_zh;
+        document.getElementById('edit-brands-title-en').value = generalContentDb.brands_title_en;
+        document.getElementById('edit-brands-intro-zh').value = generalContentDb.brands_intro_zh;
+        document.getElementById('edit-brands-intro-en').value = generalContentDb.brands_intro_en;
+    }
+
+    function saveGeneralContent() {
+        generalContentDb.nav_brand_title = document.getElementById('edit-nav-brand-title').value;
+        generalContentDb.nav_brand_subtitle_zh = document.getElementById('edit-nav-brand-subtitle-zh').value;
+
+        generalContentDb.hero_headline_zh = document.getElementById('edit-hero-headline-zh').value;
+        generalContentDb.hero_headline_en = document.getElementById('edit-hero-headline-en').value;
+        generalContentDb.hero_subheadline_zh = document.getElementById('edit-hero-subheadline-zh').value;
+        generalContentDb.hero_subheadline_en = document.getElementById('edit-hero-subheadline-en').value;
+
+        generalContentDb.brands_title_zh = document.getElementById('edit-brands-title-zh').value;
+        generalContentDb.brands_title_en = document.getElementById('edit-brands-title-en').value;
+        generalContentDb.brands_intro_zh = document.getElementById('edit-brands-intro-zh').value;
+        generalContentDb.brands_intro_en = document.getElementById('edit-brands-intro-en').value;
+
+        localStorage.setItem('sb_general_content_db', JSON.stringify(generalContentDb));
+        applyGeneralTexts();
+        showToast("通用文字內容已儲存！已即時同步渲染至前台。");
+    }
+
+    function resetGeneralContent() {
+        generalContentDb = {...defaultGeneralContent};
+        localStorage.setItem('sb_general_content_db', JSON.stringify(generalContentDb));
+        loadGeneralContentInputs();
+        applyGeneralTexts();
+        showToast("文字設定已重置為原廠設定。");
+    }
+
+    // File Image Uploading Functions
+    function uploadCompanyLogo(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64Data = e.target.result;
+                localStorage.setItem('sb_company_logo', base64Data);
+                renderCompanyLogos();
+                showToast("Smart Bud 公司標誌已成功置換！");
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function clearCustomLogo() {
+        localStorage.removeItem('sb_company_logo');
+        document.getElementById('company-logo-input').value = "";
+        renderCompanyLogos();
+        showToast("公司標誌已還原至預設的 Logo_8 太陽嫩芽 SVG。");
+    }
+
+    function uploadBrandLogo(event) {
+        const bKey = document.getElementById('image-select-brand').value;
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64Data = e.target.result;
+                localStorage.setItem(`sb_brand_logo_${bKey}`, base64Data);
+                updateBrandImagePreview();
+                renderBrandLogos();
+                showToast("指定品牌之自訂標誌已成功置換！");
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function clearBrandLogo() {
+        const bKey = document.getElementById('image-select-brand').value;
+        localStorage.removeItem(`sb_brand_logo_${bKey}`);
+        document.getElementById('brand-logo-input').value = "";
+        updateBrandImagePreview();
+        renderBrandLogos();
+        showToast("品牌 Logo 已還原為預設文字。");
+    }
+
+    function updateBrandImagePreview() {
+        const bKey = document.getElementById('image-select-brand').value;
+        const savedLogo = localStorage.getItem(`sb_brand_logo_${bKey}`);
+        const previewBox = document.getElementById('brand-logo-preview-box');
+        if (savedLogo) {
+            previewBox.innerHTML = `<img src="${savedLogo}" class="w-full h-full object-contain p-1" alt="${bKey}">`;
+        } else {
+            previewBox.innerHTML = `<span class="text-xs font-bold text-gray-400 capitalize">${bKey} Text</span>`;
+        }
+    }
+
+    // Hydrate brand editor tab (Includes Recommended Ages edit)
+    function loadAdminBrandData() {
+        const bKey = document.getElementById('admin-select-brand').value;
+        const record = brandsDb[bKey];
+        if (record) {
+            document.getElementById('admin-brand-age-zh').value = record.age_zh || "";
+            document.getElementById('admin-brand-age-en').value = record.age_en || "";
+            document.getElementById('admin-brand-title-zh').value = record.title_zh;
+            document.getElementById('admin-brand-title-en').value = record.title_en;
+            document.getElementById('admin-brand-badge-zh').value = record.badge_zh;
+            document.getElementById('admin-brand-badge-en').value = record.badge_en;
+            document.getElementById('admin-brand-desc-zh').value = record.desc_zh;
+            document.getElementById('admin-brand-desc-en').value = record.desc_en;
+        }
+    }
+
+    // Save brand data including ages
+    function saveAdminBrandData() {
+        const bKey = document.getElementById('admin-select-brand').value;
+        brandsDb[bKey] = {
+            age_zh: document.getElementById('admin-brand-age-zh').value,
+            age_en: document.getElementById('admin-brand-age-en').value,
+            title_zh: document.getElementById('admin-brand-title-zh').value,
+            title_en: document.getElementById('admin-brand-title-en').value,
+            badge_zh: document.getElementById('admin-brand-badge-zh').value,
+            badge_en: document.getElementById('admin-brand-badge-en').value,
+            desc_zh: document.getElementById('admin-brand-desc-zh').value,
+            desc_en: document.getElementById('admin-brand-desc-en').value,
+        };
+        localStorage.setItem('sb_brands_db', JSON.stringify(brandsDb));
+        syncFrontContent();
+        showToast("品牌細節及推薦適用年齡已即時儲存！");
+    }
+
+    function resetAdminBrandData() {
+        const bKey = document.getElementById('admin-select-brand').value;
+        brandsDb[bKey] = {...defaultBrands[bKey]};
+        localStorage.setItem('sb_brands_db', JSON.stringify(brandsDb));
+        loadAdminBrandData();
+        syncFrontContent();
+        showToast("該品牌內容已重置為原廠出廠狀態。");
+    }
+
+    // Hydrate milestones tab
+    function loadAdminMilestoneData() {
+        const mKey = document.getElementById('admin-select-milestone').value;
+        const record = milestonesDb[mKey];
+        if (record) {
+            document.getElementById('admin-ms-title-zh').value = record.title_zh;
+            document.getElementById('admin-ms-title-en').value = record.title_en;
+            document.getElementById('admin-ms-rec-zh').value = record.rec_zh;
+            document.getElementById('admin-ms-rec-en').value = record.rec_en;
+        }
+    }
+
+    function saveAdminMilestoneData() {
+        const mKey = document.getElementById('admin-select-milestone').value;
+        milestonesDb[mKey] = {
+            title_zh: document.getElementById('admin-ms-title-zh').value,
+            title_en: document.getElementById('admin-ms-title-en').value,
+            rec_zh: document.getElementById('admin-ms-rec-zh').value,
+            rec_en: document.getElementById('admin-ms-rec-en').value
+        };
+        localStorage.setItem('sb_milestones_db', JSON.stringify(milestonesDb));
+        syncFrontContent();
+        showToast("里程碑說明已成功存檔！");
+    }
+
+    function resetAdminMilestoneData() {
+        const mKey = document.getElementById('admin-select-milestone').value;
+        milestonesDb[mKey] = {...defaultMilestones[mKey]};
+        localStorage.setItem('sb_milestones_db', JSON.stringify(milestonesDb));
+        loadAdminMilestoneData();
+        syncFrontContent();
+        showToast("里程碑資訊已還原預設。");
+    }
+
+    // Render Inbound Leads for Admin review
+    function renderAdminLeads() {
+        // Render B2B strategic corp leads
+        const leadsList = document.getElementById('admin-leads-list');
+        if (leadsList) {
+            if (leadsDb.length === 0) {
+                leadsList.innerHTML = `
+                    <div class="text-center py-6 border border-dashed border-gray-200 rounded-3xl text-gray-400">
+                        <p class="text-xs font-bold">目前無任何 B2B 合作提單 (No Inbound Leads)</p>
+                    </div>
+                `;
+            } else {
+                leadsList.innerHTML = leadsDb.map(lead => `
+                    <div class="bg-brand-50 border border-brand-200/50 p-5 rounded-2xl relative text-xs">
+                        <span class="absolute top-4 right-4 text-[9px] text-gray-400 font-bold">${lead.date}</span>
+                        <div class="font-extrabold text-brand-800 mb-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-building"></i> <span>${lead.brand} (${lead.country})</span>
+                        </div>
+                        <h5 class="font-extrabold text-brand-700">${lead.name} (${lead.email})</h5>
+                        <p class="text-gray-500 mt-2 bg-white p-3 rounded-lg leading-relaxed font-medium">${lead.message}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Render Mommy Shop Request leads
+        const momLeadsList = document.getElementById('admin-mommy-leads-list');
+        if (momLeadsList) {
+            if (mommyLeadsDb.length === 0) {
+                momLeadsList.innerHTML = `
+                    <div class="text-center py-6 border border-dashed border-gray-200 rounded-3xl text-gray-400">
+                        <p class="text-xs font-bold">目前無任何媽媽小店分銷申請 (No Inbound Leads)</p>
+                    </div>
+                `;
+            } else {
+                momLeadsList.innerHTML = mommyLeadsDb.map(lead => `
+                    <div class="bg-brand-50 border border-brand-200/50 p-5 rounded-2xl relative text-xs font-medium">
+                        <span class="absolute top-4 right-4 text-[9px] text-gray-400 font-bold">${lead.date}</span>
+                        <div class="font-extrabold text-brand-800 mb-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-store"></i> <span>${lead.shop} (${lead.phone})</span>
+                        </div>
+                        <h5 class="font-extrabold text-brand-700">聯絡人：${lead.name} | 網址：${lead.url || '未提供'}</h5>
+                        <p class="mt-1 text-brand-700 font-bold"><strong>想批發引進：</strong> ${lead.brands || '未選擇'}</p>
+                        <p class="text-gray-500 mt-2 bg-white p-3 rounded-lg leading-relaxed">${lead.message}</p>
+                    </div>
+                `).join('');
+            }
+        }
+    }
+
+    function clearAdminLeads() {
+        leadsDb = [];
+        localStorage.removeItem('sb_leads_db');
+        renderAdminLeads();
+        showToast("B2B 提單歷史紀錄已清空。");
+    }
+
+    function clearMommyLeads() {
+        mommyLeadsDb = [];
+        localStorage.removeItem('sb_mommy_leads_db');
+        renderAdminLeads();
+        showToast("媽媽小店申請紀錄已清空。");
+    }
+
+    // Sync Frontend values dynamically on load/edit
+    function syncFrontContent() {
+        const isZH = currentLang === 'zh';
+        
+        // Doddl
+        document.getElementById('title-doddl').innerText = isZH ? brandsDb.doddl.title_zh : brandsDb.doddl.title_en;
+        document.getElementById('badge-doddl').innerText = isZH ? brandsDb.doddl.badge_zh : brandsDb.doddl.badge_en;
+        document.getElementById('desc-doddl').innerText = isZH ? brandsDb.doddl.desc_zh : brandsDb.doddl.desc_en;
+        document.getElementById('age-range-doddl').innerText = isZH ? `適用：${brandsDb.doddl.age_zh}` : `Age: ${brandsDb.doddl.age_en}`;
+
+        // Tidy Tot
+        document.getElementById('title-tidytot').innerText = isZH ? brandsDb.tidytot.title_zh : brandsDb.tidytot.title_en;
+        document.getElementById('badge-tidytot').innerText = isZH ? brandsDb.tidytot.badge_zh : brandsDb.tidytot.badge_en;
+        document.getElementById('desc-tidytot').innerText = isZH ? brandsDb.tidytot.desc_zh : brandsDb.tidytot.desc_en;
+        document.getElementById('age-range-tidytot').innerText = isZH ? `適用：${brandsDb.tidytot.age_zh}` : `Age: ${brandsDb.tidytot.age_en}`;
+
+        // QBI
+        document.getElementById('title-qbi').innerText = isZH ? brandsDb.qbi.title_zh : brandsDb.qbi.title_en;
+        document.getElementById('badge-qbi').innerText = isZH ? brandsDb.qbi.badge_zh : brandsDb.qbi.badge_en;
+        document.getElementById('desc-qbi').innerText = isZH ? brandsDb.qbi.desc_zh : brandsDb.qbi.desc_en;
+        document.getElementById('age-range-qbi').innerText = isZH ? `適用：${brandsDb.qbi.age_zh}` : `Age: ${brandsDb.qbi.age_en}`;
+
+        // Goki
+        document.getElementById('title-goki').innerText = isZH ? brandsDb.goki.title_zh : brandsDb.goki.title_en;
+        document.getElementById('badge-goki').innerText = isZH ? brandsDb.goki.badge_zh : brandsDb.goki.badge_en;
+        document.getElementById('desc-goki').innerText = isZH ? brandsDb.goki.desc_zh : brandsDb.goki.desc_en;
+        document.getElementById('age-range-goki').innerText = isZH ? `適用：${brandsDb.goki.age_zh}` : `Age: ${brandsDb.goki.age_en}`;
+    }
+
+    // Initial Bootstrap
+    window.onload = function() {
+        switchPage('home');
+        localizeApp();
+
+        // Hydrate Admin panel default states
+        loadGeneralContentInputs();
+        loadAdminBrandData();
+        loadAdminMilestoneData();
+        renderAdminLeads();
+        updateBrandImagePreview();
+    };
+</script>
+</body>
+</html>
