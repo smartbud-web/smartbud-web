@@ -1,0 +1,69 @@
+/* 高階奢華感字體配置 */
+body, button, input, select, textarea, span, p, h1, h2, h3, h4, h5, h6, a {
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif !important;
+    letter-spacing: 0.015em;
+}
+
+/* 現代頁面切換過渡效果 */
+.page-transition {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 柔和陽光漸層效果 */
+.bg-sun-glow {
+    background: radial-gradient(circle at top right, rgba(210, 163, 80, 0.12) 0%, rgba(95, 111, 82, 0.04) 50%, rgba(253, 257, 247, 0) 100%);
+}
+
+/* 3D 卡片翻轉效果 */
+.perspective-1000 { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 { transform: rotateY(180deg); }
+
+/* 有機律動虛線邊框 */
+@keyframes border-pulse {
+    0% { border-color: rgba(210, 163, 80, 0.4); box-shadow: 0 0 10px rgba(210, 163, 80, 0.1); }
+    50% { border-color: rgba(95, 111, 82, 0.6); box-shadow: 0 0 20px rgba(95, 111, 82, 0.2); }
+    100% { border-color: rgba(210, 163, 80, 0.4); box-shadow: 0 0 10px rgba(210, 163, 80, 0.1); }
+}
+.organic-border {
+    border: 2px dashed;
+    animation: border-pulse 4s infinite ease-in-out;
+    border-radius: 30px;
+}
+
+/* 里程碑節點呼吸效果 */
+.timeline-pulse {
+    box-shadow: 0 0 0 0 rgba(210, 163, 80, 0.7);
+    animation: pulse-ring 2.5s infinite;
+}
+@keyframes pulse-ring {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(210, 163, 80, 0.6); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(210, 163, 80, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(210, 163, 80, 0); }
+}
+
+/* 溫和浮動圖表效果 */
+@keyframes gentle-float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.float-graphic { animation: gentle-float 6s ease-in-out infinite; }
+
+/* 精緻自訂捲軸 */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(95, 111, 82, 0.2);
+    border-radius: 10px;
+}
+
+/* 購物車抽屜側滑動畫 */
+.cart-drawer-open { transform: translateX(0%); }
+.cart-drawer-closed { transform: translateX(100%); }
+.cart-overlay-open { opacity: 1; pointer-events: auto; }
+.cart-overlay-closed { opacity: 0; pointer-events: none; }
