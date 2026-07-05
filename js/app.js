@@ -137,6 +137,10 @@ let shopDb = JSON.parse(localStorage.getItem('sb_shop_db')) || defaultShopProduc
 let aboutDb = JSON.parse(localStorage.getItem('sb_about_db')) || defaultAboutContent;
 let b2bDb = JSON.parse(localStorage.getItem('sb_b2b_db')) || defaultB2BContent;
 let cartDb = JSON.parse(localStorage.getItem('sb_cart_db')) || [];
+let generalDb = JSON.parse(localStorage.getItem('sb_general_db')) || {};
+let contactDb = JSON.parse(localStorage.getItem('sb_contact_db')) || {};
+let leadsDb = JSON.parse(localStorage.getItem('sb_leads_db')) || [];
+
 
 // Temporary storage for product images Base64 during creation
 let currentUploadedProductPhotoBase64 = '';
@@ -160,6 +164,9 @@ function switchPage(pageId) {
             
             // Trigger checkout render if opening checkout page
             if (p === 'checkout') renderCheckoutPage();
+
+            // NEW: Explicitly trigger the General Tab load when entering the Admin console
+            if (p === 'admin') switchAdminTab('general');
 
         } else {
             if (el) { el.classList.remove('opacity-100', 'block'); el.classList.add('opacity-0', 'hidden'); }
@@ -190,20 +197,43 @@ function localizeApp() {
 // Sync Editable Contents
 function syncFrontContent() {
     const isZH = currentLang === 'zh';
-    // About Section
+    
+    // 1. General Hero & Navigation Content
+    if (generalDb.brandTitle) {
+        safeSetText('nav-brand-title', generalDb.brandTitle);
+        safeSetText('footer-brand-title', generalDb.brandTitle);
+    }
+    if (generalDb.brandSubtitleZH && isZH) safeSetText('nav-brand-subtitle', generalDb.brandSubtitleZH);
+    
+    if (isZH) {
+        if (generalDb.heroHeadlineZH) safeSetText('hero-headline', generalDb.heroHeadlineZH);
+        if (generalDb.heroSubheadlineZH) safeSetText('hero-subheadline', generalDb.heroSubheadlineZH);
+    } else {
+        if (generalDb.heroHeadlineEN) safeSetText('hero-headline', generalDb.heroHeadlineEN);
+        if (generalDb.heroSubheadlineEN) safeSetText('hero-subheadline', generalDb.heroSubheadlineEN);
+    }
+
+    // 2. Contact Info & Footer Links
+    if (contactDb.email) document.getElementById('footer-email-icon').href = `mailto:${contactDb.email}`;
+    if (contactDb.waLink) document.getElementById('footer-whatsapp-icon').href = contactDb.waLink;
+    if (contactDb.ig) document.getElementById('footer-instagram-icon').href = contactDb.ig;
+    if (contactDb.copyright) safeSetText('footer-copyright', contactDb.copyright);
+
+    // 3. About Section (Your original code)
     safeSetText('founder-journey-content', isZH ? aboutDb.founder_zh : aboutDb.founder_en);
     safeSetText('promise-p1-desc-front', isZH ? aboutDb.p1_zh : "Focusing on the critical 0-5 development window, we select products that naturally stimulate fine motor skills.");
     safeSetText('promise-p2-desc-front', isZH ? aboutDb.p2_zh : "Every item clears the highest international safety benchmarks (EN71/ASTM).");
     safeSetText('promise-p3-desc-front', isZH ? aboutDb.p3_zh : "We curate baby essentials that harmoniously blend sleek global aesthetics with high functionality.");
     safeSetText('promise-p4-desc-front', isZH ? aboutDb.p4_zh : "Beyond retail, we provide local mothers with real-time community support.");
     
-    // B2B Section
+    // 4. B2B Section (Your original code)
     safeSetText('b2b-intro-text', isZH ? b2bDb.intro_zh : "We are your strategic partner deeply versed in localized brand equity preservation and strict omni-channel price control.");
     safeSetText('b2b-retail-intro-text', isZH ? b2bDb.retail_intro_zh : "We invite premium boutiques and pediatric setups across HK to join our retail dealership network.");
     safeSetText('timeline-s1-title', b2bDb.s1_title);
     safeSetText('timeline-s2-title', b2bDb.s2_title);
     safeSetText('timeline-s3-title', b2bDb.s3_title);
 
+    // 5. Logo Management (Your original code)
     const savedLogo = localStorage.getItem('sb_company_logo');
     const slots = document.querySelectorAll('.company-logo-slot');
     const lSlots = document.querySelectorAll('.company-logo-large-slot');
@@ -256,7 +286,14 @@ function renderShopProducts() {
     if (grid) {
         grid.innerHTML = shopDb.map(p => {
             const img = p.image ? `<img src="${p.image}" class="w-full h-full object-cover rounded-2xl">` : `<div class="flex flex-col items-center justify-center h-full w-full bg-brand-100/60 p-4"><i class="fa-solid fa-gift text-brand-500 text-3xl mb-2"></i><span class="text-[10px] font-black tracking-widest text-brand-800 uppercase">${p.brand || 'Premium'}</span></div>`;
-            const dBuyURL = p.checkout && p.checkout !== '#' ? p.checkout : '#';
+            
+            // Clean validation to check if a valid checkout link exists
+            const hasSecureLink = p.checkout && p.checkout.trim() !== '' && p.checkout !== '#';
+            
+            // Dynamically assign attributes: prevents execution of fallback click handler if link exists
+            const buyNowAttribute = hasSecureLink 
+                ? `href="${p.checkout.trim()}" target="_blank"` 
+                : `href="#" onclick="directBuyFallback('${p.id}'); return false;"`;
             
             return `
                 <div class="bg-white rounded-[32px] border border-brand-200/40 p-5 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
@@ -277,7 +314,7 @@ function renderShopProducts() {
                             <button onclick="addToCart('${p.id}')" class="w-full py-2.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-black text-center hover:bg-brand-100 transition-all flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-cart-plus"></i> ${dictionary[currentLang]['btn-add-cart']}
                             </button>
-                            <a href="${dBuyURL}" ${dBuyURL !== '#' ? 'target="_blank"' : `onclick="directBuyFallback('${p.id}'); return false;"`} class="w-full py-2.5 rounded-full bg-brand-700 text-white text-xs font-black text-center hover:bg-brand-500 shadow-md transition-all flex items-center justify-center gap-2">
+                            <a ${buyNowAttribute} class="w-full py-2.5 rounded-full bg-brand-700 text-white text-xs font-black text-center hover:bg-brand-500 shadow-md transition-all flex items-center justify-center gap-2">
                                 ${dictionary[currentLang]['btn-buy-now']} <i class="fa-solid fa-bolt"></i>
                             </a>
                         </div>
@@ -290,9 +327,9 @@ function renderShopProducts() {
     if (adminBody) {
         adminBody.innerHTML = shopDb.map(p => `
             <tr class="border-b border-brand-200/40 hover:bg-brand-50/50">
-                <td class="py-2">${p.image ? `<img src="${p.image}" class="w-8 h-8 object-cover rounded-md">` : `<div class="w-8 h-8 bg-brand-200 rounded-md flex items-center justify-center text-[10px] font-black">${p.brand[0].toUpperCase()}</div>`}</td>
+                <td class="py-2">${p.image ? `<img src="${p.image}" class="w-8 h-8 object-cover rounded-md">` : `<div class="w-8 h-8 bg-brand-200 rounded-md flex items-center justify-center text-[10px] font-black">${p.brand ? p.brand[0].toUpperCase() : 'P'}</div>`}</td>
                 <td class="py-2 font-bold text-brand-700 truncate max-w-[150px]">${p.title_zh}</td>
-                <td class="py-2 capitalize text-brand-800">${p.brand}</td>
+                <td class="py-2 capitalize text-brand-800">${p.brand || 'Other'}</td>
                 <td class="py-2 font-black">HKD ${p.price}</td>
                 <td class="py-2 text-right space-x-1">
                     <button onclick="editProduct('${p.id}')" class="px-2 py-1 bg-brand-700 text-white rounded text-[10px] font-bold">編輯</button>
@@ -511,6 +548,14 @@ function switchAdminTab(subTabId) {
             
             if (t === 'about') loadAboutContent();
             if (t === 'b2b') loadB2BContent();
+            if (t === 'general') loadGeneralContent();
+            if (t === 'about') loadAboutContent();
+            if (t === 'b2b') loadB2BContent();
+            if (t === 'contact') loadContactContent();
+            if (t === 'images') updateBrandImagePreview();
+            if (t === 'brands') loadAdminBrandData();
+            if (t === 'milestones') loadAdminMilestoneData();
+            if (t === 'leads') renderAdminLeads();
         } else {
             if (btn) btn.className = "w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-gray-600 hover:bg-brand-50 flex items-center gap-2 transition-all";
             if (panel) panel.classList.add('hidden');
@@ -658,6 +703,211 @@ function appendChatBubble(text, role) {
         `<div class="w-7 h-7 rounded-full bg-brand-900/30 text-brand-700 flex items-center justify-center text-[10px] shrink-0 font-black">AI</div><div class="bg-white p-3 rounded-2xl border border-brand-200/40 text-xs shadow-sm leading-relaxed text-gray-600 max-w-[80%]">${text}</div>`;
     c.appendChild(div); c.scrollTop = c.scrollHeight;
     return id;
+}
+
+// ================= MISSING ADMIN FUNCTIONS =================
+
+// 1. General Hero Content
+function loadGeneralContent() {
+    safeSetVal('custom-gemini-key', generalDb.geminiKey || '');
+    safeSetVal('edit-nav-brand-title', generalDb.brandTitle || '');
+    safeSetVal('edit-nav-brand-subtitle-zh', generalDb.brandSubtitleZH || '');
+    safeSetVal('edit-hero-headline-zh', generalDb.heroHeadlineZH || '');
+    safeSetVal('edit-hero-headline-en', generalDb.heroHeadlineEN || '');
+    safeSetVal('edit-hero-subheadline-zh', generalDb.heroSubheadlineZH || '');
+    safeSetVal('edit-hero-subheadline-en', generalDb.heroSubheadlineEN || '');
+}
+
+function saveGeneralContent() {
+    generalDb = {
+        geminiKey: document.getElementById('custom-gemini-key').value,
+        brandTitle: document.getElementById('edit-nav-brand-title').value,
+        brandSubtitleZH: document.getElementById('edit-nav-brand-subtitle-zh').value,
+        heroHeadlineZH: document.getElementById('edit-hero-headline-zh').value,
+        heroHeadlineEN: document.getElementById('edit-hero-headline-en').value,
+        heroSubheadlineZH: document.getElementById('edit-hero-subheadline-zh').value,
+        heroSubheadlineEN: document.getElementById('edit-hero-subheadline-en').value
+    };
+    localStorage.setItem('sb_general_db', JSON.stringify(generalDb));
+    showToast("首頁核心文字已更新！(Home content saved)");
+}
+
+// 2. Contact Information
+function loadContactContent() {
+    safeSetVal('admin-contact-email', contactDb.email || '');
+    safeSetVal('admin-contact-phone', contactDb.phone || '');
+    safeSetVal('admin-contact-instagram', contactDb.ig || '');
+    safeSetVal('admin-contact-whatsapp-link', contactDb.waLink || '');
+    safeSetVal('admin-contact-copyright', contactDb.copyright || '');
+}
+
+function saveAdminContactData() {
+    contactDb = {
+        email: document.getElementById('admin-contact-email').value,
+        phone: document.getElementById('admin-contact-phone').value,
+        ig: document.getElementById('admin-contact-instagram').value,
+        waLink: document.getElementById('admin-contact-whatsapp-link').value,
+        copyright: document.getElementById('admin-contact-copyright').value
+    };
+    localStorage.setItem('sb_contact_db', JSON.stringify(contactDb));
+    showToast("聯繫資訊已更新！(Contact info saved)");
+}
+
+// 3. Media & Image Uploads (Base64 Encoding)
+function uploadCompanyLogo(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            localStorage.setItem('sb_company_logo', evt.target.result);
+            document.getElementById('admin-logo-preview-box').innerHTML = `<img src="${evt.target.result}" class="w-full h-full object-cover">`;
+            syncFrontContent(); 
+            showToast("公司商標已更新！(Company logo updated)");
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function clearCustomLogo() {
+    localStorage.removeItem('sb_company_logo');
+    document.getElementById('admin-logo-preview-box').innerHTML = '';
+    syncFrontContent();
+    showToast("公司商標已還原預設！(Logo reset to default)");
+}
+
+function updateBrandImagePreview() {
+    const brand = document.getElementById('image-select-brand').value;
+    const saved = localStorage.getItem(`sb_brand_logo_${brand}`);
+    document.getElementById('brand-logo-preview-box').innerHTML = saved 
+        ? `<img src="${saved}" class="h-full object-contain">` 
+        : '<span class="text-xs text-gray-400">尚無自訂圖片</span>';
+}
+
+function uploadBrandLogo(e) {
+    const file = e.target.files[0];
+    const brand = document.getElementById('image-select-brand').value;
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            localStorage.setItem(`sb_brand_logo_${brand}`, evt.target.result);
+            updateBrandImagePreview();
+            showToast("品牌標誌已更新！(Brand logo updated)");
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function clearBrandLogo() {
+    const brand = document.getElementById('image-select-brand').value;
+    localStorage.removeItem(`sb_brand_logo_${brand}`);
+    updateBrandImagePreview();
+    showToast("品牌標誌已還原預設！(Brand logo reset)");
+}
+
+// 4. Brands Content Management
+function loadAdminBrandData() {
+    const brand = document.getElementById('admin-select-brand').value;
+    const data = JSON.parse(localStorage.getItem(`sb_brand_data_${brand}`)) || {};
+    safeSetVal('admin-brand-age-zh', data.age || '');
+    safeSetVal('admin-brand-badge-zh', data.badge || '');
+    safeSetVal('admin-brand-title-zh', data.title || '');
+    safeSetVal('admin-brand-desc-zh', data.desc || '');
+    safeSetVal('admin-brand-products-zh', data.products || '');
+}
+
+function saveAdminBrandData() {
+    const brand = document.getElementById('admin-select-brand').value;
+    const data = {
+        age: document.getElementById('admin-brand-age-zh').value,
+        badge: document.getElementById('admin-brand-badge-zh').value,
+        title: document.getElementById('admin-brand-title-zh').value,
+        desc: document.getElementById('admin-brand-desc-zh').value,
+        products: document.getElementById('admin-brand-products-zh').value
+    };
+    localStorage.setItem(`sb_brand_data_${brand}`, JSON.stringify(data));
+    showToast("品牌資料已更新！(Brand data saved)");
+}
+
+// 5. Milestones Content Management
+function loadAdminMilestoneData() {
+    const ms = document.getElementById('admin-select-milestone').value;
+    const data = JSON.parse(localStorage.getItem(`sb_ms_data_${ms}`)) || {};
+    safeSetVal('admin-ms-title-zh', data.title || '');
+    safeSetVal('admin-ms-rec-zh', data.rec || '');
+}
+
+function saveAdminMilestoneData() {
+    const ms = document.getElementById('admin-select-milestone').value;
+    const data = {
+        title: document.getElementById('admin-ms-title-zh').value,
+        rec: document.getElementById('admin-ms-rec-zh').value
+    };
+    localStorage.setItem(`sb_ms_data_${ms}`, JSON.stringify(data));
+    showToast("發育里程碑已更新！(Milestones saved)");
+}
+
+// 6. B2B Leads Inbox & Form Handler
+function handleFormSubmit(e) {
+    e.preventDefault();
+    const lead = {
+        id: 'lead_' + Date.now(),
+        date: new Date().toLocaleString('zh-HK'),
+        name: document.getElementById('input-name').value,
+        email: document.getElementById('input-email').value,
+        brand: document.getElementById('input-brand').value,
+        type: document.getElementById('input-country').value,
+        message: document.getElementById('input-message').value
+    };
+    
+    leadsDb.push(lead);
+    localStorage.setItem('sb_leads_db', JSON.stringify(leadsDb));
+    
+    // Switch to success view
+    document.getElementById('b2b-form-container').classList.add('hidden');
+    document.getElementById('form-success').classList.remove('hidden');
+    document.getElementById('form-success').classList.add('block');
+    
+    // Refresh admin view if open
+    renderAdminLeads();
+}
+
+function resetForm() {
+    document.getElementById('bd-form').reset();
+    document.getElementById('form-success').classList.add('hidden');
+    document.getElementById('form-success').classList.remove('block');
+    document.getElementById('b2b-form-container').classList.remove('hidden');
+}
+
+function renderAdminLeads() {
+    const list = document.getElementById('admin-leads-list');
+    if (!list) return;
+    
+    if (leadsDb.length === 0) {
+        list.innerHTML = `<div class="p-8 text-center text-gray-400 font-bold bg-brand-50 rounded-2xl border border-brand-200/50">收件箱目前沒有提案 (Inbox is empty).</div>`;
+        return;
+    }
+    
+    // Render leads from newest to oldest
+    list.innerHTML = [...leadsDb].reverse().map(l => `
+        <div class="p-4 bg-brand-50 rounded-2xl border border-brand-200/50">
+            <div class="flex justify-between items-center mb-2 border-b border-brand-200 pb-2">
+                <span class="text-xs font-black text-brand-800 uppercase tracking-wider">${l.type}</span>
+                <span class="text-[10px] text-gray-400 font-bold">${l.date}</span>
+            </div>
+            <div class="text-sm font-bold text-brand-700 mb-1">${l.name} <span class="text-xs text-gray-500 font-normal">(${l.brand})</span></div>
+            <div class="text-xs text-brand-600 mb-3"><a href="mailto:${l.email}">${l.email}</a></div>
+            <p class="text-xs text-gray-600 bg-white p-3 rounded-xl border border-brand-200">${l.message}</p>
+        </div>
+    `).join('');
+}
+
+function clearAdminLeads() {
+    if(confirm("確定要清空所有提案紀錄嗎？此操作無法復原。(Clear all leads?)")) {
+        leadsDb = [];
+        localStorage.setItem('sb_leads_db', JSON.stringify(leadsDb));
+        renderAdminLeads();
+        showToast("收件箱已清空！(Inbox cleared)");
+    }
 }
 
 // Init
