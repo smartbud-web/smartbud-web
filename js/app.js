@@ -137,7 +137,7 @@ const defaultB2BContent = {
 const defaultBrandsDb = [
     { 
         id: 'doddl', name: 'Doddl', tabId: '1-3y', logo: './assets/doddlLogo.webp',
-        badge_zh: '香港總代理 2026Q4開展', badge_en: 'HK Sole Distributor',
+        badge_zh: '香港總代理 2026Q4開展', badge_en: 'HK Sole Distributor 2026Q4 Launch',
         age_zh: '適用：12 個月以上', age_en: 'For: 12 Months+',
         title_zh: 'Doddl｜英國人體工學餐具', title_en: 'Doddl | Ergonomic Cutlery from UK',
         desc_zh: '源自英國的餐具美學革命。專利三點式人體工學持握孔道，使幼兒無需代償即可解鎖自主進食。', desc_en: 'An aesthetic revolution in cutlery from the UK. The patented 3-point ergonomic grip allows toddlers to unlock self-feeding without compensatory movements.',
