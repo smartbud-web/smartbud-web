@@ -136,24 +136,36 @@ const defaultB2BContent = {
 // ================= DYNAMIC BRANDS DATABASE =================
 const defaultBrandsDb = [
     { 
-        id: 'doddl', name: 'Doddl', badge: '香港總代理', age: '適用：12 個月以上', title: 'Doddl｜英國人體工學餐具', 
-        desc: '源自英國的餐具美學革命。專利三點式人體工學持握孔道，使幼兒無需代償即可解鎖自主進食。', features: '鍛鍊手部精細動作\n直覺式使用', tabId: '1-3y',
-        logo: './assets/doddlLogo.webp' // <-- ADDED PATH
+        id: 'doddl', name: 'Doddl', tabId: '1-3y', logo: './assets/doddlLogo.webp',
+        badge_zh: '香港總代理 2026Q4開展', badge_en: 'HK Sole Distributor',
+        age_zh: '適用：12 個月以上', age_en: 'For: 12 Months+',
+        title_zh: 'Doddl｜英國人體工學餐具', title_en: 'Doddl | Ergonomic Cutlery from UK',
+        desc_zh: '源自英國的餐具美學革命。專利三點式人體工學持握孔道，使幼兒無需代償即可解鎖自主進食。', desc_en: 'An aesthetic revolution in cutlery from the UK. The patented 3-point ergonomic grip allows toddlers to unlock self-feeding without compensatory movements.',
+        features_zh: '鍛鍊手部精細動作\n直覺式使用', features_en: 'Develops fine motor skills\nIntuitive to use'
     },
     { 
-        id: 'tidytot', name: 'Tidy Tot', badge: '官方零售商', age: '適用：6 個月以上', title: 'Tidy Tot｜英國防髒托盤圍兜', 
-        desc: '引領感官探索，解放媽媽勞動。給予寶寶自由捏拿、嘗試、試錯的探索邊界。', features: '防水易清洗\n收納方便', tabId: '0-1y',
-        logo: './assets/tidyTotLogo.avif' // <-- ADDED PATH
+        id: 'tidytot', name: 'Tidy Tot', tabId: '0-1y', logo: './assets/tidyTotLogo.avif',
+        badge_zh: '官方零售商', badge_en: 'Official Retailer',
+        age_zh: '適用：6 個月以上', age_en: 'For: 6 Months+',
+        title_zh: 'Tidy Tot｜英國防髒托盤圍兜', title_en: 'Tidy Tot | Bib & Tray Kit from UK',
+        desc_zh: '引領感官探索，解放媽媽勞動。給予寶寶自由捏拿、嘗試、試錯的探索邊界。', desc_en: 'Pioneering sensory exploration while freeing mothers from chores. Giving babies the boundaries to freely pinch, try, and explore through trial and error.',
+        features_zh: '防水易清洗\n收納方便', features_en: 'Waterproof & easy to clean\nConvenient storage'
     },
     { 
-        id: 'qbi', name: 'QBI', badge: '官方零售商', age: '適用：2 歲以上', title: 'QBI｜益智磁吸軌道玩具', 
-        desc: '亞太新一代 STEAM 啟蒙先鋒。QBI 將強力磁吸與精細軌道邏輯完美融合。', features: 'STEAM 邏輯啟蒙\n安全磁吸設計', tabId: '3-5y',
-        logo: './assets/qbiLogo.webp' // <-- ADDED PATH
+        id: 'qbi', name: 'QBI', tabId: '3-5y', logo: './assets/qbiLogo.webp',
+        badge_zh: '官方零售商', badge_en: 'Official Retailer',
+        age_zh: '適用：2 歲以上', age_en: 'For: 2 Years+',
+        title_zh: 'QBI｜益智磁吸軌道玩具', title_en: 'QBI | Magnetic Modular Playtoy',
+        desc_zh: '亞太新一代 STEAM 啟蒙先鋒。QBI 將強力磁吸與精細軌道邏輯完美融合。', desc_en: 'Asia-Pacific\'s new generation STEAM pioneer. QBI perfectly integrates strong magnetic attraction with intricate track logic.',
+        features_zh: 'STEAM 邏輯啟蒙\n安全磁吸設計', features_en: 'STEAM logic enlightenment\nSafe magnetic design'
     },
     { 
-        id: 'goki', name: 'Goki', badge: '官方零售商', age: '適用：0 歲以上', title: 'Goki｜德國經典木玩', 
-        desc: '源自德國近半世紀的傳統木質底蘊。每一塊木質均取自歐洲合法森林（FSC認證）。', features: 'FSC 環保實木\n無毒安全水性漆', tabId: '3-5y',
-        logo: './assets/gokiLogo.png' // <-- ADDED PATH
+        id: 'goki', name: 'Goki', tabId: '3-5y', logo: './assets/gokiLogo.png',
+        badge_zh: '官方零售商', badge_en: 'Official Retailer',
+        age_zh: '適用：0 歲以上', age_en: 'For: 0 Years+',
+        title_zh: 'Goki｜德國經典木玩', title_en: 'Goki | Classic German Wooden Toys',
+        desc_zh: '源自德國近半世紀的傳統木質底蘊。每一塊木質均取自歐洲合法森林（FSC認證）。', desc_en: 'Rooted in nearly half a century of traditional German wooden heritage. Every piece of wood is sourced from legal European forests (FSC certified).',
+        features_zh: 'FSC 環保實木\n無毒安全水性漆', features_en: 'FSC eco-friendly solid wood\nNon-toxic safe water-based paint'
     }
 ];
 // ================= SHOP DATABASE =================
@@ -163,7 +175,7 @@ const defaultShopDb = [
     { id: 'prod_3', brand: 'QBI', title_zh: '益智磁吸軌道玩具', title_en: 'Magnetic Track Toy', price: 450, checkout: '', desc_zh: 'STEAM 邏輯啟蒙', desc_en: 'STEAM learning', image: './assets/qbiProduct.webp' },
     { id: 'prod_4', brand: 'Goki', title_zh: '德國經典木玩', title_en: 'Classic Wooden Toy', price: 220, checkout: '', desc_zh: 'FSC 環保實木', desc_en: 'FSC Wood', image: './assets/gokiProduct.jpg' }
 ];
-
+localStorage.removeItem('sb_brands_db');
 let brandsDb = JSON.parse(localStorage.getItem('sb_brands_db')) || defaultBrandsDb;
 
 let shopDb = JSON.parse(localStorage.getItem('sb_shop_db')) || defaultShopDb;
@@ -179,8 +191,42 @@ let leadsDb = JSON.parse(localStorage.getItem('sb_leads_db')) || [];
 let currentUploadedProductPhotoBase64 = '';
 
 // ================= UTILS & PAGE ROUTING =================
-function safeSetText(id, text) { const el = document.getElementById(id); if (el) el.innerText = text || ''; }
-function safeSetHTML(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html || ''; }
+function safeSetHTML(classNameOrId, html) {
+    try {
+        const el = document.getElementById(classNameOrId);
+        if (el) el.innerHTML = html;
+    } catch (err) {
+        console.error(`safeSetHTML (ID) crashed on [${classNameOrId}]:`, err);
+    }
+
+    try {
+        // This querySelector can fail if a dictionary key contains invalid selector characters
+        const elements = document.querySelectorAll('.' + classNameOrId);
+        elements.forEach(e => {
+            if (e) e.innerHTML = html;
+        });
+    } catch (err) {
+        console.error(`safeSetHTML (Class) crashed on [${classNameOrId}]:`, err);
+    }
+}
+
+function safeSetText(classNameOrId, text) {
+    try {
+        const el = document.getElementById(classNameOrId);
+        if (el) el.innerText = text;
+    } catch (err) {
+        console.error(`safeSetText (ID) crashed on [${classNameOrId}]:`, err);
+    }
+    
+    try {
+        const elements = document.querySelectorAll('.' + classNameOrId);
+        elements.forEach(e => {
+            if (e) e.innerText = text;
+        });
+    } catch (err) {
+        console.error(`safeSetText (Class) crashed on [${classNameOrId}]:`, err);
+    }
+}
 function safeSetVal(id, val) { const el = document.getElementById(id); if (el) el.value = val || ''; }
 
 function switchPage(pageId) {
@@ -218,13 +264,33 @@ function toggleLanguage() {
 }
 
 function localizeApp() {
-    const trans = dictionary[currentLang];
-    for (const [key, value] of Object.entries(trans)) { safeSetHTML(key, value); }
-    syncFrontContent();
-    renderShopProducts();
-    renderCartUI();
-    safeSetText('lang-indicator', currentLang === 'zh' ? 'EN' : '繁中');
-    safeSetText('lang-indicator-mobile', currentLang === 'zh' ? 'EN' : '繁中');
+
+    try {
+        const trans = dictionary[currentLang];
+        if (!trans) {
+            return;
+        }
+
+        for (const [key, value] of Object.entries(trans)) {
+            safeSetHTML(key, value);
+        }
+
+        syncFrontContent();
+
+        renderShopProducts();
+
+        renderCartUI();
+
+        renderBrandsPage();
+
+        safeSetText('lang-indicator', currentLang === 'zh' ? 'EN' : '繁中');
+        safeSetText('lang-indicator-mobile', currentLang === 'zh' ? 'EN' : '繁中');
+        
+    } catch (globalError) {
+        console.error("!!! CRITICAL CRASH INSIDE LOCALIZEAPP !!!");
+        console.error("Error Message:", globalError.message);
+        console.error("Stack Trace:", globalError.stack);
+    }
 }
 
 // Sync Editable Contents
@@ -1069,11 +1135,22 @@ function renderBrandsPage() {
     if (!container) return;
 
     container.innerHTML = brandsDb.map((b, index) => {
-        // Alternate layout: Even indexes image left, Odd indexes image right
         const layoutClass = index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse';
-        const badgeColor = b.badge.includes('總代') ? 'bg-brand-700 text-white' : 'bg-brand-900/40 text-brand-700';
+        // Determine variables based on current language
+        const badge = currentLang === 'en' ? b.badge_en : b.badge_zh;
+        const age = currentLang === 'en' ? b.age_en : b.age_zh;
+        const title = currentLang === 'en' ? b.title_en : b.title_zh;
+        const desc = currentLang === 'en' ? b.desc_en : b.desc_zh;
+        const features = currentLang === 'en' ? b.features_en : b.features_zh;
+
         
-        // Read directly from the asset path
+        // Dynamic UI text
+        const featTitle = currentLang === 'en' ? 'Popular Products & Features' : '熱門商品與產品特色';
+        const btnMilestone = currentLang === 'en' ? 'Read Milestones' : '閱讀里程碑對應';
+        const btnShop = currentLang === 'en' ? 'Go to Shop' : '前往選品店購買';
+
+        const badgeColor = badge.includes('總代') || badge.includes('Sole') ? 'bg-brand-700 text-white' : 'bg-brand-900/40 text-brand-700';
+        
         const logoHtml = b.logo 
             ? `<img src="${b.logo}" class="h-16 w-auto object-contain drop-shadow-sm">` 
             : `<div class="h-16 w-full flex items-center justify-center font-black text-2xl text-brand-800 tracking-widest uppercase opacity-40">${b.name}</div>`;
@@ -1082,24 +1159,24 @@ function renderBrandsPage() {
             <div class="bg-white rounded-[40px] border border-brand-200/40 p-8 sm:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col ${layoutClass} gap-10 items-center">
                 <div class="lg:w-2/5 flex flex-col items-center">
                     <div class="mb-6 flex items-center justify-center w-full">${logoHtml}</div>
-                    <span class="px-4 py-1.5 ${badgeColor} rounded-full text-xs font-extrabold shadow-sm uppercase tracking-wider">${b.badge}</span>
+                    <span class="px-4 py-1.5 ${badgeColor} rounded-full text-xs font-extrabold shadow-sm uppercase tracking-wider">${badge}</span>
                     <div class="mt-4 text-xs font-bold text-brand-800 bg-brand-50 border border-brand-200/50 px-3 py-1 rounded-full text-center">
-                        <span>${b.age}</span>
+                        <span>${age}</span>
                     </div>
                 </div>
                 <div class="lg:w-3/5 w-full">
-                    <h3 class="text-2xl font-black text-brand-700 mb-4">${b.title}</h3>
-                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">${b.desc}</p>
+                    <h3 class="text-2xl font-black text-brand-700 mb-4">${title}</h3>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">${desc}</p>
                     <div class="bg-brand-50 p-6 rounded-2xl border border-brand-200/20 mb-6">
-                        <h4 class="text-xs font-black text-brand-800 uppercase tracking-widest mb-3"><i class="fa-solid fa-basket-shopping mr-1.5"></i> 熱門商品與產品特色</h4>
-                        <div class="text-xs text-gray-500 leading-relaxed font-medium whitespace-pre-line">${b.features}</div>
+                        <h4 class="text-xs font-black text-brand-800 uppercase tracking-widest mb-3"><i class="fa-solid fa-basket-shopping mr-1.5"></i> ${featTitle}</h4>
+                        <div class="text-xs text-gray-500 leading-relaxed font-medium whitespace-pre-line">${features}</div>
                     </div>
                     <div class="flex flex-wrap gap-4 items-center">
                         <button onclick="switchPage('milestones'); switchMilestoneTab('${b.tabId}');" class="px-5 py-2.5 bg-brand-50 text-brand-700 border border-brand-200 rounded-full text-xs font-extrabold hover:bg-brand-100 transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap"></i> <span class="lbl-read-milestone">閱讀里程碑對應</span>
+                            <i class="fa-solid fa-graduation-cap"></i> <span>${btnMilestone}</span>
                         </button>
                         <button onclick="switchPage('shop')" class="px-5 py-2.5 bg-brand-800/10 text-brand-800 rounded-full text-xs font-extrabold hover:bg-brand-850/25 transition-all">
-                            <i class="fa-solid fa-cart-shopping mr-1"></i> <span class="lbl-go-shop">前往選品店購買</span>
+                            <i class="fa-solid fa-cart-shopping mr-1"></i> <span>${btnShop}</span>
                         </button>
                     </div>
                 </div>
