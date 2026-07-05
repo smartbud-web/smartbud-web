@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     try {
         await resend.emails.send({
-            from: 'Smart Bud Orders <orders@smartbud.online>', // Must be your verified domain
+            from: 'Smart Bud Orders <orders@resend.dev>', // Must be your verified domain
             to: customer.email,
             subject: `[Smart Bud] 訂單確認與付款指示 Order Confirmation ${orderId}`,
             html: `
