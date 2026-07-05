@@ -901,6 +901,47 @@ function renderAdminLeads() {
     `).join('');
 }
 
+// ================= ADMIN SECURITY =================
+
+async function requireAdminPassword() {
+    // 1. Check if the user already logged in during this browser session
+    if (sessionStorage.getItem('sb_admin_logged_in') === 'true') {
+        switchPage('admin');
+        return;
+    }
+
+    // 2. Prompt for the password
+    const userInput = prompt("請輸入系統管理控制台密碼 (Enter Admin Password):");
+    
+    // If the user clicks cancel, do nothing
+    if (userInput === null) return;
+
+    try {
+        // 3. Send the password to your secure Vercel API
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password: userInput })
+        });
+
+        const data = await response.json();
+
+        // 4. Handle the server's response
+        if (data.success) {
+            sessionStorage.setItem('sb_admin_logged_in', 'true');
+            switchPage('admin');
+            showToast("管理員登入成功！ (Admin login successful)");
+        } else {
+            showToast("密碼錯誤！ Access Denied.");
+        }
+    } catch (error) {
+        console.error("Login verification failed:", error);
+        showToast("系統發生錯誤，請稍後再試。 (System error)");
+    }
+}
+
 function clearAdminLeads() {
     if(confirm("確定要清空所有提案紀錄嗎？此操作無法復原。(Clear all leads?)")) {
         leadsDb = [];
