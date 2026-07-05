@@ -239,6 +239,17 @@ function syncFrontContent() {
     const lSlots = document.querySelectorAll('.company-logo-large-slot');
     slots.forEach(s => s.innerHTML = savedLogo ? `<img src="${savedLogo}" class="w-full h-full object-cover">` : defaultCompanyLogoSVG);
     lSlots.forEach(s => s.innerHTML = savedLogo ? `<img src="${savedLogo}" class="w-full h-full object-cover rounded-[40px] shadow-lg">` : defaultCompanyLogoLargeSVG);
+
+    // 6. Brand Logos Sync
+    ['doddl', 'tidytot', 'qbi', 'goki'].forEach(brand => {
+        const savedBrandLogo = localStorage.getItem(`sb_brand_logo_${brand}`);
+        const brandSlots = document.querySelectorAll(`.brand-logo-slot-${brand}`);
+        brandSlots.forEach(s => {
+            s.innerHTML = savedBrandLogo 
+                ? `<img src="${savedBrandLogo}" class="h-full w-auto object-contain drop-shadow-sm">` 
+                : `<span class="text-lg font-black text-brand-800 uppercase tracking-widest opacity-40">${brand}</span>`;
+        });
+    });
 }
 
 // Interactive UI
@@ -757,12 +768,22 @@ function saveAdminContactData() {
 function uploadCompanyLogo(e) {
     const file = e.target.files[0];
     if (file) {
+        // Quick size check (Warn if over 2MB)
+        if (file.size > 2 * 1024 * 1024) {
+            showToast("⚠️ 警告：圖片可能過大，建議小於 2MB。");
+        }
+
         const reader = new FileReader();
         reader.onload = function(evt) {
-            localStorage.setItem('sb_company_logo', evt.target.result);
-            document.getElementById('admin-logo-preview-box').innerHTML = `<img src="${evt.target.result}" class="w-full h-full object-cover">`;
-            syncFrontContent(); 
-            showToast("公司商標已更新！(Company logo updated)");
+            try {
+                localStorage.setItem('sb_company_logo', evt.target.result);
+                document.getElementById('admin-logo-preview-box').innerHTML = `<img src="${evt.target.result}" class="w-full h-full object-cover">`;
+                syncFrontContent(); 
+                showToast("公司商標已更新！(Company logo updated)");
+            } catch (error) {
+                console.error(error);
+                showToast("❌ 錯誤：圖片檔案太大，儲存空間不足！請壓縮圖片。");
+            }
         };
         reader.readAsDataURL(file);
     }
@@ -787,11 +808,21 @@ function uploadBrandLogo(e) {
     const file = e.target.files[0];
     const brand = document.getElementById('image-select-brand').value;
     if (file) {
+        if (file.size > 2 * 1024 * 1024) {
+            showToast("⚠️ 警告：圖片可能過大，建議小於 2MB。");
+        }
+
         const reader = new FileReader();
         reader.onload = function(evt) {
-            localStorage.setItem(`sb_brand_logo_${brand}`, evt.target.result);
-            updateBrandImagePreview();
-            showToast("品牌標誌已更新！(Brand logo updated)");
+            try {
+                localStorage.setItem(`sb_brand_logo_${brand}`, evt.target.result);
+                updateBrandImagePreview();
+                syncFrontContent(); // Ensure frontend updates immediately
+                showToast("品牌標誌已更新！(Brand logo updated)");
+            } catch (error) {
+                console.error(error);
+                showToast("❌ 錯誤：圖片檔案太大，儲存空間不足！請壓縮圖片。");
+            }
         };
         reader.readAsDataURL(file);
     }
