@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-HK" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Bud 樂芽 | 後台管理系統</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brand: { 50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 700: '#be185d', 800: '#9d174d', 900: '#881337' } } } } };
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <div id="admin-panel-orders" class="admin-panel hidden space-y-6">
+        <h4 class="font-bold text-brand-700 text-lg border-b pb-4"><i class="fa-solid fa-receipt mr-2"></i>訂單管理中心</h4>
+        <div class="flex justify-between items-center">
+            <h5 class="text-sm font-black text-brand-700 uppercase">已接收訂單</h5>
+            <button onclick="clearAdminOrders()" class="text-[10px] text-red-600 bg-red-50 px-3 py-1 rounded-full font-bold">清空紀錄</button>
+        </div>
+        <div id="admin-orders-list" class="space-y-4"></div>
+    </div>
+
+<script>
+    // 初始化資料庫
+    let ordersDb = JSON.parse(localStorage.getItem('sb_orders_db')) || [];
+    let shopDb = JSON.parse(localStorage.getItem('sb_shop_db')) || [];
+
+    // 1. 修正後的商品更新邏輯
+    function saveAdminProductData() {
+        const prodId = document.getElementById('admin-product-id').value;
+        const index = shopDb.findIndex(item => item.id === prodId);
+        
+        if (index !== -1) {
+            // 更新現有商品
+            shopDb[index] = {
+                ...shopDb[index],
+                title_zh: document.getElementById('admin-product-title-zh').value,
+                price_zh: document.getElementById('admin-product-price').value,
+                image: currentUploadedProductPhotoBase64 || shopDb[index].image
+            };
+            localStorage.setItem('sb_shop_db', JSON.stringify(shopDb));
+            showToast("商品更新成功！");
+            renderShopProducts();
+        }
+    }
+
+    // 2. 訂單渲染與管理
+    function renderAdminOrders() {
+        const list = document.getElementById('admin-orders-list');
+        if (!list) return;
+
+        if (ordersDb.length === 0) {
+            list.innerHTML = `<p class="text-center text-gray-400 py-10">目前無訂單紀錄</p>`;
+            return;
+        }
+
+        list.innerHTML = ordersDb.map(order => `
+            <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                <div class="flex justify-between">
+                    <span class="font-bold text-brand-800">${order.id}</span>
+                    <span class="text-xs text-gray-500">${order.date}</span>
+                </div>
+                <p class="text-sm mt-2">客戶: ${order.customerName} (${order.email})</p>
+                <p class="text-xs text-gray-600 mt-1">地址: ${order.address}</p>
+                <div class="mt-3 pt-3 border-t border-gray-50">
+                    <span class="font-bold text-brand-700">總金額: ${order.total}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function clearAdminOrders() {
+        if(confirm("確定要刪除所有訂單嗎？")) {
+            ordersDb = [];
+            localStorage.removeItem('sb_orders_db');
+            renderAdminOrders();
+        }
+    }
+
+    // 3. 自動發送模擬 Email 功能
+    function simulateOrderConfirmationEmail(email, orderId) {
+        // 在真實場景中，這裡會透過 fetch 呼叫後端 API
+        console.log(`發送確認郵件至 ${email}，訂單編號: ${orderId}`);
+        showToast("訂單確認信已自動發送至顧客信箱。");
+    }
+
+    // 頁面載入執行
+    window.onload = function() {
+        // 為了讓面板在測試時顯示，您可以移除 hidden 類別，或透過其他按鈕觸發
+        document.getElementById('admin-panel-orders').classList.remove('hidden');
+        renderAdminOrders();
+    };
+
+    function showToast(msg) {
+        alert(msg); // 簡單實作提示
+    }
+</script>
+</body>
+</html>
