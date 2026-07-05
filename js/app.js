@@ -518,35 +518,78 @@ function renderCheckoutPage() {
 }
 
 function submitCheckoutOrder() {
+    // 1. Grab all the input values
     const fn = document.getElementById('chk-input-fn').value;
     const ln = document.getElementById('chk-input-ln').value;
     const em = document.getElementById('chk-input-email').value;
     const ph = document.getElementById('chk-input-phone').value;
     const ad = document.getElementById('chk-input-address').value;
 
+    // 2. Validate that everything is filled out
     if (!fn || !ln || !em || !ph || !ad) {
         showToast(currentLang === 'zh' ? "請填寫所有標有星號 (*) 的聯絡與配送資訊！" : "Please fill in all required (*) shipping fields!");
         return;
     }
 
+    // 3. Change button to a loading state
     const btn = document.getElementById('btn-submit-order');
     const ogText = btn.innerHTML;
     btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Processing...`;
     btn.disabled = true;
 
-    setTimeout(() => {
-        document.getElementById('dynamic-order-id').innerText = `#SB-${Math.floor(1000 + Math.random() * 9000)}`;
-        document.getElementById('checkout-main-view').classList.add('hidden');
-        document.getElementById('checkout-success-view').classList.remove('hidden');
-        document.getElementById('checkout-success-view').classList.add('flex');
-        
-        cartDb = [];
-        saveCart();
-        renderCartUI();
+    // 4. Prepare the exact cart data and calculate the total
+    const fullCartData = cartDb.map(cartItem => {
+        const product = shopDb.find(p => p.id === cartItem.id);
+        return {
+            id: product.id,
+            title_zh: product.title_zh,
+            brand: product.brand,
+            price: product.price,
+            qty: cartItem.qty
+        };
+    });
 
+    const totalAmount = fullCartData.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    const generatedOrderId = `#SB-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    // 5. CALL YOUR NEW CHECKOUT API
+    fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({
+            orderId: generatedOrderId,
+            customer: { firstName: fn, lastName: ln, email: em, phone: ph, address: ad },
+            cart: fullCartData,
+            totalAmount: totalAmount
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            // 6. Success! Update UI, show success screen, and clear the cart
+            document.getElementById('dynamic-order-id').innerText = generatedOrderId;
+            document.getElementById('checkout-main-view').classList.add('hidden');
+            document.getElementById('checkout-success-view').classList.remove('hidden');
+            document.getElementById('checkout-success-view').classList.add('flex');
+            
+            cartDb = [];
+            saveCart();
+            renderCartUI();
+        } else {
+            showToast("伺服器發生錯誤，請稍後再試。 (Server Error)");
+        }
+    })
+    .catch(error => {
+        console.error("Checkout failed:", error);
+        showToast("網路連線錯誤，無法送出訂單。 (Network Error)");
+    })
+    .finally(() => {
+        // Reset the button state whether it succeeded or failed
         btn.innerHTML = ogText;
         btn.disabled = false;
-    }, 1500);
+    });
 }
 
 // ================= ADMIN LOGIC =================
