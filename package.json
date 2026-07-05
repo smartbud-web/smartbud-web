@@ -6,6 +6,6 @@
     "start": "node"
   },
   "dependencies": {
-    "resend": "^3.2.0"
+    "resend": "^6.15.0"
   }
 }
