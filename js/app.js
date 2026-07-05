@@ -266,7 +266,6 @@ function syncFrontContent() {
     safeSetText('timeline-s2-title', b2bDb.s2_title);
     safeSetText('timeline-s3-title', b2bDb.s3_title);
 
-    // 5. Logo Management (Your original code)
     // 5. Logo Management (Using Assets Folder)
     const companyLogoPath = './assets/SmartBudLogo.jpeg';
     
@@ -275,14 +274,19 @@ function syncFrontContent() {
     
     slots.forEach(s => s.innerHTML = `<img src="${companyLogoPath}" class="w-full h-full object-cover">`);
     lSlots.forEach(s => s.innerHTML = `<img src="${companyLogoPath}" class="w-full h-full object-cover rounded-[40px] shadow-lg">`);
-    // 6. Brand Logos Sync
-    ['doddl', 'tidytot', 'qbi', 'goki'].forEach(brand => {
-        const savedBrandLogo = localStorage.getItem(`sb_brand_logo_${brand}`);
-        const brandSlots = document.querySelectorAll(`.brand-logo-slot-${brand}`);
+    // 6. Home Page Brand Logos Sync (Reading from Assets)
+    brandsDb.forEach(b => {
+        // Find all HTML slots matching this brand's ID
+        const brandSlots = document.querySelectorAll(`.brand-logo-slot-${b.id}`);
+        
+        // Build the image tag using the new asset path
+        const logoHtml = b.logo 
+            ? `<img src="${b.logo}" class="h-10 w-auto object-contain drop-shadow-sm">` 
+            : `<span class="text-lg font-black text-brand-800 uppercase tracking-widest opacity-40">${b.name}</span>`;
+        
+        // Inject the image into every matching slot on the home page
         brandSlots.forEach(s => {
-            s.innerHTML = savedBrandLogo 
-                ? `<img src="${savedBrandLogo}" class="h-full w-auto object-contain drop-shadow-sm">` 
-                : `<span class="text-lg font-black text-brand-800 uppercase tracking-widest opacity-40">${brand}</span>`;
+            s.innerHTML = logoHtml;
         });
     });
 }
