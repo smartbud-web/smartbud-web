@@ -111,9 +111,9 @@ const dictionary = {
 // Advanced Data Structures
 const defaultShopProducts = [
     { id: 'prod_1', brand: 'tidytot', title_zh: "TidyTot Ultimate Baby Weaning Bundle", title_en: "TidyTot Ultimate Baby Weaning Bundle", price: 398, desc_zh: "經典防髒托盤與防水圍兜完美合組。", desc_en: "Classic mess-free protective tray bundle.", checkout: "https://buy.stripe.com/test_eVqdRa2wTalR14y3Sha7C00", image: "" },
-    { id: 'prod_2', brand: 'doddl', title_zh: "Doddl 專利兒童三點式人體工學餐具", title_en: "Doddl Patented Ergonomic Cutlery Set", price: 238, desc_zh: "短手柄防滑防嗆結構，加速精細手腕發育。", desc_en: "Shorter contours automatically direct fingers.", checkout: "", image: "" },
-    { id: 'prod_3', brand: 'qbi', title_zh: "QBI 兒童益智磁軌玩具入門組", title_en: "QBI STEM Magnet Track Starter Set", price: 480, desc_zh: "六面皆可拼吸磁立方，探索三維幾何。", desc_en: "Interlocking six-faced magnetic track blocks.", checkout: "", image: "" },
-    { id: 'prod_4', brand: 'goki', title_zh: "Goki 經典大自然原生彩虹疊疊樂", title_en: "Goki Classic Timber Stacking Rainbow", price: 188, desc_zh: "選用歐盟 FSC 永續林實木製造，安全無毒。", desc_en: "Eco-friendly FSC German forestry coated woods.", checkout: "", image: "" }
+    { id: 'prod_2', brand: 'doddl', title_zh: "Doddl 專利兒童三點式人體工學餐具", title_en: "Doddl Patented Ergonomic Cutlery Set", price: 260, desc_zh: "短手柄防滑防嗆結構，加速精細手腕發育。", desc_en: "Shorter contours automatically direct fingers.", checkout: "https://buy.stripe.com/test_cNibJ2dbxdy3cNg88xa7C01", image: "" },
+    { id: 'prod_3', brand: 'qbi', title_zh: "QBI 兒童益智磁軌玩具 123 數字基礎組", title_en: "QBI STEM Magnet Track Number Learning Edition", price: 498, desc_zh: "六面皆可拼吸磁立方，探索三維幾何。", desc_en: "Interlocking six-faced magnetic track blocks.", checkout: "https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02", image: "" },
+    { id: 'prod_4', brand: 'goki', title_zh: "Goki 海底世界實木拼圖", title_en: "Goki Landscape puzzle Sea lights with 4 glass stones, 23 x", price: 670, desc_zh: "選用歐盟 FSC 永續林實木製造，安全無毒。", desc_en: "Eco-friendly FSC German forestry coated woods.", checkout: "https://buy.stripe.com/test_3cI9AU9Zl1PlaF8fAZa7C03", image: "" }
 ];
 
 const defaultAboutContent = {
@@ -171,10 +171,10 @@ const defaultBrandsDb = [
 // ================= SHOP DATABASE =================
 //
 const defaultShopDb = [
-    { id: 'prod_1', brand: 'Doddl', title_zh: 'Doddl 學習餐具', title_en: 'Doddl Cutlery', price: 198, checkout: '', desc_zh: '專利三點式人體工學', desc_en: 'Ergonomic design', image: './assets/doddlProductLogo.webp' },
-    { id: 'prod_2', brand: 'Tidy Tot', title_zh: '防髒托盤圍兜套裝', title_en: 'Bib & Tray Bundle', price: 350, checkout: '', desc_zh: '全面防水防髒', desc_en: 'Waterproof', image: './assets/TidyTotBibAndTrayBundle.webp' },
-    { id: 'prod_3', brand: 'QBI', title_zh: '益智磁吸軌道玩具', title_en: 'Magnetic Track Toy', price: 450, checkout: '', desc_zh: 'STEAM 邏輯啟蒙', desc_en: 'STEAM learning', image: './assets/qbiProduct.webp' },
-    { id: 'prod_4', brand: 'Goki', title_zh: '德國經典木玩', title_en: 'Classic Wooden Toy', price: 220, checkout: '', desc_zh: 'FSC 環保實木', desc_en: 'FSC Wood', image: './assets/gokiProduct.jpg' }
+    { id: 'prod_1', brand: 'Doddl', title_zh: 'Doddl 學習餐具', title_en: 'Doddl Cutlery', price: 260, checkout: 'https://buy.stripe.com/test_cNibJ2dbxdy3cNg88xa7C01', desc_zh: '專利三點式人體工學', desc_en: 'Ergonomic design', image: './assets/doddlProductLogo.webp' },
+    { id: 'prod_2', brand: 'Tidy Tot', title_zh: 'Tidy Tot 防髒托盤圍兜套裝', title_en: 'Tidy Tot Bib & Tray Bundle', price: 398, checkout: 'https://buy.stripe.com/test_eVqdRa2wTalR14y3Sha7C00', desc_zh: '全面防水防髒', desc_en: 'Waterproof', image: './assets/TidyTotBibAndTrayBundle.webp' },
+    { id: 'prod_3', brand: 'QBI', title_zh: 'QBI 益智磁吸軌道玩具123 數字基礎組', title_en: 'QBI Magnetic Track Toy Number Learning Edition', price: 498, checkout: 'https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02', desc_zh: 'STEAM 邏輯啟蒙', desc_en: 'STEAM learning', image: './assets/qbiProduct.webp' },
+    { id: 'prod_4', brand: 'Goki', title_zh: 'Goki 海底世界實木拼圖', title_en: 'Goki Landscape puzzle Sea lights with 4 glass stones, 23 x', price: 670, checkout: 'https://buy.stripe.com/test_3cI9AU9Zl1PlaF8fAZa7C03', desc_zh: 'FSC 環保實木', desc_en: 'FSC Wood', image: './assets/gokiProduct.jpg' }
 ];
 localStorage.removeItem('sb_brands_db');
 let brandsDb = JSON.parse(localStorage.getItem('sb_brands_db')) || defaultBrandsDb;
