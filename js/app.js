@@ -170,7 +170,7 @@ const defaultBrandsDb = [
 ];
 // ================= SHOP DATABASE =================
 //
-let shopDb = JSON.parse(localStorage.getItem('sb_shop_db')) || defaultShopDb;
+const defaultShopDb = [
     { id: 'prod_1', brand: 'Doddl', title_zh: 'Doddl 學習餐具', title_en: 'Doddl Cutlery', price: 198, checkout: '', desc_zh: '專利三點式人體工學', desc_en: 'Ergonomic design', image: './assets/doddlProductLogo.webp' },
     { id: 'prod_2', brand: 'Tidy Tot', title_zh: '防髒托盤圍兜套裝', title_en: 'Bib & Tray Bundle', price: 350, checkout: '', desc_zh: '全面防水防髒', desc_en: 'Waterproof', image: './assets/TidyTotBibAndTrayBundle.webp' },
     { id: 'prod_3', brand: 'QBI', title_zh: '益智磁吸軌道玩具', title_en: 'Magnetic Track Toy', price: 450, checkout: '', desc_zh: 'STEAM 邏輯啟蒙', desc_en: 'STEAM learning', image: './assets/qbiProduct.webp' },
