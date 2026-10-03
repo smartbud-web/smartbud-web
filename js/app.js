@@ -144,14 +144,6 @@ const defaultBrandsDb = [
         features_zh: '促進認知發展\n增強社交技能', features_en: 'Promotes cognitive development\nEnhances social skills'
     },
     { 
-        id: 'doddl', name: 'Doddl', tabId: '1-3y', logo: './assets/doddlLogo.webp',
-        badge_zh: '香港總代理 2026Q4開展', badge_en: 'HK Sole Distributor 2026Q4 Launch',
-        age_zh: '適用：12 個月以上', age_en: 'For: 12 Months+',
-        title_zh: 'Doddl｜英國人體工學餐具', title_en: 'Doddl | Ergonomic Cutlery from UK',
-        desc_zh: '源自英國的餐具美學革命。專利三點式人體工學持握孔道，使幼兒無需代償即可解鎖自主進食。', desc_en: 'An aesthetic revolution in cutlery from the UK. The patented 3-point ergonomic grip allows toddlers to unlock self-feeding without compensatory movements.',
-        features_zh: '鍛鍊手部精細動作\n直覺式使用', features_en: 'Develops fine motor skills\nIntuitive to use'
-    },
-    { 
         id: 'tidytot', name: 'Tidy Tot', tabId: '0-1y', logo: './assets/tidyTotLogo.avif',
         badge_zh: '官方零售商', badge_en: 'Official Retailer',
         age_zh: '適用：6 個月以上', age_en: 'For: 6 Months+',
@@ -167,14 +159,6 @@ const defaultBrandsDb = [
         desc_zh: '亞太新一代 STEAM 啟蒙先鋒。QBI 將強力磁吸與精細軌道邏輯完美融合。', desc_en: 'Asia-Pacific\'s new generation STEAM pioneer. QBI perfectly integrates strong magnetic attraction with intricate track logic.',
         features_zh: 'STEAM 邏輯啟蒙\n安全磁吸設計', features_en: 'STEAM logic enlightenment\nSafe magnetic design'
     },
-    { 
-        id: 'goki', name: 'Goki', tabId: '3-5y', logo: './assets/gokiLogo.png',
-        badge_zh: '官方零售商', badge_en: 'Official Retailer',
-        age_zh: '適用：0 歲以上', age_en: 'For: 0 Years+',
-        title_zh: 'Goki｜德國經典木玩', title_en: 'Goki | Classic German Wooden Toys',
-        desc_zh: '源自德國近半世紀的傳統木質底蘊。每一塊木質均取自歐洲合法森林（FSC認證）。', desc_en: 'Rooted in nearly half a century of traditional German wooden heritage. Every piece of wood is sourced from legal European forests (FSC certified).',
-        features_zh: 'FSC 環保實木\n無毒安全水性漆', features_en: 'FSC eco-friendly solid wood\nNon-toxic safe water-based paint'
-    }
 ];
 // ================= SHOP DATABASE =================
 //
