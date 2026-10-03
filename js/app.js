@@ -136,6 +136,14 @@ const defaultB2BContent = {
 // ================= DYNAMIC BRANDS DATABASE =================
 const defaultBrandsDb = [
     { 
+        id: 'planToys', name: 'Plan Toys', tabId: '0-1y', logo: './assets/planToysLogo.webp',
+        badge_zh: '香港總代理', badge_en: 'HK Sole Distributor 2026',
+        age_zh: '適用：6 個月以上', age_en: 'For: 6 Months+',
+        title_zh: 'Plan Toys｜教育玩具', title_en: 'Plan Toys | Educational Toys',
+        desc_zh: '專注於兒童早期發展，提供安全、有趣且具有教育意義的玩具。', desc_en: 'Focused on early childhood development, providing safe, fun, and educational toys.',
+        features_zh: '促進認知發展\n增強社交技能', features_en: 'Promotes cognitive development\nEnhances social skills'
+    },
+    { 
         id: 'doddl', name: 'Doddl', tabId: '1-3y', logo: './assets/doddlLogo.webp',
         badge_zh: '香港總代理 2026Q4開展', badge_en: 'HK Sole Distributor 2026Q4 Launch',
         age_zh: '適用：12 個月以上', age_en: 'For: 12 Months+',
