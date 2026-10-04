@@ -110,10 +110,10 @@ const dictionary = {
 
 // Advanced Data Structures
 const defaultShopProducts = [
-    { id: 'prod_1', brand: 'tidytot', title_zh: "TidyTot Ultimate Baby Weaning Bundle", title_en: "TidyTot Ultimate Baby Weaning Bundle", price: 398, desc_zh: "經典防髒托盤與防水圍兜完美合組。", desc_en: "Classic mess-free protective tray bundle.", checkout: "https://buy.stripe.com/test_eVqdRa2wTalR14y3Sha7C00", image: "" },
-    { id: 'prod_2', brand: 'doddl', title_zh: "Doddl 專利兒童三點式人體工學餐具", title_en: "Doddl Patented Ergonomic Cutlery Set", price: 260, desc_zh: "短手柄防滑防嗆結構，加速精細手腕發育。", desc_en: "Shorter contours automatically direct fingers.", checkout: "https://buy.stripe.com/test_cNibJ2dbxdy3cNg88xa7C01", image: "" },
-    { id: 'prod_3', brand: 'qbi', title_zh: "QBI 兒童益智磁軌玩具 123 數字基礎組", title_en: "QBI STEM Magnet Track Number Learning Edition", price: 528, desc_zh: "六面皆可拼吸磁立方，探索三維幾何。", desc_en: "Interlocking six-faced magnetic track blocks.", checkout: "https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02", image: "" },
-    { id: 'prod_4', brand: 'goki', title_zh: "Goki 海底世界實木拼圖", title_en: "Goki Landscape puzzle Sea lights with 4 glass stones, 23 x", price: 680, desc_zh: "選用歐盟 FSC 永續林實木製造，安全無毒。", desc_en: "Eco-friendly FSC German forestry coated woods.", checkout: "https://buy.stripe.com/test_3cI9AU9Zl1PlaF8fAZa7C03", image: "" }
+    { id: 'prod_1', brand: 'planToys', title_zh: "Plan Toys Balancing Cactus", title_en: "Plan Toys Balancing Cactus", price: 398, desc_zh: "平衡仙人掌", desc_en: "It’s all about strategy and balance with the PlanToys Balancing Cactus!", checkout: "https://buy.stripe.com/test_4gMeVe6N9fGb7sW0G5a7C04", image: "" },
+    { id: 'prod_2', brand: 'tidytot', title_zh: "Plan Toys Sort & Count Cups", title_en: "Plan Toys Sort & Count Cups", price: 398, desc_zh: "Plan Toys Sort & Count Cups", desc_en: "Children can learn to sort and count with this simple design that can be played in a variety of ways.", checkout: "https://buy.stripe.com/test_9B69AU5J5fGb3cG0G5a7C05", image: "" },
+    { id: 'prod_3', brand: 'doddl', title_zh: "Doddl 專利兒童三點式人體工學餐具", title_en: "Doddl Patented Ergonomic Cutlery Set", price: 260, desc_zh: "短手柄防滑防嗆結構，加速精細手腕發育。", desc_en: "Shorter contours automatically direct fingers.", checkout: "https://buy.stripe.com/test_cNibJ2dbxdy3cNg88xa7C01", image: "" },
+    { id: 'prod_4', brand: 'qbi', title_zh: "QBI 兒童益智磁軌玩具 123 數字基礎組", title_en: "QBI STEM Magnet Track Number Learning Edition", price: 528, desc_zh: "六面皆可拼吸磁立方，探索三維幾何。", desc_en: "Interlocking six-faced magnetic track blocks.", checkout: "https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02", image: "" },
 ];
 
 const defaultAboutContent = {
@@ -163,10 +163,10 @@ const defaultBrandsDb = [
 // ================= SHOP DATABASE =================
 //
 const defaultShopDb = [
-    { id: 'prod_1', brand: 'Doddl', title_zh: 'Doddl 學習餐具', title_en: 'Doddl Cutlery', price: 260, checkout: 'https://buy.stripe.com/test_cNibJ2dbxdy3cNg88xa7C01', desc_zh: '專利三點式人體工學', desc_en: 'Ergonomic design', image: './assets/doddlProductLogo.webp' },
-    { id: 'prod_2', brand: 'Tidy Tot', title_zh: 'Tidy Tot 防髒托盤圍兜套裝', title_en: 'Tidy Tot Bib & Tray Bundle', price: 398, checkout: 'https://buy.stripe.com/test_eVqdRa2wTalR14y3Sha7C00', desc_zh: '全面防水防髒', desc_en: 'Waterproof', image: './assets/TidyTotBibAndTrayBundle.webp' },
-    { id: 'prod_3', brand: 'QBI', title_zh: 'QBI 益智磁吸軌道玩具123 數字基礎組', title_en: 'QBI Magnetic Track Toy Number Learning Edition', price: 528, checkout: 'https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02', desc_zh: 'STEAM 邏輯啟蒙', desc_en: 'STEAM learning', image: './assets/qbiProduct.webp' },
-    { id: 'prod_4', brand: 'Goki', title_zh: 'Goki 海底世界實木拼圖', title_en: 'Goki Landscape puzzle Sea lights with 4 glass stones, 23 x', price: 680, checkout: 'https://buy.stripe.com/test_3cI9AU9Zl1PlaF8fAZa7C03', desc_zh: 'FSC 環保實木', desc_en: 'FSC Wood', image: './assets/gokiProduct.jpg' }
+    { id: 'prod_1', brand: 'PlanToys', title_zh: 'Plan Toys Balancing Cactus', title_en: 'Plan Toys Balancing Cactus', price: 328, checkout: 'https://buy.stripe.com/test_4gMeVe6N9fGb7sW0G5a7C04', desc_zh: '平衡仙人掌', desc_en: 'It’s all about strategy and balance with the PlanToys Balancing Cactus!', image: './assets/balancingCactus.webp' },
+    { id: 'prod_2', brand: 'PlanToys', title_zh: 'Plan Toys Sort & Count Cups', title_en: 'Plan Toys Sort & Count Cups', price: 328, checkout: 'https://buy.stripe.com/test_9B69AU5J5fGb3cG0G5a7C05', desc_zh: 'Plan Toys Sort & Count Cups', desc_en: 'Children can learn to sort and count with this simple design that can be played in a variety of ways.', image: './assets/sortAndCountCups.webp' },
+    { id: 'prod_3', brand: 'Tidy Tot', title_zh: 'Tidy Tot 防髒托盤圍兜套裝', title_en: 'Tidy Tot Bib & Tray Bundle', price: 398, checkout: 'https://buy.stripe.com/test_eVqdRa2wTalR14y3Sha7C00', desc_zh: '全面防水防髒', desc_en: 'Waterproof', image: './assets/TidyTotBibAndTrayBundle.webp' },
+    { id: 'prod_4', brand: 'QBI', title_zh: 'QBI 益智磁吸軌道玩具123 數字基礎組', title_en: 'QBI Magnetic Track Toy Number Learning Edition', price: 528, checkout: 'https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02', desc_zh: 'STEAM 邏輯啟蒙', desc_en: 'STEAM learning', image: './assets/qbiProduct.webp' },
 ];
 localStorage.removeItem('sb_brands_db');
 let brandsDb = JSON.parse(localStorage.getItem('sb_brands_db')) || defaultBrandsDb;
