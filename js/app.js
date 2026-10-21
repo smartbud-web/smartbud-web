@@ -111,7 +111,7 @@ const dictionary = {
 // Advanced Data Structures
 const defaultShopProducts = [
     { id: 'prod_1', brand: 'planToys', title_zh: "Plan Toys Balancing Cactus", title_en: "Plan Toys Balancing Cactus", price: 398, desc_zh: "平衡仙人掌", desc_en: "It’s all about strategy and balance with the PlanToys Balancing Cactus!", checkout: "https://buy.stripe.com/test_4gMeVe6N9fGb7sW0G5a7C04", image: "" },
-    { id: 'prod_2', brand: 'tidytot', title_zh: "Plan Toys Sort & Count Cups", title_en: "Plan Toys Sort & Count Cups", price: 239, desc_zh: "Plan Toys Sort & Count Cups", desc_en: "Children can learn to sort and count with this simple design that can be played in a variety of ways.", checkout: "https://buy.stripe.com/test_9B69AU5J5fGb3cG0G5a7C05", image: "" },
+    { id: 'prod_2', brand: 'planToys', title_zh: "Plan Toys Sort & Count Cups", title_en: "Plan Toys Sort & Count Cups", price: 239, desc_zh: "Plan Toys Sort & Count Cups", desc_en: "Children can learn to sort and count with this simple design that can be played in a variety of ways.", checkout: "https://buy.stripe.com/test_9B69AU5J5fGb3cG0G5a7C05", image: "" },
     { id: 'prod_3', brand: 'doddl', title_zh: "Doddl 專利兒童三點式人體工學餐具", title_en: "Doddl Patented Ergonomic Cutlery Set", price: 260, desc_zh: "短手柄防滑防嗆結構，加速精細手腕發育。", desc_en: "Shorter contours automatically direct fingers.", checkout: "https://buy.stripe.com/test_cNibJ2dbxdy3cNg88xa7C01", image: "" },
     { id: 'prod_4', brand: 'qbi', title_zh: "QBI 兒童益智磁軌玩具 123 數字基礎組", title_en: "QBI STEM Magnet Track Number Learning Edition", price: 528, desc_zh: "六面皆可拼吸磁立方，探索三維幾何。", desc_en: "Interlocking six-faced magnetic track blocks.", checkout: "https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02", image: "" },
 ];
@@ -137,17 +137,17 @@ const defaultB2BContent = {
 const defaultBrandsDb = [
     { 
         id: 'planToys', name: 'Plan Toys', tabId: '0-1y', logo: './assets/planToysLogo.webp',
-        badge_zh: '香港官方授權代理', badge_en: 'HK Sole Distributor 2026',
+        badge_zh: '香港官方授權代理', badge_en: 'Official Distributor 2026',
         age_zh: '適用：6 個月以上', age_en: 'For: 6 Months+',
         title_zh: 'Plan Toys｜教育玩具', title_en: 'Plan Toys | Educational Toys',
         desc_zh: '專注於兒童早期發展，提供安全、有趣且具有教育意義的玩具。', desc_en: 'Focused on early childhood development, providing safe, fun, and educational toys.',
         features_zh: '促進認知發展\n增強社交技能', features_en: 'Promotes cognitive development\nEnhances social skills'
     },
     { 
-        id: 'tidytot', name: 'Tidy Tot', tabId: '0-1y', logo: './assets/tidyTotLogo.avif',
-        badge_zh: '官方零售商', badge_en: 'Official Retailer',
+        id: 'bibado', name: 'Bibado', tabId: '0-1y', logo: './assets/bibadoLogo.png',
+        badge_zh: '香港獨家總代理', badge_en: 'HK Sole Distributor 2026',
         age_zh: '適用：6 個月以上', age_en: 'For: 6 Months+',
-        title_zh: 'Tidy Tot｜英國防髒托盤圍兜', title_en: 'Tidy Tot | Bib & Tray Kit from UK',
+        title_zh: 'Bibado｜英國全身式加固圍兜', title_en: 'Bibado | Award Winning Baby Bibs for Weaning',
         desc_zh: '引領感官探索，解放媽媽勞動。給予寶寶自由捏拿、嘗試、試錯的探索邊界。', desc_en: 'Pioneering sensory exploration while freeing mothers from chores. Giving babies the boundaries to freely pinch, try, and explore through trial and error.',
         features_zh: '防水易清洗\n收納方便', features_en: 'Waterproof & easy to clean\nConvenient storage'
     },
@@ -165,7 +165,7 @@ const defaultBrandsDb = [
 const defaultShopDb = [
     { id: 'prod_1', brand: 'PlanToys', title_zh: 'Plan Toys Balancing Cactus', title_en: 'Plan Toys Balancing Cactus', price: 328, checkout: 'https://buy.stripe.com/test_4gMeVe6N9fGb7sW0G5a7C04', desc_zh: '平衡仙人掌', desc_en: 'It’s all about strategy and balance with the PlanToys Balancing Cactus!', image: './assets/balancingCactus.webp' },
     { id: 'prod_2', brand: 'PlanToys', title_zh: 'Plan Toys Sort & Count Cups', title_en: 'Plan Toys Sort & Count Cups', price: 239, checkout: 'https://buy.stripe.com/test_9B69AU5J5fGb3cG0G5a7C05', desc_zh: 'Plan Toys Sort & Count Cups', desc_en: 'Children can learn to sort and count with this simple design that can be played in a variety of ways.', image: './assets/sortAndCountCups.webp' },
-    { id: 'prod_3', brand: 'Tidy Tot', title_zh: 'Tidy Tot 防髒托盤圍兜套裝', title_en: 'Tidy Tot Bib & Tray Bundle', price: 398, checkout: 'https://buy.stripe.com/test_eVqdRa2wTalR14y3Sha7C00', desc_zh: '全面防水防髒', desc_en: 'Waterproof', image: './assets/TidyTotBibAndTrayBundle.webp' },
+    { id: 'prod_3', brand: 'Bibado', title_zh: 'Bibado 全身式加固圍兜', title_en: 'Bibado Full-Body Reinforced Bibs', price: 398, checkout: 'https://buy.stripe.com/test_bJe9AU1sP2TpfZsewVa7C06', desc_zh: '全面防水防髒', desc_en: 'Waterproof', image: './assets/bibadoBib.webp' },
     { id: 'prod_4', brand: 'QBI', title_zh: 'QBI 益智磁吸軌道玩具123 數字基礎組', title_en: 'QBI Magnetic Track Toy Number Learning Edition', price: 528, checkout: 'https://buy.stripe.com/test_6oU00kdbx8dJ28CgF3a7C02', desc_zh: 'STEAM 邏輯啟蒙', desc_en: 'STEAM learning', image: './assets/qbiProduct.webp' },
 ];
 localStorage.removeItem('sb_brands_db');

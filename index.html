@@ -160,12 +160,12 @@
                         <div class="bg-brand-50 p-8 rounded-[36px] border border-brand-200/40 hover:border-brand-800/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="switchPage('brands')">
                             <div>
                                 <div class="flex items-center justify-between mb-4">
-                                    <div class="brand-logo-slot-tidytot h-10 flex items-center"></div>
-                                    <span class="text-[10px] px-3 py-1 rounded-full bg-brand-100 text-brand-700 font-extrabold uppercase tracking-wide" id="badge-tidytot">官方零售商</span>
+                                    <div class="brand-logo-slot-bibado h-10 flex items-center"></div>
+                                    <span class="text-[10px] px-3 py-1 rounded-full bg-brand-100 text-brand-700 font-extrabold uppercase tracking-wide" id="badge-bibado">官方零售商</span>
                                 </div>
-                                <h3 class="text-lg font-black text-brand-700 mb-1" id="title-tidytot">Tidy Tot｜英國防髒托盤圍兜</h3>
-                                <span class="inline-block text-[11px] font-black text-brand-800 bg-brand-200/30 px-2.5 py-0.5 rounded-full mb-3" id="age-range-tidytot">適用：6 個月以上</span>
-                                <p class="text-sm text-gray-500 leading-relaxed mb-6 font-medium" id="desc-tidytot">打造無拘束的感官探索空間，建立寶寶進食自信。</p>
+                                <h3 class="text-lg font-black text-brand-700 mb-1" id="title-bibado">Bibado｜Award Winning Baby Bibs for Weaning</h3>
+                                <span class="inline-block text-[11px] font-black text-brand-800 bg-brand-200/30 px-2.5 py-0.5 rounded-full mb-3" id="age-range-bibado">適用：6 個月以上</span>
+                                <p class="text-sm text-gray-500 leading-relaxed mb-6 font-medium" id="desc-bibado">打造無拘束的感官探索空間，建立寶寶進食自信。
                             </div>
                             <div class="flex items-center gap-2 text-brand-800 font-black text-sm group-hover:translate-x-1 transition-transform">
                                 <span class="lbl-learn-more">了解品牌資料</span> <i class="fa-solid fa-arrow-right-long"></i>
@@ -466,8 +466,8 @@
                         </div>
                         <div class="lg:w-1/2 flex flex-col gap-4 justify-center items-center">
                             <div class="bg-brand-50 p-6 rounded-3xl border border-brand-100 w-full max-w-sm text-center">
-                                <div class="brand-logo-slot-tidytot h-10 flex items-center justify-center mb-3"></div>
-                                <h4 class="font-black text-brand-700 text-sm">最適配的感官陪伴｜Tidy Tot</h4>
+                                <div class="brand-logo-slot-bibado h-10 flex items-center justify-center mb-3"></div>
+                                <h4 class="font-black text-brand-700 text-sm">最適配的感官陪伴｜Bibado</h4>
                                 <p class="text-xs text-gray-500 mt-2 font-medium">6-9 個月學會抓握的敏感期，提供完美的無拘束自由探索空間。</p>
                             </div>
                         </div>
@@ -923,7 +923,7 @@
                             <div class="p-6 bg-brand-50 rounded-3xl border border-brand-200/50">
                                 <h5 class="text-sm font-black text-brand-700 mb-4">置換代理品牌標誌 (Brand Logos)</h5>
                                 <select id="image-select-brand" onchange="updateBrandImagePreview()" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-white text-sm font-bold mb-4">
-                                    <option value="doddl">英國 Doddl</option><option value="tidytot">英國 Tidy Tot</option><option value="qbi">台灣 QBI</option><option value="goki">德國 Goki</option>
+                                    <option value="doddl">英國 Doddl</option><option value="bibado">英國 Bibado</option><option value="qbi">台灣 QBI</option><option value="goki">德國 Goki</option>
                                 </select>
                                 <div class="flex items-center gap-4 mb-4">
                                     <div class="w-40 h-16 rounded-xl border border-dashed border-gray-300 bg-white flex items-center justify-center" id="brand-logo-preview-box"></div>
@@ -939,7 +939,7 @@
                         <div class="space-y-6">
                             <select id="admin-select-brand" onchange="loadAdminBrandData()" class="w-full px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-sm font-bold">
                                 <option value="doddl">Doddl｜英國人體工學餐具</option>
-                                <option value="tidytot">Tidy Tot｜英國防髒托盤圍兜</option>
+                                <option value="bibado">Bibado｜英國全身式加固圍兜</option>
                                 <option value="qbi">QBI｜益智磁吸軌道玩具</option>
                                 <option value="goki">Goki｜德國經典木玩</option>
                             </select>
@@ -994,7 +994,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div><label class="block text-xs font-bold text-brand-700 mb-1">品牌 Selected Brand</label>
                                     <select id="admin-product-brand" class="w-full px-4 py-2.5 rounded-xl border border-brand-200 bg-brand-50 text-xs font-bold">
-                                        <option value="tidytot">Tidy Tot</option><option value="doddl">Doddl</option><option value="qbi">QBI</option><option value="goki">Goki</option><option value="other">其他</option>
+                                        <option value="Bibado">Bibado</option><option value="doddl">Doddl</option><option value="qbi">QBI</option><option value="goki">Goki</option><option value="other">其他</option>
                                     </select>
                                 </div>
                                 <div>
